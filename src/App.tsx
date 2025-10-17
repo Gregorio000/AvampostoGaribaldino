@@ -2,26 +2,21 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
 import Home from './pages/Home';
-import About from './pages/About';
 import Impara from './pages/Impara';
-import Tournaments from './pages/Tournaments';
-import TournamentDetails from './pages/TournamentDetails';
-import News from './pages/News';
 import Contact from './pages/Contact';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import AnimatedRoutes from './components/AnimatedRoutes';
-import ArticleDetailPage from './pages/ArticleDetailPage';
-import Profilo from './pages/Profilo';
 import Ricordi from './pages/ricordi';
 import Patrimonio from './pages/Patrimonio';
-
-import ScrollToTop from './components/ScrollToTop'; // 👈 NUOVO IMPORT
+import ScrollToTop from './components/ScrollToTop';
 
 import CentroEstivo from './pages/ricordi/centro-estivo';
 import ScacchiMentana from './pages/ricordi/scacchi-mentana';
 import GliInizi from './pages/ricordi/gli-inizi';
-// Nuove pagine delle sezioni Impara
+import ScacchiAlCamybar from './pages/ricordi/scacchi-al-camybar';
+import AllenamentoQuotidiano from './pages/ricordi/allenamento-quotidiano';
+
 
 import Regole from './pages/learn/Regole';
 import ComeGiocare from './pages/learn/Regole/ComeGiocare';
@@ -30,7 +25,6 @@ import RegoleFondamentali from './pages/learn/Regole/RegoleFondamentali';
 import Stallo from './pages/learn/Regole/Stallo';
 import Patta from './pages/learn/Regole/Patta';
 import Tempo from './pages/learn/Regole/Tempo';
-
 
 import Aperture from './pages/learn/Aperture';
 import Italiana from './pages/learn/Aperture/Italiana';
@@ -64,11 +58,9 @@ import ScaccoDoppio from './pages/learn/Tattiche/ScaccoDoppio';
 import Zugzwang from './pages/learn/Tattiche/Zugzwang';
 import Sacrificio from './pages/learn/Tattiche/Sacrificio';
 
-
 import Strategie from './pages/learn/Strategie';
 import Centro from './pages/learn/Strategie/Centro';
 import Coordinazione from './pages/learn/Strategie/Coordinazione';
-
 
 import Finali from './pages/learn/Finali';
 import TorrevsRe from './pages/learn/Finali/TorrevsRe';
@@ -76,27 +68,35 @@ import Opposizione from './pages/learn/Finali/Opposizione';
 import FinalePedoni from './pages/learn/Finali/FinalePedoni';
 import DueTorri from './pages/learn/Finali/DueTorri';
 
-
 import Storia from './pages/learn/Storia';
 import Capitolo1 from './pages/learn/Storia/Capitolo1';
+import Capitolo2 from './pages/learn/Storia/Capitolo2';
+import Capitolo3 from './pages/learn/Storia/Capitolo3';
 
-import Esercizi from './pages/learn/Esercizi';
+import Libri from './pages/patrimonio/libri';
+import Scacchiere from './pages/patrimonio/scacchiere';
+
+
+import Matto from './pages/esercizi/matto';
+
+import Esercizi from './pages/Esercizi';
 
 
 function App() {
   return (
     <Router>
-      <ScrollToTop /> {/* 👈 AGGIUNTO QUI */}
+      <ScrollToTop />
       <AnimatedRoutes>
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
-            <Route path="about" element={<About />} />
             <Route path="ricordi" element={<Ricordi />} />
             <Route path="Patrimonio" element={<Patrimonio />} />
             <Route path="ricordi/centro-estivo" element={<CentroEstivo />} />
             <Route path="ricordi/scacchi-mentana" element={<ScacchiMentana />} />
             <Route path="ricordi/gli-inizi" element={<GliInizi />} />
+            <Route path="ricordi/scacchi-al-camybar" element={<ScacchiAlCamybar />} />
+            <Route path="ricordi/allenamento-quotidiano" element={<AllenamentoQuotidiano />} />
             
             <Route path="learn" element={<Impara />} />
 
@@ -152,17 +152,18 @@ function App() {
 
             <Route path="learn/Storia" element={<Storia />} />
             <Route path="learn/Storia/Capitolo1" element={<Capitolo1 />} />
+            <Route path="learn/Storia/Capitolo2" element={<Capitolo2 />} />
+            <Route path="learn/Storia/Capitolo3" element={<Capitolo3 />} />
 
-            <Route path="learn/Esercizi" element={<Esercizi />} />
+            <Route path="Patrimonio/libri" element={<Libri />} />
+            <Route path="Patrimonio/scacchiere" element={<Scacchiere />} />
 
-            <Route path="tournaments" element={<Tournaments />} />
-            <Route path="/tournaments/:id" element={<TournamentDetails />} />
-            <Route path="news" element={<News />} />
-            <Route path="news/:id" element={<ArticleDetailPage />} />
+            <Route path="Esercizi" element={<Esercizi />} />
+            <Route path="esercizi/matto" element={<Matto />} />
+
             <Route path="contact" element={<Contact />} />
             <Route path="login" element={<Login />} />
             <Route path="register" element={<Register />} />
-            <Route path="profilo" element={<Profilo />} />
           </Route>
         </Routes>
       </AnimatedRoutes>

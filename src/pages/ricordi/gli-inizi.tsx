@@ -1,48 +1,32 @@
-import { useState } from "react";
-import { useNavigate  } from "react-router-dom";
+import { useState, useEffect, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 
 const GliInizi = () => {
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
   const navigate = useNavigate();
 
   const photos = [
-    {
-      src: "/ricordi-vecchi/ricordo-vecchio1.jpg"
-    },
-    {
-      src: "/ricordi-vecchi/ricordo-vecchio2.jpg"
-    },
-    {
-      src: "/ricordi-vecchi/ricordo-vecchio3.jpg"
-    },
-    {
-      src: "/ricordi-vecchi/ricordo-vecchio4.jpg"
-    },
-    {
-      src: "/ricordi-vecchi/ricordo-vecchio5.jpg"
-    },
-    {
-      src: "/ricordi-vecchi/ricordo-vecchio6.jpg"
-    },
-    {
-      src: "/ricordi-vecchi/ricordo-vecchio7.jpg"
-    },
-    {
-      src: "/ricordi-vecchi/ricordo-vecchio8.jpg"
-    }
-];
+    "/ricordi-vecchi/ricordo-vecchio1.jpg",
+    "/ricordi-vecchi/ricordo-vecchio2.jpg",
+    "/ricordi-vecchi/ricordo-vecchio3.jpg",
+    "/ricordi-vecchi/ricordo-vecchio4.jpg",
+    "/ricordi-vecchi/ricordo-vecchio5.jpg",
+    "/ricordi-vecchi/ricordo-vecchio6.jpg",
+    "/ricordi-vecchi/ricordo-vecchio7.jpg",
+    "/ricordi-vecchi/ricordo-vecchio8.jpg"
+  ];
 
-  const openModal = (index: number) => {
+  const openModal = useCallback((index: number) => {
     setSelectedImageIndex(index);
     document.body.style.overflow = 'hidden';
-  };
+  }, []);
 
-  const closeModal = () => {
+  const closeModal = useCallback(() => {
     setSelectedImageIndex(null);
     document.body.style.overflow = 'auto';
-  };
+  }, []);
 
-  const navigateImage = (direction: 'prev' | 'next') => {
+  const navigateImage = useCallback((direction: 'prev' | 'next') => {
     if (selectedImageIndex === null) return;
     
     if (direction === 'prev') {
@@ -52,103 +36,140 @@ const GliInizi = () => {
       const newIndex = selectedImageIndex === photos.length - 1 ? 0 : selectedImageIndex + 1;
       setSelectedImageIndex(newIndex);
     }
-  };
+  }, [selectedImageIndex, photos.length]);
+
+  // Gestione della navigazione da tastiera
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (selectedImageIndex === null) return;
+      
+      switch(e.key) {
+        case 'Escape':
+          closeModal();
+          break;
+        case 'ArrowLeft':
+          navigateImage('prev');
+          break;
+        case 'ArrowRight':
+          navigateImage('next');
+          break;
+        default:
+          break;
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [selectedImageIndex, closeModal, navigateImage]);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-amber-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
 
-      <button
-        onClick={() => navigate(-1)}
-        className="mb-8 text-yellow-600 hover:text-red-800 font-semibold"
-      >
-        ← Torna indietro
-      </button>
+        {/* Header con navigazione */}
+        <button
+          onClick={() => navigate(-1)}
+          className="inline-flex items-center text-yellow-600 hover:text-yellow-700 font-semibold transition-colors duration-200 mb-8 group"
+        >
+          <svg className="w-5 h-5 mr-2 transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
+          Torna indietro
+        </button>
 
-      {/* Intestazione */}
-      <div className="mb-8">
-        <h1 className="text-5xl font-bold text-center text-chess-dark mt-4">Gli Inizi</h1>
-        <p className="text-xl text-center text-chess-gray mt-2">La storia della fondazione del nostro circolo</p>
-      </div>
+        {/* Titolo principale */}
+        <div className="text-center mb-12">
+          <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-yellow-600 to-amber-600 bg-clip-text text-transparent mb-4">
+            Gli Inizi
+          </h1>
+        </div>
 
-      {/* Sezione descrittiva */}
-      <div className="bg-white rounded-xl shadow-md p-6 mb-12">
-        <div className="prose max-w-none">
-          <p className="text-chess-black">
-            Il Circolo Scacchi Monterotondo è nato nel 2010 dall'idea di diffondere il gioco degli scacchi nella nostra comunità. 
-            Ciò che iniziò come un piccolo gruppo di giocatori che si riuniva in un bar locale si è trasformato in una realtà consolidata con oltre 100 soci.
-          </p>
-          
-          {/* <h2 className="text-2xl font-semibold text-chess-dark mt-6">I primi passi</h2> */}
-          
-          {/* <ul className="list-disc pl-6 mt-4 space-y-2">
-            <li>2015: Prima riunione ufficiale con 12 soci fondatori</li>
-            <li>2016: Primo torneo interno e collaborazione con le scuole</li>
-            <li>2017: Trasferimento nella sede attuale e ampliamento delle attività</li>
-            <li>2018: Riconoscimento come ASD (Associazione Sportiva Dilettantistica)</li>
-          </ul> */}
-
-          <h2 className="text-2xl font-semibold text-chess-dark mt-6">I valori fondanti</h2>
-          <p className="text-chess-black mt-4">
-            Fin dall'inizio, il nostro circolo si è basato su tre principi fondamentali: inclusività, formazione e passione. 
-            Volevamo creare un luogo dove persone di tutte le età e livelli potessero avvicinarsi agli scacchi in un ambiente 
-            accogliente e stimolante.
+        {/* Sezione descrittiva breve */}
+        <div className="bg-white rounded-2xl shadow-xl p-8 mb-12 border border-amber-100 text-center max-w-4xl mx-auto">
+          <p className="text-xl text-gray-700 leading-relaxed">
+            La storia della fondazione del nostro circolo scacchistico, nato nel 2010 per diffondere la passione degli scacchi nella nostra comunità.
           </p>
         </div>
-      </div>
 
-      {/* Galleria fotografica */}
-      <div className="mb-12">
-        <h2 className="text-2xl font-semibold text-chess-dark mb-6">Galleria Storica</h2>
-        
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {photos.map((photo, index) => (
-            <div 
-              key={index} 
-              className="group relative overflow-hidden rounded-xl shadow-md hover:shadow-lg transition-shadow cursor-pointer"
-              onClick={() => openModal(index)}
-            >
-              <img 
-                src={photo.src} 
+        {/* Galleria Fotografica */}
+        <section className="mb-16">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Galleria Storica</h2>
+            <div className="w-24 h-1 bg-yellow-500 mx-auto"></div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {photos.map((photo, index) => (
+              <div 
+                key={index} 
+                className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer transform hover:-translate-y-2 bg-white"
+                onClick={() => openModal(index)}
+              >
+                <div className="aspect-square overflow-hidden">
+                  <img 
+                    src={photo} 
+                    alt={`Ricordo storico ${index + 1}`}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                </div>
                 
-                className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
-              />
-              
-            </div>
-          ))}
-        </div>
+                {/* Overlay hover */}
+                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
+                  <div className="opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+                    <svg className="w-12 h-12 text-white filter drop-shadow-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3-3H7" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
       </div>
 
       {/* Modal per l'immagine ingrandita */}
       {selectedImageIndex !== null && (
-        <div className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4">
+        <div className="fixed inset-0 bg-black bg-opacity-95 z-50 flex items-center justify-center p-4">
           <button 
             onClick={closeModal}
-            className="absolute top-4 right-4 text-white text-4xl hover:text-gray-300"
+            className="absolute top-6 right-6 text-white hover:text-gray-300 transition-colors duration-200 z-10 bg-black bg-opacity-50 rounded-full p-2"
           >
-            &times;
+            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
           </button>
           
           <button 
             onClick={() => navigateImage('prev')}
-            className="absolute left-4 text-white text-4xl hover:text-gray-300"
+            className="absolute left-6 text-white hover:text-gray-300 transition-colors duration-200 z-10 bg-black bg-opacity-50 rounded-full p-3"
           >
-            &#10094;
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
           </button>
           
-          <div className="max-w-4xl w-full max-h-screen flex flex-col items-center">
+          <div className="relative max-w-6xl w-full max-h-screen flex flex-col items-center">
             <img 
-              src={photos[selectedImageIndex].src} 
-              
-              className="max-w-full max-h-[80vh] object-contain"
+              src={photos[selectedImageIndex]} 
+              alt={`Ricordo storico ${selectedImageIndex + 1}`}
+              className="max-w-full max-h-[80vh] object-contain rounded-lg"
             />
             
+            <div className="mt-4 text-white text-center">
+              <p className="text-gray-400">
+                {selectedImageIndex + 1} / {photos.length}
+              </p>
+            </div>
           </div>
           
           <button 
             onClick={() => navigateImage('next')}
-            className="absolute right-4 text-white text-4xl hover:text-gray-300"
+            className="absolute right-6 text-white hover:text-gray-300 transition-colors duration-200 z-10 bg-black bg-opacity-50 rounded-full p-3"
           >
-            &#10095;
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
           </button>
         </div>
       )}

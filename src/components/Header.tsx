@@ -8,17 +8,17 @@ const Header: React.FC = () => {
 
   const navigation = [
     { name: 'Home', href: '/' },
-    { name: 'Patrimonio', href: '/patrimonio' },
+    // { name: 'Patrimonio', href: '/patrimonio' },
     { name: 'Ricordi', href: '/ricordi' },
     
     
     // { name: 'Tornei', href: '/tournaments' },
-    { name: 'Impara', href: '/learn' },
-    { name: 'Gioca', href: '/gioca' },
+    // { name: 'Impara', href: '/learn' },
+    // { name: 'Esercizi', href: '/Esercizi' },
+    // { name: 'Gioca', href: '/gioca' },
     { name: 'Contattaci', href: '/contact' },
-    // { name: 'Recensioni', href: '/about' },
     // { name: 'Registrati', href: '/register' },
-    { name: 'Accesso Soci', href: '/login' },
+    // { name: 'Accesso Soci', href: '/login' },
     // { name: 'Profilo', href: '/profilo' },
   ];
 

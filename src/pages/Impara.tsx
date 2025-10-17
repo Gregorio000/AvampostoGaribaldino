@@ -90,21 +90,7 @@ const sezioni: Sezione[] = [
     pulsanti: [
       { label: "Capitolo 1: Origini", path: "/learn/Storia/Capitolo1" },
       { label: "Capitolo 2: Medioevo", path: "/learn/Storia/Capitolo2" },
-      { label: "Capitolo 3: GM Storici", path: "/learn/Storia/Capitolo3" },
-    ],
-  },
-  {
-    id: "esercizi",
-    titolo: "Esercizi",
-    descrizione:
-      "Metti alla prova ciò che hai imparato con esercizi pratici su aperture, tattiche e finali.",
-    icona: <Dumbbell className="w-6 h-6 text-pink-600" />,
-    pathSezione: "/learn/Esercizi",
-    pulsanti: [
-      { label: "Esercizi Aperture", path: "/learn/Esercizi" },
-      { label: "Esercizi Tattiche", path: "/learn/Esercizi" },
-      
-      { label: "Esercizi Finali", path: "/learn/Esercizi" },
+      { label: "Capitolo 3: Attualità", path: "/learn/Storia/Capitolo3" },
     ],
   },
 ];
@@ -140,23 +126,28 @@ function Impara() {
 
           <div className="sm:grid sm:grid-cols-3 sm:gap-4 flex flex-nowrap gap-4 overflow-x-auto pb-2">
             {s.pulsanti.map((btn) => {
-              let btnColorClass = "bg-chess-gold text-chess-black"; // default
+              let btnColorClass = "text-white hover:opacity-90 transition-colors";
 
-              if (s.id === "esercizi") {
-                if (btn.label.toLowerCase().includes("tattiche")) {
-                  btnColorClass = "bg-purple-600 text-white hover:bg-purple-700";
-                } else if (btn.label.toLowerCase().includes("strategie")) {
-                  btnColorClass = "bg-green-400 text-black hover:bg-green-500";
-                } else if (btn.label.toLowerCase().includes("finali")) {
-                  btnColorClass = "bg-red-600 text-white hover:bg-red-700";
-                }
+              // Assegna colori diversi in base alla sezione
+              if (s.id === "regole") {
+                btnColorClass = "bg-blue-600 " + btnColorClass;
+              } else if (s.id === "aperture") {
+                btnColorClass = "bg-green-600 " + btnColorClass;
+              } else if (s.id === "tattiche") {
+                btnColorClass = "bg-purple-600 " + btnColorClass;
+              } else if (s.id === "strategie") {
+                btnColorClass = "bg-yellow-500 text-black hover:bg-yellow-600 transition-colors";
+              } else if (s.id === "finali") {
+                btnColorClass = "bg-red-600 " + btnColorClass;
+              } else if (s.id === "storia") {
+                btnColorClass = "bg-orange-600 " + btnColorClass;
               }
 
               return (
                 <button
                   key={btn.path}
                   onClick={() => navigate(btn.path)}
-                  className={`shrink-0 px-6 py-3 rounded-lg font-semibold transition-colors whitespace-nowrap text-center ${btnColorClass}`}
+                  className={`shrink-0 px-6 py-3 rounded-lg font-semibold whitespace-nowrap text-center ${btnColorClass}`}
                 >
                   {btn.label}
                 </button>

@@ -12,21 +12,21 @@ const capitoli: Capitolo[] = [
   {
     titolo: "Capitolo 1: Le Origini degli Scacchi",
     descrizione:
-      "Scopri come e dove è nato il gioco degli scacchi, dalle antiche civiltà fino alla sua diffusione in Europa.",
+      "",
     path: "/learn/Storia/Capitolo1",
   },
-  // {
-  //   titolo: "Capitolo 2: Lo sviluppo nel Medioevo",
-  //   descrizione:
-  //     "Analizza l'evoluzione delle regole e la diffusione del gioco nel periodo medievale.",
-  //   path: "/learn/Storia/Capitolo2",
-  // },
-  // {
-  //   titolo: "Capitolo 3: GM Storici",
-  //   descrizione:
-  //     "Approfondisci la vita e le partite dei grandi maestri che hanno segnato la storia degli scacchi.",
-  //   path: "/learn/Storia/Capitolo3",
-  // },
+  {
+     titolo: "Capitolo 2: LA DIFFUSIONE DEGLI SCACCHI IN EUROPA (IL MEDIOEVO DEGLI SCACCHI).",
+     descrizione:
+       "",
+     path: "/learn/Storia/Capitolo2",
+  },
+  {
+    titolo: "Capitolo 3: GLI SCACCHI E l’EPOCA CONTEMPORANEA.",
+    descrizione:
+      "",
+    path: "/learn/Storia/Capitolo3",
+  },
   // {
   //   titolo: "Capitolo 4: L'Era Moderna degli Scacchi",
   //   descrizione:
@@ -64,8 +64,12 @@ export default function Storia() {
       <h1 className="text-4xl font-bold text-center mb-6 text-gray-800">
         Storia degli Scacchi
       </h1>
+      <p className="text-lg text-center text-gray-600 mb-3">
+        DE LUDO SCACHORUM, PER OMNIA SECULA SECULORUM.
+        
+      </p>
       <p className="text-lg text-center text-gray-600 mb-10">
-        Esplora i capitoli chiave che raccontano l’evoluzione e le tappe storiche del gioco degli scacchi.
+        di Gherardo Maria Gismondi
       </p>
 
       <div className="mb-8 flex justify-center">
