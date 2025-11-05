@@ -307,7 +307,7 @@ const Home: React.FC = () => {
     <div className="flex flex-col items-center gap-6">
       <div className="relative">
         <img
-          src="/images-circolo/Gherardo-Gismondi-1.jpg"
+          src="/images-circolo/Gherardo-Gismondi-2.jpg"
           alt="Presidente"
           className="w-40 h-40 rounded-full object-cover border-4 border-chess-gold shadow-lg"
         />
@@ -331,7 +331,7 @@ const Home: React.FC = () => {
     <div className="flex flex-col items-center gap-6">
       <div className="relative">
         <img
-          src="/images-circolo/pier-luigi-militerni-1.jpg"
+          src="/images-circolo/pier-luigi-militerni-2.jpg"
           alt="Vicepresidente"
           className="w-40 h-40 rounded-full object-cover border-4 border-chess-blue shadow-lg"
         />

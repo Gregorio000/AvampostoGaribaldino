@@ -221,7 +221,7 @@ const ScacchiMentana = () => {
         {/* Sezione descrittiva breve */}
         <div className="bg-white rounded-2xl shadow-xl p-8 mb-12 border border-gray-200 text-center max-w-4xl mx-auto">
           <p className="text-xl text-gray-700 leading-relaxed">
-            Dal 2010 promuoviamo la passione per gli scacchi a Mentana con tornei, lezioni ed eventi per tutte le età.
+            Dal 2015 promuoviamo la passione per gli scacchi a Mentana con tornei, lezioni ed eventi per tutte le età.
           </p>
         </div>
 
