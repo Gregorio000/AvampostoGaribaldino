@@ -59,12 +59,11 @@ const Footer: React.FC = () => {
 
           {/* Link rapidi */}
           <div>
-            <h4 className="text-lg font-semibold mb-4 text-chess-gold">Link Rapidi</h4>
-            <ul className="space-y-2">
+            {/* <h4 className="text-lg font-semibold mb-4 text-chess-gold">Link Rapidi</h4> */}
+            {/* <ul className="space-y-2">
               <li><a href="/ricordi" className="text-gray-300 hover:text-chess-gold transition-colors">Ricordi</a></li>
-              {/* <li><a href="/learn" className="text-gray-300 hover:text-chess-gold transition-colors">Impara</a></li> */}
               <li><a href="/contact" className="text-gray-300 hover:text-chess-gold transition-colors">Contattaci</a></li>
-            </ul>
+            </ul> */}
           </div>
 
           {/* Contatti */}
