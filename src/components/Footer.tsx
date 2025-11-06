@@ -35,7 +35,7 @@ const Footer: React.FC = () => {
               </a>
 
               {/* Instagram */}
-              <a href="https://www.instagram.com/avampostogaribaldino" target="_blank" rel="noopener noreferrer" className="relative group" title="Instagram">
+              <a href="https://www.instagram.com/avamposto.garibaldino" target="_blank" rel="noopener noreferrer" className="relative group" title="Instagram">
                 <div className="w-8 h-8 bg-gradient-to-r from-[#833AB4] via-[#FD1D1D] to-[#FCAF45] rounded-full flex items-center justify-center hover:opacity-80 transition-opacity">
                   <FaInstagram className="text-white text-sm" />
                 </div>
