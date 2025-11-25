@@ -8,10 +8,12 @@ const Header: React.FC = () => {
 
   const navigation = [
     { name: 'Home', href: '/' },
-    // { name: 'Patrimonio', href: '/patrimonio' },
+    { name: 'I Nostri Soci', href: '/soci' },
+    { name: 'Scacchiera Gigante', href: '/scacchiera-gigante' },
+    { name: 'Patrimonio', href: '/patrimonio' },
+    // { name: 'Squadra', href: '/squadra' },
     { name: 'Ricordi', href: '/ricordi' },
-    
-    
+
     // { name: 'Tornei', href: '/tournaments' },
     // { name: 'Impara', href: '/learn' },
     // { name: 'Esercizi', href: '/Esercizi' },
@@ -30,7 +32,7 @@ const Header: React.FC = () => {
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="flex items-center space-x-3">
             <img 
-              src="/images/LogoAvampGarib.png" 
+              src="/images/LogoNuovo2.png" 
               alt="Torre Scacchi" 
               className="h-8 w-8 text-chess-gold" 
             />

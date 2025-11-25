@@ -219,10 +219,31 @@ const ScacchiMentana = () => {
         </div>
 
         {/* Sezione descrittiva breve */}
-        <div className="bg-white rounded-2xl shadow-xl p-8 mb-12 border border-gray-200 text-center max-w-4xl mx-auto">
-          <p className="text-xl text-gray-700 leading-relaxed">
-            Dal 2015 promuoviamo la passione per gli scacchi a Mentana con tornei, lezioni ed eventi per tutte le età.
+        <div className="bg-white rounded-2xl shadow-xl p-8 mb-12 border border-gray-200 text-left max-w-4xl mx-auto">
+          <p className="text-xl text-red-700 leading-relaxed">
+            L’ASD Mentana Scacchi Avamposto Garibaldino è nata il 6 giugno del 2015.
           </p>
+
+          <p className="text-xl text-gray-700 leading-relaxed">
+            Svolge attività di promozione e diffusione del gioco degli scacchi in particolare nelle zone di Mentana, Fonte Nuova e Monterotondo.
+          </p>
+          
+          <p className="text-xl text-gray-700 leading-relaxed">
+            A tal fine, la ASD Mentana Scacchi Avamposto Garibaldino, da allora, ha organizzato e organizza tornei amatoriali e/o ufficiali non solo nelle suddette città ma anche  in altre realtà limitrofe come Palombara Sabina, Moricone e Fiano Romano.
+          </p>
+
+          <p className="text-xl text-gray-700 leading-relaxed">
+            Inoltre l’Associazione opera assiduamente nell’ambito dell’alfabetizzazione scacchistica e nel miglioramento delle abilità scacchistiche dei propri soci maggiorenni e minorenni e, dal 2018, partecipa al campionato a squadre organizzato dalla Federazione Scacchistica Italiana, con più squadre.
+          </p>
+
+          <p className="text-xl text-gray-700 leading-relaxed">
+            Alcuni dei suoi giovani tesserati hanno partecipato negli ultimi anni anche ai campionati individuali nazionali, regionali e provinciali di categoria juniores.
+          </p>
+
+          <p className="text-xl text-gray-700 leading-relaxed">
+            Infine, con l’obiettivo di diffondere e promuovere gli scacchi nella città di Mentana e nelle comunità limitrofe, l’ASD Mentana Scacchi Avamposto Garibaldino, ha realizzato di fronte alla propria sede operativa, presso il centro anziani di Mentana in via Giovanni Giolitti 21/23, la Scacchiera Gigante che è pienamente operativa e disponibile per il divertimento dei grandi e dei piccini.
+          </p>
+          
         </div>
 
         {/* Galleria Fotografica */}

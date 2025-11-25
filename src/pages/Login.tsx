@@ -15,7 +15,7 @@ const LoginPage: React.FC = () => {
     <div className="min-h-screen bg-chess-dark flex flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <img 
-          src="/images/LogoAvampGarib.png"
+          src="/images/LogoNuovo.png"
           alt="Avamposto Garibaldino" 
           className="mx-auto h-16 w-auto"
         />

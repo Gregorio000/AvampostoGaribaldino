@@ -15,11 +15,11 @@ const Footer: React.FC = () => {
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-3 mb-4">
               <img 
-                src="/images/LogoAvampGarib.png" 
+                src="/images/LogoNuovo2.png" 
                 alt="Avamposto Garibaldino" 
                 className="h-8 w-8" 
               />
-              <h3 className="text-xl font-bold">Avamposto Garibaldino - Circolo Scacchistico</h3>
+              <h3 className="text-xl font-bold">ASD Mentana Scacchi - Avamposto Garibaldino</h3>
             </div>
             <p className="text-gray-300 mb-4">
               Uniamo tradizione e innovazione per promuovere l'arte degli scacchi.

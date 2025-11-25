@@ -1,10 +1,22 @@
 import React from 'react';
-import { MapPin, Phone, Mail, Clock, ExternalLink } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { MapPin, Phone, Mail, Clock, ExternalLink, ArrowLeft } from 'lucide-react';
 
 const Contact: React.FC = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-chess-light/30 py-16">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Torna alla Home */}
+        <div className="mb-8">
+          <Link
+            to="/"
+            className="inline-flex items-center text-chess-gold hover:text-chess-dark transition-colors"
+          >
+            <ArrowLeft className="h-5 w-5 mr-2" />
+            Torna alla Home
+          </Link>
+        </div>
+
         {/* Intestazione migliorata */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center justify-center mb-4">
@@ -79,22 +91,23 @@ const Contact: React.FC = () => {
               </div>
             </div>
 
-
-               <div className="flex items-start space-x-4 group">
+            {/* PEC */}
+            <div className="flex items-start space-x-4 group">
               <div className="bg-blue-500/20 p-3 rounded-full group-hover:bg-blue-500/30 transition-colors">
                 <Mail className="h-6 w-6 text-blue-500" />
               </div>
               <div>
                 <h3 className="text-lg font-semibold text-chess-dark">PEC</h3>
                 <a 
-                  href="mailto:avamposto.garibaldino@legalmail.it " 
+                  href="mailto:avamposto.garibaldino@legalmail.it" 
                   className="text-chess-gray hover:text-blue-500 transition-colors break-all"
                 >
-                  avamposto.garibaldino@legalmail.it 
+                  avamposto.garibaldino@legalmail.it
                 </a>
               </div>
             </div>
 
+            {/* Orari */}
             <div className="flex items-start space-x-4 group">
               <div className="bg-gray-500/20 p-3 rounded-full group-hover:bg-gray-500/30 transition-colors">
                 <Clock className="h-6 w-6 text-gray-500" />
@@ -114,34 +127,38 @@ const Contact: React.FC = () => {
           </div>
 
           {/* Sezione Immagine e Mappa */}
-            <div className="space-y-8">
-              <div className="bg-white rounded-2xl shadow-xl p-6 border border-gray-100">
-                <h2 className="text-3xl font-bold text-chess-dark mb-6 text-center">La nostra sede</h2>
-                <div className="rounded-xl overflow-hidden shadow-lg">
+          <div className="space-y-8">
+            <div className="bg-white rounded-2xl shadow-xl p-6 border border-gray-100">
+              <h2 className="text-3xl font-bold text-chess-dark mb-6 text-center">La nostra sede operativa</h2>
+              <a 
+                href="https://maps.google.com/?q=Via+Giovanni+Giolitti+21/23+Mentana"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block rounded-xl overflow-hidden shadow-lg group"
+              >
+                <div className="relative overflow-hidden">
                   <img
                     src="/images/sede.jpg"
                     alt="Foto della sede del circolo scacchi"
-                    className="w-full h-96 object-cover transition-transform hover:scale-105 duration-700"
+                    className="w-full h-96 object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                </div>
-                <p className="text-chess-gray mt-6 text-center italic text-lg">
-                  Un ambiente accogliente dove giocare e socializzare
-                </p>
-              </div>
-            </div>
-
-            {/* <div className="bg-white rounded-2xl shadow-xl p-6 border border-gray-100">
-              <h2 className="text-2xl font-bold text-chess-dark mb-4">Dove siamo</h2>
-              <div className="rounded-xl overflow-hidden shadow-md h-64 bg-gray-200">
-                <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-chess-light to-chess-dark/20">
-                  <div className="text-center p-4">
-                    <MapPin className="h-12 w-12 text-chess-gold mx-auto mb-2" />
-                    <p className="text-chess-dark font-medium">Mappa interattiva</p>
-                    <p className="text-chess-gray text-sm">Via Giovanni Giolitti 21/23, Mentana</p>
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 flex items-center justify-center">
+                    <div className="bg-white/90 p-3 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <ExternalLink className="h-6 w-6 text-chess-dark" />
+                    </div>
                   </div>
                 </div>
+              </a>
+              <div className="flex items-center justify-center mt-4">
+                <span className="text-chess-gray text-sm flex items-center">
+                  Clicca sulla foto per aprire Google Maps
+                  <ExternalLink className="h-3 w-3 ml-1" />
+                </span>
               </div>
-            </div> */}
+              <p className="text-chess-gray mt-6 text-center italic text-lg">
+                Un ambiente accogliente dove giocare e socializzare
+              </p>
+            </div>
           </div>
         </div>
 
@@ -152,7 +169,7 @@ const Contact: React.FC = () => {
           </p>
         </div>
       </div>
-    
+    </div>
   );
 };
 

@@ -16,6 +16,14 @@ import ScacchiMentana from './pages/ricordi/scacchi-mentana';
 import GliInizi from './pages/ricordi/gli-inizi';
 import ScacchiAlCamybar from './pages/ricordi/scacchi-al-camybar';
 import AllenamentoQuotidiano from './pages/ricordi/allenamento-quotidiano';
+import Loghi from './pages/ricordi/loghi';
+import Venafro from './pages/ricordi/venafro';
+
+
+import Soci from './pages/soci';
+import ScacchieraGigante from './pages/scacchiera-gigante';
+
+
 
 
 import Regole from './pages/learn/Regole';
@@ -97,6 +105,12 @@ function App() {
             <Route path="ricordi/gli-inizi" element={<GliInizi />} />
             <Route path="ricordi/scacchi-al-camybar" element={<ScacchiAlCamybar />} />
             <Route path="ricordi/allenamento-quotidiano" element={<AllenamentoQuotidiano />} />
+            <Route path="ricordi/loghi" element={<Loghi />} />
+            <Route path="ricordi/Venafro" element={<Venafro />} />
+
+            <Route path="soci" element={<Soci />} />
+            <Route path="scacchiera-gigante" element={<ScacchieraGigante />} />
+
             
             <Route path="learn" element={<Impara />} />
 

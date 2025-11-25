@@ -1,8 +1,20 @@
 import { Link } from "react-router-dom";
+import { ArrowLeft } from 'lucide-react';
 
 const Ricordi = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 px-4 sm:px-6 lg:px-8 py-12">
+      {/* Torna alla Home */}
+      <div className="max-w-7xl mx-auto mb-8">
+        <Link
+          to="/"
+          className="inline-flex items-center text-chess-gold hover:text-chess-dark transition-colors"
+        >
+          <ArrowLeft className="h-5 w-5 mr-2" />
+          Torna alla Home
+        </Link>
+      </div>
+
       {/* Intestazione con effetto migliorato */}
       <div className="mb-16 text-center">
         <div className="inline-block bg-gradient-to-r from-chess-dark to-chess-gold p-1 rounded-full mb-6">
@@ -52,7 +64,7 @@ const Ricordi = () => {
           </div>
           <div className="p-6 pt-0 border-t border-gray-100 mt-auto">
             <div className="flex justify-between items-center">
-              <span className="text-sm text-chess-gold font-medium">Dal 2010 in poi</span>
+              <span className="text-sm text-chess-gold font-medium"></span>
               <span className="text-sm text-chess-dark font-medium group-hover:translate-x-1 transition-transform duration-300">
                 Scopri di più →
               </span>
@@ -89,7 +101,7 @@ const Ricordi = () => {
         
           <div className="p-6 pt-0 border-t border-gray-100 mt-auto">
             <div className="flex justify-between items-center">
-              <span className="text-sm text-chess-gold font-medium">Estate 2020</span>
+              <span className="text-sm text-chess-gold font-medium"></span>
               <span className="text-sm text-chess-dark font-medium group-hover:translate-x-1 transition-transform duration-300">
                 Scopri di più →
               </span>
@@ -126,7 +138,7 @@ const Ricordi = () => {
           
           <div className="p-6 pt-0 border-t border-gray-100 mt-auto">
             <div className="flex justify-between items-center">
-              <span className="text-sm text-chess-gold font-medium">2010-2012</span>
+              <span className="text-sm text-chess-gold font-medium"></span>
               <span className="text-sm text-chess-dark font-medium group-hover:translate-x-1 transition-transform duration-300">
                 Scopri di più →
               </span>
@@ -163,7 +175,7 @@ const Ricordi = () => {
           
           <div className="p-6 pt-0 border-t border-gray-100 mt-auto">
             <div className="flex justify-between items-center">
-              <span className="text-sm text-chess-gold font-medium">Eventi Speciali</span>
+              <span className="text-sm text-chess-gold font-medium"></span>
               <span className="text-sm text-chess-dark font-medium group-hover:translate-x-1 transition-transform duration-300">
                 Scopri di più →
               </span>
@@ -200,13 +212,88 @@ const Ricordi = () => {
           
           <div className="p-6 pt-0 border-t border-gray-100 mt-auto">
             <div className="flex justify-between items-center">
-              <span className="text-sm text-chess-gold font-medium">Serate Speciali</span>
+              <span className="text-sm text-chess-gold font-medium"></span>
               <span className="text-sm text-chess-dark font-medium group-hover:translate-x-1 transition-transform duration-300">
                 Scopri di più →
               </span>
             </div>
           </div>
         </Link>
+
+
+        <Link 
+          to="/ricordi/loghi" 
+          className="group bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 flex flex-col h-full relative transform hover:-translate-y-2"
+        >
+          <div className="relative overflow-hidden">
+            <div className="h-80 overflow-hidden">
+              <img
+                src="/images/LogoNuovo2.png"
+                alt="Logo"
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              />
+            </div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6">
+              <h3 className="text-2xl font-bold text-white">Storia dei nostri Loghi</h3>
+            </div>
+            <div className="absolute top-4 right-4 bg-red-500 text-white text-xs font-semibold px-3 py-1 rounded-full">
+              Storico
+            </div>
+          </div>
+          
+          <div className="p-6 flex-grow">
+            <p className="text-gray-600 mb-4 leading-relaxed">
+              I cambiamenti dei nostri loghi con il passare degli anni.
+            </p>
+          </div>
+          
+          <div className="p-6 pt-0 border-t border-gray-100 mt-auto">
+            <div className="flex justify-between items-center">
+              <span className="text-sm text-chess-gold font-medium"></span>
+              <span className="text-sm text-chess-dark font-medium group-hover:translate-x-1 transition-transform duration-300">
+                Scopri di più →
+              </span>
+            </div>
+          </div>
+        </Link>
+
+
+        {/* <Link 
+          to="/ricordi/venafro" 
+          className="group bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 flex flex-col h-full relative transform hover:-translate-y-2"
+        >
+          <div className="relative overflow-hidden">
+            <div className="h-80 overflow-hidden">
+              <img
+                src="/images/LogoNuovo.png"
+                alt="Venafro"
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              />
+            </div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6">
+              <h3 className="text-2xl font-bold text-white">Sfida a Venafro</h3>
+            </div>
+            <div className="absolute top-4 right-4 bg-red-500 text-white text-xs font-semibold px-3 py-1 rounded-full">
+              Generico
+            </div>
+          </div>
+          
+          <div className="p-6 flex-grow">
+            <p className="text-gray-600 mb-4 leading-relaxed">
+              Sfida amichevole contro il circolo Leopoldo Pilla - Venafro 1870.
+            </p>
+          </div>
+          
+          <div className="p-6 pt-0 border-t border-gray-100 mt-auto">
+            <div className="flex justify-between items-center">
+              <span className="text-sm text-chess-gold font-medium">16 Novembre 2025</span>
+              <span className="text-sm text-chess-dark font-medium group-hover:translate-x-1 transition-transform duration-300">
+                Scopri di più →
+              </span>
+            </div>
+          </div>
+        </Link> */}
+
       </div>
 
       {/* Elemento decorativo in fondo alla pagina */}

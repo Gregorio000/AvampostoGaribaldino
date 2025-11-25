@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { 
   BookOpen, 
   Grid, 
@@ -11,7 +11,8 @@ import {
   ChevronRight,
   Library,
   Shield,
-  Users
+  Users,
+  ArrowLeft
 } from "lucide-react";
 
 type Categoria = {
@@ -32,28 +33,28 @@ const patrimonio: Categoria[] = [
     icona: <BookOpen className="w-8 h-8" />,
     pathSezione: "/patrimonio/libri",
     elementi: [
-      // { nome: "Manuali di apertura", descrizione: "Oltre 50 volumi" },
-      // { nome: "Biografie di grandi maestri", descrizione: "Storie appassionanti" },
-      // { nome: "Riviste specializzate", descrizione: "Collezione completa" }
+      //  { nome: "Manuali di apertura", descrizione: "Oltre 50 volumi" },
+      //  { nome: "Biografie di grandi maestri", descrizione: "Storie appassionanti" },
+      //  { nome: "Riviste specializzate", descrizione: "Collezione completa" }
     ],
     colore: "from-blue-500 to-blue-700",
     coloreIcona: "text-blue-100",
     coloreTesto: "text-blue-800"
   },
-  {
-    titolo: "Scacchiere e Materiali",
-    descrizione: "Set professionali e attrezzature per tornei.",
-    icona: <Grid className="w-8 h-8" />,
-    pathSezione: "/patrimonio/scacchiere",
-    elementi: [
-      // { nome: "Scacchiere torneo", descrizione: "10 set professionali" },
-      // { nome: "Orologi digitali", descrizione: "Tecnologia avanzata" },
-      // { nome: "Set viaggio", descrizione: "Per partite in movimento" }
-    ],
-    colore: "from-emerald-500 to-emerald-700",
-    coloreIcona: "text-emerald-100",
-    coloreTesto: "text-emerald-800"
-  },
+  //  {
+  //   titolo: "Scacchiere e Materiali",
+  //   descrizione: "Set professionali e attrezzature per tornei.",
+  //   icona: <Grid className="w-8 h-8" />,
+  //   pathSezione: "/patrimonio/scacchiere",
+  //   elementi: [
+  //        { nome: "Scacchiere torneo", descrizione: "10 set professionali" },
+  //        { nome: "Orologi digitali", descrizione: "Tecnologia avanzata" },
+  //        { nome: "Set viaggio", descrizione: "Per partite in movimento" }
+  //   ],
+  //   colore: "from-emerald-500 to-emerald-700",
+  //   coloreIcona: "text-emerald-100",
+  //   coloreTesto: "text-emerald-800"
+  // },
   // {
   //   titolo: "Archivio Storico",
   //   descrizione: "Documenti e fotografie della nostra storia.",
@@ -108,7 +109,18 @@ function Patrimonio() {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-white to-amber-100 p-4 sm:p-6">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 px-4 sm:px-6 lg:px-8 py-12">
+      {/* Torna alla Home */}
+      <div className="max-w-7xl mx-auto mb-8">
+        <Link
+          to="/"
+          className="inline-flex items-center text-chess-gold hover:text-chess-dark transition-colors"
+        >
+          <ArrowLeft className="h-5 w-5 mr-2" />
+          Torna alla Home
+        </Link>
+      </div>
+
       <div className="max-w-7xl mx-auto">
         {/* Header migliorato */}
         <div className="text-center mb-12 pt-8">
@@ -121,17 +133,17 @@ function Patrimonio() {
             Il Patrimonio del Circolo 
           </h1>
           
-          <p className="text-lg md:text-xl text-amber-700 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-600 mt-4 max-w-3xl mx-auto">
             Scopri le risorse, i materiali e le collezioni che rendono speciale il nostro circolo scacchistico
           </p>
           
-          <div className="w-32 h-1 bg-gradient-to-r from-amber-400 to-amber-600 mx-auto mt-6 rounded-full"></div>
+           <div className="w-32 h-1 bg-gradient-to-r from-amber-400 to-amber-600 mx-auto mt-6 rounded-full"></div> 
         </div>
 
         {/* Statistiche */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12 max-w-4xl mx-auto">
           <div className="bg-white rounded-xl p-4 text-center shadow-sm border border-amber-100">
-            <div className="text-2xl font-bold text-amber-700">50+</div>
+            <div className="text-2xl font-bold text-amber-700">30+</div>
             <div className="text-sm text-amber-600">Libri</div>
           </div>
           <div className="bg-white rounded-xl p-4 text-center shadow-sm border border-amber-100">
@@ -149,7 +161,7 @@ function Patrimonio() {
         </div>
 
         {/* Grid delle categorie migliorata */}
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {patrimonio.map((cat) => (
             <div
               key={cat.titolo}
