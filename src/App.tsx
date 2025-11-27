@@ -19,12 +19,8 @@ import AllenamentoQuotidiano from './pages/ricordi/allenamento-quotidiano';
 import Loghi from './pages/ricordi/loghi';
 import Venafro from './pages/ricordi/venafro';
 
-
 import Soci from './pages/soci';
 import ScacchieraGigante from './pages/scacchiera-gigante';
-
-
-
 
 import Regole from './pages/learn/Regole';
 import ComeGiocare from './pages/learn/Regole/ComeGiocare';
@@ -84,11 +80,8 @@ import Capitolo3 from './pages/learn/Storia/Capitolo3';
 import Libri from './pages/patrimonio/libri';
 import Scacchiere from './pages/patrimonio/scacchiere';
 
-
 import Matto from './pages/esercizi/matto';
-
 import Esercizi from './pages/Esercizi';
-
 
 function App() {
   return (
@@ -99,89 +92,126 @@ function App() {
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="ricordi" element={<Ricordi />} />
-            <Route path="Patrimonio" element={<Patrimonio />} />
+            <Route path="patrimonio" element={<Patrimonio />} />
             <Route path="ricordi/centro-estivo" element={<CentroEstivo />} />
             <Route path="ricordi/scacchi-mentana" element={<ScacchiMentana />} />
             <Route path="ricordi/gli-inizi" element={<GliInizi />} />
             <Route path="ricordi/scacchi-al-camybar" element={<ScacchiAlCamybar />} />
             <Route path="ricordi/allenamento-quotidiano" element={<AllenamentoQuotidiano />} />
             <Route path="ricordi/loghi" element={<Loghi />} />
-            <Route path="ricordi/Venafro" element={<Venafro />} />
+            <Route path="ricordi/venafro" element={<Venafro />} />
 
             <Route path="soci" element={<Soci />} />
             <Route path="scacchiera-gigante" element={<ScacchieraGigante />} />
 
-            
             <Route path="learn" element={<Impara />} />
 
             <Route path="learn/regole" element={<Regole />} />
-            <Route path="learn/Regole/ComeGiocare" element={<ComeGiocare />} />
-            <Route path="learn/Regole/ComeVincere" element={<ComeVincere />} />
-            <Route path="learn/Regole/RegoleFondamentali" element={<RegoleFondamentali />} />
-            <Route path="learn/Regole/stallo" element={<Stallo />} />
-            <Route path="learn/Regole/Patta" element={<Patta />} />
-            <Route path="learn/Regole/tempo" element={<Tempo />} />
+            <Route path="learn/regole/come-giocare" element={<ComeGiocare />} />
+            <Route path="learn/regole/come-vincere" element={<ComeVincere />} />
+            <Route path="learn/regole/regole-fondamentali" element={<RegoleFondamentali />} />
+            <Route path="learn/regole/stallo" element={<Stallo />} />
+            <Route path="learn/regole/patta" element={<Patta />} />
+            <Route path="learn/regole/tempo" element={<Tempo />} />
 
             <Route path="learn/aperture" element={<Aperture />} />
             <Route path="learn/aperture/aperte" element={<Aperte />} />
             <Route path="learn/aperture/chiuse" element={<Chiuse />} />
             <Route path="learn/aperture/semichiuse" element={<Semichiuse />} />
-            <Route path="learn/Aperture/Italiana" element={<Italiana />} />
-            <Route path="learn/Aperture/Siciliana" element={<Siciliana />} />
-            <Route path="learn/Aperture/GambettoRe" element={<GambettoRe />} />
-            <Route path="learn/Aperture/GambettoDonna" element={<GambettoDonna />} />
-            <Route path="learn/Aperture/Francese" element={<Francese />} />
-            <Route path="learn/Aperture/Spagnola" element={<Spagnola />} /> */
-            <Route path="learn/Aperture/Inglese" element={<Inglese />} />
-            <Route path="learn/Aperture/CaroKann" element={<CaroKann />} />
-            <Route path="learn/Aperture/Scandinava" element={<Scandinava />} />
-            <Route path="learn/Aperture/Pirc" element={<Pirc />} />
-            <Route path="learn/Aperture/Alekhine" element={<Alekhine />} />
-            <Route path="learn/Aperture/Reti" element={<Reti />} />
-            <Route path="learn/Aperture/Moderna" element={<Moderna />} />
-            <Route path="learn/Aperture/NimzoIndiana" element={<NimzoIndiana />} />
-            <Route path="learn/Aperture/IndianaRe" element={<IndianaRe />} />
-            <Route path="learn/Aperture/Benoni" element={<Benoni />} />
-            <Route path="learn/Aperture/Trompowsky" element={<Trompowsky />} />
-            <Route path="learn/Aperture/London" element={<London />} />
-            <Route path="learn/Aperture/Grunfeld" element={<Grunfeld />} />
-            <Route path="learn/Aperture/Bird" element={<Bird />} /> 
+            <Route path="learn/aperture/italiana" element={<Italiana />} />
+            <Route path="learn/aperture/siciliana" element={<Siciliana />} />
+            <Route path="learn/aperture/gambetto-re" element={<GambettoRe />} />
+            <Route path="learn/aperture/gambetto-donna" element={<GambettoDonna />} />
+            <Route path="learn/aperture/francese" element={<Francese />} />
+            <Route path="learn/aperture/spagnola" element={<Spagnola />} />
+            <Route path="learn/aperture/inglese" element={<Inglese />} />
+            <Route path="learn/aperture/caro-kann" element={<CaroKann />} />
+            <Route path="learn/aperture/scandinava" element={<Scandinava />} />
+            <Route path="learn/aperture/pirc" element={<Pirc />} />
+            <Route path="learn/aperture/alekhine" element={<Alekhine />} />
+            <Route path="learn/aperture/reti" element={<Reti />} />
+            <Route path="learn/aperture/moderna" element={<Moderna />} />
+            <Route path="learn/aperture/nimzo-indiana" element={<NimzoIndiana />} />
+            <Route path="learn/aperture/indiana-re" element={<IndianaRe />} />
+            <Route path="learn/aperture/benoni" element={<Benoni />} />
+            <Route path="learn/aperture/trompowsky" element={<Trompowsky />} />
+            <Route path="learn/aperture/london" element={<London />} />
+            <Route path="learn/aperture/grunfeld" element={<Grunfeld />} />
+            <Route path="learn/aperture/bird" element={<Bird />} />
 
             <Route path="learn/tattiche" element={<Tattiche />} />
-            <Route path="learn/Tattiche/DoppioAttacco" element={<DoppioAttacco />} />
-            <Route path="learn/Tattiche/Inchiodatura" element={<Inchiodatura />} />
-            <Route path="learn/Tattiche/ScaccoDoppio" element={<ScaccoDoppio />} />
-            <Route path="learn/Tattiche/Zugzwang" element={<Zugzwang />} />
-            <Route path="learn/Tattiche/Sacrificio" element={<Sacrificio />} />
+            <Route path="learn/tattiche/doppio-attacco" element={<DoppioAttacco />} />
+            <Route path="learn/tattiche/inchiodatura" element={<Inchiodatura />} />
+            <Route path="learn/tattiche/scacco-doppio" element={<ScaccoDoppio />} />
+            <Route path="learn/tattiche/zugzwang" element={<Zugzwang />} />
+            <Route path="learn/tattiche/sacrificio" element={<Sacrificio />} />
 
-            <Route path="learn/Strategie" element={<Strategie />} />
-            <Route path="learn/Strategie/Centro" element={<Centro />} />
-            <Route path="learn/Strategie/Coordinazione" element={<Coordinazione />} />
+            <Route path="learn/strategie" element={<Strategie />} />
+            <Route path="learn/strategie/centro" element={<Centro />} />
+            <Route path="learn/strategie/coordinazione" element={<Coordinazione />} />
 
             <Route path="learn/finali" element={<Finali />} />
-            <Route path="learn/finali/TorrevsRe" element={<TorrevsRe />} />
-            <Route path="learn/finali/Opposizione" element={<Opposizione />} />
-            <Route path="learn/finali/FinalePedoni" element={<FinalePedoni />} />
-            <Route path="learn/finali/DueTorri" element={<DueTorri />} />
+            <Route path="learn/finali/torre-vs-re" element={<TorrevsRe />} />
+            <Route path="learn/finali/opposizione" element={<Opposizione />} />
+            <Route path="learn/finali/finale-pedoni" element={<FinalePedoni />} />
+            <Route path="learn/finali/due-torri" element={<DueTorri />} />
 
-            <Route path="learn/Storia" element={<Storia />} />
-            <Route path="learn/Storia/Capitolo1" element={<Capitolo1 />} />
-            <Route path="learn/Storia/Capitolo2" element={<Capitolo2 />} />
-            <Route path="learn/Storia/Capitolo3" element={<Capitolo3 />} />
+            <Route path="learn/storia" element={<Storia />} />
+            <Route path="learn/storia/capitolo-1" element={<Capitolo1 />} />
+            <Route path="learn/storia/capitolo-2" element={<Capitolo2 />} />
+            <Route path="learn/storia/capitolo-3" element={<Capitolo3 />} />
 
-            <Route path="Patrimonio/libri" element={<Libri />} />
-            <Route path="Patrimonio/scacchiere" element={<Scacchiere />} />
+            <Route path="patrimonio/libri" element={<Libri />} />
+            <Route path="patrimonio/scacchiere" element={<Scacchiere />} />
 
-            <Route path="Esercizi" element={<Esercizi />} />
+            <Route path="esercizi" element={<Esercizi />} />
             <Route path="esercizi/matto" element={<Matto />} />
 
             <Route path="contact" element={<Contact />} />
             <Route path="login" element={<Login />} />
             <Route path="register" element={<Register />} />
+
+            {/* Fallback route для 404 */}
+            <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
       </AnimatedRoutes>
     </Router>
+  );
+}
+
+// Компонент для 404 страницы
+function NotFound() {
+  return (
+    <div style={{ 
+      padding: '4rem 2rem', 
+      textAlign: 'center',
+      minHeight: '60vh',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center'
+    }}>
+      <h2 style={{ fontSize: '2rem', marginBottom: '1rem', color: '#333' }}>
+        ERRORE 404 - La pagina non esiste
+      </h2>
+      <p style={{ fontSize: '1.2rem', color: '#666', marginBottom: '2rem' }}>
+       
+      </p>
+      <a 
+        href="/" 
+        style={{
+          padding: '0.75rem 1.5rem',
+          backgroundColor: '#007bff',
+          color: 'white',
+          textDecoration: 'none',
+          borderRadius: '4px',
+          fontWeight: 'bold'
+        }}
+      >
+        Torna alla Home
+      </a>
+    </div>
   );
 }
 
