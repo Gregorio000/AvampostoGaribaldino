@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Trophy, Users, Calendar, Star, ArrowRight, ChevronRight, Heart, Award, Shield, BookOpen } from 'lucide-react';
+import { Trophy, Users, Calendar, Star, ArrowRight, ChevronRight, Heart, Award, Shield, BookOpen, Bell, CalendarDays, MapPin } from 'lucide-react';
 import { FaFacebookF, FaInstagram, FaChessRook } from 'react-icons/fa';
 
 const ImageCarousel: React.FC = () => {
@@ -88,43 +88,125 @@ const Home: React.FC = () => {
           <ChevronRight className="h-8 w-8 text-white rotate-90" />
         </div>
       </section>
-  
-      {/* Sezione Storia migliorata */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
-          <div className="order-2 lg:order-1">
-            <div className="inline-flex items-center mb-4 text-chess-gold font-medium">
-              <div className="w-12 h-0.5 bg-chess-gold mr-3"></div>
-              LA NOSTRA STORIA
+
+      {/* Sezione Ultima Notizia */}
+<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-12">
+  <div className="">
+    <div className="flex items-center justify-between mb-6">
+      <div className="flex items-center">
+        <Bell className="h-8 w-8 text-chess-gold mr-3" />
+        <h2 className="text-3xl md:text-4xl font-bold text-chess-dark">Ultima Notizia</h2>
+      </div>
+      <Link 
+        to="/news" 
+        className="text-chess-gold hover:text-chess-dark font-medium transition-colors flex items-center"
+      >
+        Vedi tutte le notizie
+        <ArrowRight className="h-4 w-4 ml-1" />
+      </Link>
+    </div>
+    
+    <Link 
+      to="/news" 
+      className="group bg-gradient-to-r from-chess-dark/5 via-chess-dark/10 to-chess-dark/5 rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-chess-dark/20 hover:-translate-y-1 block"
+    >
+      <div className="p-8">
+        <div className="flex flex-col lg:flex-row gap-8">
+          {/* Colonna sinistra: Contenuto */}
+          <div className="flex-grow lg:w-2/3">
+            <div className="flex items-center mb-3">
+              <div className="bg-chess-gold text-chess-dark px-3 py-1 rounded-full text-sm font-bold mr-3">
+                NUOVO CORSO
+              </div>
+              <span className="text-chess-gray text-sm">
+                <CalendarDays className="h-4 w-4 inline mr-1" />
+                Sabato 24.1.2026 • ore 15:20
+              </span>
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-chess-dark mb-6">La nostra Storia</h1>
-            <div className="space-y-5">
-              <p className="text-xl text-chess-gray">
-                L'Avamposto Garibaldino rappresenta anni di tradizione scacchistica a Mentana, ispirandosi all'eroica storia locale mentre guarda con innovazione al futuro.
-              </p>
-              <p className="text-xl text-chess-gray">
-                L'Associazione ha lo scopo di divulgare il gioco degli scacchi.
-              </p>
-              <p className="text-xl text-chess-gray">
-                Oggi, con sede moderna e attrezzature all'avanguardia, offriamo tornei, corsi e eventi per appassionati di ogni livello ed età.
-              </p> 
+            <h3 className="text-2xl md:text-3xl font-bold text-chess-dark mb-4 group-hover:text-chess-gold transition-colors">
+              "A Scuola dai Campioni" - Corso di Scacchi Avanzato
+            </h3>
+            <p className="text-chess-gray text-lg mb-6">
+              Sabato 24.1.2026 ore 15.20 a Mentana, Via Giovanni Giolitti 21/23, parte il corso "a scuola dai campioni" 
+              con il CM Emanuele Stella e il 1N Riccardo Grammatico! Vi aspettiamo!!!
+            </p>
+            <div className="flex flex-wrap gap-3 mb-6">
+              <div className="bg-green-300 text-green-800 px-3 py-1 rounded-full text-sm font-medium flex items-center">
+                CM Emanuele Stella
+              </div>
+              <div className="bg-blue-200 text-blue-800 px-3 py-1 rounded-full text-sm font-medium flex items-center">
+                1N Riccardo Grammatico
+              </div>
+            </div>
+            <div className="flex items-center text-chess-gold font-medium">
+              Scopri tutti i dettagli 
+              <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-2 transition-transform" />
             </div>
           </div>
-          <div className="order-2 lg:order-2 relative">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+          
+          {/* Colonna destra: Foto */}
+          <div className="lg:w-1/3">
+            <div className="relative rounded-xl overflow-hidden shadow-lg h-full min-h-[250px]">
               <img
-                src="/ricordi-vecchi/ricordo-vecchio5.jpg"
-                alt="Scacchiera Grande"
-                className="w-full h-[500px] object-cover transition-transform duration-700 hover:scale-105"
+                src="/images/corso-scacchi.jpg"
+                alt="Corso Scacchi Avanzato"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-chess-dark/20 to-transparent"></div>
-            </div>
-            <div className="absolute -bottom-6 -left-6 bg-chess-gold text-chess-dark px-6 py-3 rounded-lg shadow-lg">
-              <span className="font-bold">2015</span>
-              <span className="ml-2">Anno di Fondazione</span>
+              <div className="absolute inset-0 bg-gradient-to-t from-chess-dark/30 to-transparent"></div>
+              {/* <div className="absolute bottom-4 left-4 right-4">
+                <div className="bg-white/90 backdrop-blur-sm rounded-lg p-3">
+                  <div className="flex items-center">
+                    <MapPin className="h-4 w-4 text-chess-gold mr-2 flex-shrink-0" /> 
+                    <span className="text-sm font-medium text-chess-dark truncate">
+                      Via Giovanni Giolitti 21/23, Mentana
+                    </span> 
+                  </div>
+                </div>
+              </div> */}
             </div>
           </div>
         </div>
+      </div>
+    </Link>
+  </div>
+</div>
+  
+      {/* Sezione Storia migliorata */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mb-16"> {/* cambiato da items-center a items-start */}
+  <div className="order-2 lg:order-1 pt-8"> {/* aggiunto pt-8 per spostare il contenuto verso il basso */}
+    <div className="inline-flex items-center mb-4 text-chess-gold font-medium">
+      <div className="w-12 h-0.5 bg-chess-gold mr-3"></div>
+      LA NOSTRA STORIA
+    </div>
+    <h1 className="text-4xl md:text-5xl font-bold text-chess-dark mb-6">La nostra Storia</h1>
+    <div className="space-y-5">
+      <p className="text-xl text-chess-gray">
+        L'Avamposto Garibaldino rappresenta anni di tradizione scacchistica a Mentana, ispirandosi all'eroica storia locale mentre guarda con innovazione al futuro.
+      </p>
+      <p className="text-xl text-chess-gray">
+        L'Associazione ha lo scopo di divulgare il gioco degli scacchi.
+      </p>
+      <p className="text-xl text-chess-gray">
+        Oggi, con sede moderna e attrezzature all'avanguardia, offriamo tornei, corsi e eventi per appassionati di ogni livello ed età.
+      </p> 
+    </div>
+  </div>
+  <div className="order-2 lg:order-2 relative">
+    <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+      <img
+        src="/ricordi-vecchi/ricordo-vecchio5.jpg"
+        alt="Scacchiera Grande"
+        className="w-full h-[500px] object-cover transition-transform duration-700 hover:scale-105"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-chess-dark/20 to-transparent"></div>
+    </div>
+    <div className="absolute -bottom-6 -left-6 bg-chess-gold text-chess-dark px-6 py-3 rounded-lg shadow-lg">
+      <span className="font-bold">2015</span>
+      <span className="ml-2">Anno di Fondazione</span>
+    </div>
+  </div>
+</div>
 
         {/* Sezione Gruppi Online migliorata */}
         <div className="mb-20">
@@ -245,7 +327,7 @@ const Home: React.FC = () => {
 
           <div className="flex justify-center mb-12">
             <Link 
-                to="/ScacchieraGigante" 
+                to="/soci" 
                 className="group bg-gradient-to-br from-chess-dark/5 to-chess-dark/10 rounded-2xl shadow-lg p-8 text-center hover:shadow-xl transition-all duration-300 border border-chess-dark/20 hover:-translate-y-2 w-full max-w-4xl overflow-hidden"
               >
                 <div className="relative mb-6">

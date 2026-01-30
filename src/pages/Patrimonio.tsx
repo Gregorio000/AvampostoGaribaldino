@@ -37,24 +37,24 @@ const patrimonio: Categoria[] = [
       //  { nome: "Biografie di grandi maestri", descrizione: "Storie appassionanti" },
       //  { nome: "Riviste specializzate", descrizione: "Collezione completa" }
     ],
-    colore: "from-blue-500 to-blue-700",
-    coloreIcona: "text-blue-100",
-    coloreTesto: "text-blue-800"
+    colore: "from-yellow-500 to-yellow-700",
+    coloreIcona: "text-yellow-100",
+    coloreTesto: "text-yellow-800"
   },
-  //  {
-  //   titolo: "Scacchiere e Materiali",
-  //   descrizione: "Set professionali e attrezzature per tornei.",
-  //   icona: <Grid className="w-8 h-8" />,
-  //   pathSezione: "/patrimonio/scacchiere",
-  //   elementi: [
-  //        { nome: "Scacchiere torneo", descrizione: "10 set professionali" },
-  //        { nome: "Orologi digitali", descrizione: "Tecnologia avanzata" },
-  //        { nome: "Set viaggio", descrizione: "Per partite in movimento" }
-  //   ],
-  //   colore: "from-emerald-500 to-emerald-700",
-  //   coloreIcona: "text-emerald-100",
-  //   coloreTesto: "text-emerald-800"
-  // },
+   {
+    titolo: "Scacchiere e Materiali",
+    descrizione: "Set professionali e attrezzature per tornei.",
+    icona: <Grid className="w-8 h-8" />,
+    pathSezione: "/patrimonio/scacchiere",
+    elementi: [
+        //  { nome: "Scacchiere torneo", descrizione: "10 set professionali" },
+        //  { nome: "Orologi digitali", descrizione: "Tecnologia avanzata" },
+        //  { nome: "Set viaggio", descrizione: "Per partite in movimento" }
+    ],
+    colore: "from-green-500 to-green-700",
+    coloreIcona: "text-green-100",
+    coloreTesto: "text-green-800"
+  },
   // {
   //   titolo: "Archivio Storico",
   //   descrizione: "Documenti e fotografie della nostra storia.",
@@ -111,7 +111,7 @@ function Patrimonio() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 px-4 sm:px-6 lg:px-8 py-12">
       {/* Torna alla Home */}
-      <div className="max-w-7xl mx-auto mb-8">
+      <div className="max-w-7xl mx-auto">
         <Link
           to="/"
           className="inline-flex items-center text-chess-gold hover:text-chess-dark transition-colors"

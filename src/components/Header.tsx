@@ -8,10 +8,12 @@ const Header: React.FC = () => {
 
   const navigation = [
     { name: 'Home', href: '/' },
-    { name: 'I Nostri Soci', href: '/soci' },
+    { name: 'News', href: '/news' },
+    { name: 'Soci', href: '/soci' },
+    { name: 'Squadre', href: '/squadra' },
     { name: 'Scacchiera Gigante', href: '/scacchiera-gigante' },
     { name: 'Patrimonio', href: '/patrimonio' },
-    // { name: 'Squadra', href: '/squadra' },
+    
     { name: 'Ricordi', href: '/ricordi' },
 
     // { name: 'Tornei', href: '/tournaments' },

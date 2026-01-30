@@ -92,7 +92,7 @@ const Footer: React.FC = () => {
 
         <div className="border-t border-chess-gray/20 mt-8 pt-8 text-center">
           <p className="text-gray-400">
-            © 2025 Avamposto Garibaldino. Tutti i diritti riservati.
+            © 2026 Avamposto Garibaldino. Tutti i diritti riservati.
           </p>
         </div>
       </div>

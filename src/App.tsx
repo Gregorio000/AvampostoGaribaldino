@@ -8,6 +8,8 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import AnimatedRoutes from './components/AnimatedRoutes';
 import Ricordi from './pages/ricordi';
+import News from './pages/news';
+import Squadre from './pages/squadra';
 import Patrimonio from './pages/Patrimonio';
 import ScrollToTop from './components/ScrollToTop';
 
@@ -92,6 +94,8 @@ function App() {
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="ricordi" element={<Ricordi />} />
+            <Route path="squadra" element={<Squadre />} />
+            <Route path="news" element={<News />} />
             <Route path="patrimonio" element={<Patrimonio />} />
             <Route path="ricordi/centro-estivo" element={<CentroEstivo />} />
             <Route path="ricordi/scacchi-mentana" element={<ScacchiMentana />} />
