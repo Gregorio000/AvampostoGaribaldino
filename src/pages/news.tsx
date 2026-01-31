@@ -5,86 +5,36 @@ import { ArrowLeft, Calendar, Clock, MapPin, Bell, ChevronRight, Tag } from 'luc
 const News = () => {
   const newsItems = [
     {
-      id: 1,
-      title: '"A Scuola dai Campioni" - Corso di Scacchi Avanzato',
-      date: "Sabato 24.1.2026",
-      time: "15:20",
-      location: "Mentana, Via Giovanni Giolitti 21/23",
-      description: "Parte il corso 'a scuola dai campioni' con il CM Emanuele Stella e il 1N Riccardo Grammatico! Vi aspettiamo!!!",
-      category: "NUOVO CORSO",
-      categoryColor: "bg-yellow-500 text-black",
-      image: "/images/corso-scacchi.jpg",
-      instructors: [
-        { name: "CM Emanuele Stella", color: "bg-green-100 text-green-800" },
-        { name: "1N Riccardo Grammatico", color: "bg-blue-100 text-blue-800" }
-      ]
-    },
-    // {
-    //   id: 2,
-    //   title: 'Torneo Regionale di Primavera',
-    //   date: "Sabato 15.3.2026",
-    //   time: "10:00",
-    //   location: "Sala Comunale, Mentana",
-    //   description: "Torneo ufficiale regionale aperto a tutti i giocatori. Premi per le prime tre categorie.",
-    //   category: "TORNEO",
-    //   categoryColor: "bg-red-500 text-white",
-    //   image: "/images-circolo/Importante.jpg",
-    //   instructors: []
-    // },
-    // {
-    //   id: 3,
-    //   title: 'Lezione Gratuita per Principianti',
-    //   date: "Mercoledì 5.2.2026",
-    //   time: "18:30",
-    //   location: "Sede Avamposto Garibaldino",
-    //   description: "Prima lezione gratuita per chi vuole avvicinarsi al mondo degli scacchi. Porta un amico!",
-    //   category: "LEZIONE GRATUITA",
-    //   categoryColor: "bg-green-500 text-white",
-    //   image: "/ricordi-vecchi/ricordo-vecchio1.jpg",
-    //   instructors: [
-    //     { name: "Istruttori Certificati", color: "bg-purple-100 text-purple-800" }
-    //   ]
-    // },
-    // {
-    //   id: 4,
-    //   title: 'Campionato Sociale 2026',
-    //   date: "Dal 10.2.2026",
-    //   time: "21:00",
-    //   location: "Circolo Scacchi Mentana",
-    //   description: "Il tradizionale campionato sociale per determinare il campione dell'Avamposto Garibaldino 2026.",
-    //   category: "CAMPIONATO",
-    //   categoryColor: "bg-blue-500 text-white",
-    //   image: "/foto-scacchiera-gigante/realizzata1.jpg",
-    //   instructors: []
-    // },
-    // {
-    //   id: 5,
-    //   title: 'Serata Simultanea con Maestro Internazionale',
-    //   date: "Venerdì 28.2.2026",
-    //   time: "20:00",
-    //   location: "Biblioteca Comunale",
-    //   description: "Evento speciale: sfida simultanea contro un Maestro Internazionale. Posti limitati!",
-    //   category: "EVENTO SPECIALE",
-    //   categoryColor: "bg-purple-500 text-white",
-    //   image: "/scacchi-mentana/domenica 15 nov 2020.jpg",
-    //   instructors: [
-    //     { name: "Maestro Internazionale", color: "bg-red-100 text-red-800" }
-    //   ]
-    // },
-    // {
-    //   id: 6,
-    //   title: 'Workshop: Strategie di Apertura',
-    //   date: "Sabato 8.3.2026",
-    //   time: "16:00",
-    //   location: "Sede Avamposto Garibaldino",
-    //   description: "Workshop intensivo sulle migliori aperture scacchistiche per giocatori intermedi.",
-    //   category: "WORKSHOP",
-    //   categoryColor: "bg-orange-500 text-white",
-    //   image: "/images/scacchiera-grossa.jpg",
-    //   instructors: [
-    //     { name: "CM Emanuele Stella", color: "bg-green-100 text-green-800" }
-    //   ]
-    // }
+    id: 1,
+    title: "1° Turno Campionato a Squadre FSI - Serie Promozione",
+    date: "Domenica 01.02.2026",
+    time: "15:00",
+    location: "Varie sedi (Monterotondo e Piazza Mazzaresi)",
+    description: "Campionato a squadre della FSI! 3 gironi con le nostre squadre: Avamposto Garibaldino Black, White e Blue. FORZA AVAMPOSTO GARIBALDINO!!!",
+    category: "CAMPIONATO",
+    categoryColor: "bg-red-500 text-white",
+    image: "/images/torneo-scacchi.jpg", 
+    teams: [
+      { name: "GIRONE 1: Eretum Scacchi Scacchirotondo vs AVAMPOSTO GARIBALDINO BLACK", location: "Via G. Pascoli 14, Monterotondo" },
+      { name: "GIRONE 2: Eretum Scacchi Scacchirotondo vs AVAMPOSTO GARIBALDINO WHITE", location: "Via G. Pascoli 14, Monterotondo" },
+      { name: "GIRONE 3: Circolo Scacchi Quattro Pedoni vs AVAMPOSTO GARIBALDINO BLUE", location: "Piazza Mazzaresi 11/12" }
+    ]
+  },
+  {
+    id: 2,
+    title: '"A Scuola dai Campioni" - Corso di Scacchi Avanzato',
+    date: "Sabato 24.1.2026",
+    time: "15:20",
+    location: "Mentana, Via Giovanni Giolitti 21/23",
+    description: "Parte il corso 'a scuola dai campioni' con il CM Emanuele Stella e il 1N Riccardo Grammatico! Vi aspettiamo!!!",
+    category: "NUOVO CORSO",
+    categoryColor: "bg-yellow-500 text-black",
+    image: "/images/corso-scacchi.jpg",
+    instructors: [
+      { name: "CM Emanuele Stella", color: "bg-green-100 text-green-800" },
+      { name: "1N Riccardo Grammatico", color: "bg-blue-100 text-blue-800" }
+    ]
+  },
   ];
 
   return (
@@ -102,7 +52,7 @@ const News = () => {
           
           <div className="flex items-center text-sm text-gray-600">
             <Bell className="h-4 w-4 mr-2" />
-            <span>Ultimo aggiornamento: 23-01-2026</span>
+            <span>Ultimo aggiornamento: 31-01-2026</span>
           </div>
         </div>
       </div>
@@ -177,7 +127,7 @@ const News = () => {
                 {news.description}
               </p>
 
-              {/* Istruttori/Tags */}
+              {/* Istruttori/Tags
               {news.instructors.length > 0 && (
                 <div className="flex flex-wrap gap-2 mb-4">
                   {news.instructors.map((instructor, index) => (
@@ -188,8 +138,8 @@ const News = () => {
                       {instructor.name}
                     </span>
                   ))}
-                </div>
-              )}
+                </div> */}
+              {/* )} */}
             </div>
 
             {/* Footer card - rimossa l'interazione */}

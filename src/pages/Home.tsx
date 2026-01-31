@@ -115,27 +115,45 @@ const Home: React.FC = () => {
           {/* Colonna sinistra: Contenuto */}
           <div className="flex-grow lg:w-2/3">
             <div className="flex items-center mb-3">
-              <div className="bg-chess-gold text-chess-dark px-3 py-1 rounded-full text-sm font-bold mr-3">
-                NUOVO CORSO
+              <div className="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold mr-3">
+                CAMPIONATO
               </div>
               <span className="text-chess-gray text-sm">
                 <CalendarDays className="h-4 w-4 inline mr-1" />
-                Sabato 24.1.2026 • ore 15:20
+                Domenica 01.02.2026 • ore 15:00
               </span>
             </div>
             <h3 className="text-2xl md:text-3xl font-bold text-chess-dark mb-4 group-hover:text-chess-gold transition-colors">
-              "A Scuola dai Campioni" - Corso di Scacchi Avanzato
+              1° Turno Campionato a Squadre FSI - Serie Promozione
             </h3>
             <p className="text-chess-gray text-lg mb-6">
-              Sabato 24.1.2026 ore 15.20 a Mentana, Via Giovanni Giolitti 21/23, parte il corso "a scuola dai campioni" 
-              con il CM Emanuele Stella e il 1N Riccardo Grammatico! Vi aspettiamo!!!
+              Parte il campionato a squadre della Federazione Scacchistica Italiana! Tre gironi con le nostre squadre: 
+              Avamposto Garibaldino Black, White e Blue. FORZA RAGAZZI!!!! FORZA AVAMPOSTO GARIBALDINO!!! 
             </p>
-            <div className="flex flex-wrap gap-3 mb-6">
-              <div className="bg-green-300 text-green-800 px-3 py-1 rounded-full text-sm font-medium flex items-center">
-                CM Emanuele Stella
+            <div className="space-y-2 mb-6">
+              <div className="bg-chess-dark/10 rounded-lg p-3">
+                <div className="font-medium text-chess-dark">GIRONE 1</div>
+                <div className="text-chess-gray text-sm">Eretum Scacchi Scacchirotondo vs AVAMPOSTO GARIBALDINO BLACK</div>
+                <div className="text-chess-gray text-sm flex items-center">
+                  <MapPin className="h-3 w-3 mr-1" />
+                  Via G. Pascoli 14, Monterotondo
+                </div>
               </div>
-              <div className="bg-blue-200 text-blue-800 px-3 py-1 rounded-full text-sm font-medium flex items-center">
-                1N Riccardo Grammatico
+              <div className="bg-chess-dark/10 rounded-lg p-3">
+                <div className="font-medium text-chess-dark">GIRONE 2</div>
+                <div className="text-chess-gray text-sm">Eretum Scacchi Scacchirotondo vs AVAMPOSTO GARIBALDINO WHITE</div>
+                <div className="text-chess-gray text-sm flex items-center">
+                  <MapPin className="h-3 w-3 mr-1" />
+                  Via G. Pascoli 14, Monterotondo
+                </div>
+              </div>
+              <div className="bg-chess-dark/10 rounded-lg p-3">
+                <div className="font-medium text-chess-dark">GIRONE 3</div>
+                <div className="text-chess-gray text-sm">Circolo Scacchi Quattro Pedoni vs AVAMPOSTO GARIBALDINO BLUE</div>
+                <div className="text-chess-gray text-sm flex items-center">
+                  <MapPin className="h-3 w-3 mr-1" />
+                  Piazza Mazzaresi 11/12
+                </div>
               </div>
             </div>
             <div className="flex items-center text-chess-gold font-medium">
@@ -148,21 +166,11 @@ const Home: React.FC = () => {
           <div className="lg:w-1/3">
             <div className="relative rounded-xl overflow-hidden shadow-lg h-full min-h-[250px]">
               <img
-                src="/images/corso-scacchi.jpg"
-                alt="Corso Scacchi Avanzato"
+                src="/images/torneo-scacchi.jpg"
+                alt="Campionato a Squadre FSI"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-chess-dark/30 to-transparent"></div>
-              {/* <div className="absolute bottom-4 left-4 right-4">
-                <div className="bg-white/90 backdrop-blur-sm rounded-lg p-3">
-                  <div className="flex items-center">
-                    <MapPin className="h-4 w-4 text-chess-gold mr-2 flex-shrink-0" /> 
-                    <span className="text-sm font-medium text-chess-dark truncate">
-                      Via Giovanni Giolitti 21/23, Mentana
-                    </span> 
-                  </div>
-                </div>
-              </div> */}
             </div>
           </div>
         </div>
