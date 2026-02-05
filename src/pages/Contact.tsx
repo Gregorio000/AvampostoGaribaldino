@@ -19,15 +19,16 @@ const Contact: React.FC = () => {
 
         {/* Intestazione migliorata */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center justify-center mb-4">
+          <div className="inline-flex items-center justify-center">
             <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-chess-dark to-chess-gold bg-clip-text text-transparent">
               Contattaci
             </h1>
           </div>
+          <div className="w-24 h-1 bg-chess-gold mx-auto mt-6 rounded-full mb-4"></div>
           <p className="text-xl text-chess-gray max-w-2xl mx-auto leading-relaxed">
             Scopri la nostra comunità di appassionati scacchisti. Vieni a trovarci per condividere la tua passione!
           </p>
-          <div className="w-24 h-1 bg-chess-gold mx-auto mt-6 rounded-full"></div>
+          
         </div>
 
         {/* Container principale */}

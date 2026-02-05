@@ -236,7 +236,7 @@ const AllenamentoQuotidiano = () => {
 
         {/* Titolo principale */}
         <div className="text-center mb-12">
-          <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-yellow-600 to-amber-600 bg-clip-text text-transparent mb-4">
+          <h1 className="text-5xl font-bold text-chess-dark mb-4 bg-gradient-to-r from-chess-dark to-chess-gold bg-clip-text text-transparent">
             Allenamento Quotidiano
           </h1>
         </div>

@@ -14,7 +14,7 @@ const Header: React.FC = () => {
     { name: 'Scacchiera Gigante', href: '/scacchiera-gigante' },
     { name: 'Patrimonio', href: '/patrimonio' },
     
-    { name: 'Ricordi', href: '/ricordi' },
+    { name: 'Foto', href: '/ricordi' },
 
     // { name: 'Tornei', href: '/tournaments' },
     // { name: 'Impara', href: '/learn' },

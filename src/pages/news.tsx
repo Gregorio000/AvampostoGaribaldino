@@ -1,40 +1,40 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import { ArrowLeft, Calendar, Clock, MapPin, Bell, ChevronRight, Tag } from 'lucide-react';
+import { ArrowLeft, Calendar, Clock, MapPin, Bell, ChevronRight, Tag, Users, User } from 'lucide-react';
 
 const News = () => {
   const newsItems = [
     {
-    id: 1,
-    title: "1° Turno Campionato a Squadre FSI - Serie Promozione",
-    date: "Domenica 01.02.2026",
-    time: "15:00",
-    location: "Varie sedi (Monterotondo e Piazza Mazzaresi)",
-    description: "Campionato a squadre della FSI! 3 gironi con le nostre squadre: Avamposto Garibaldino Black, White e Blue. FORZA AVAMPOSTO GARIBALDINO!!!",
-    category: "CAMPIONATO",
-    categoryColor: "bg-red-500 text-white",
-    image: "/images/torneo-scacchi.jpg", 
-    teams: [
-      { name: "GIRONE 1: Eretum Scacchi Scacchirotondo vs AVAMPOSTO GARIBALDINO BLACK", location: "Via G. Pascoli 14, Monterotondo" },
-      { name: "GIRONE 2: Eretum Scacchi Scacchirotondo vs AVAMPOSTO GARIBALDINO WHITE", location: "Via G. Pascoli 14, Monterotondo" },
-      { name: "GIRONE 3: Circolo Scacchi Quattro Pedoni vs AVAMPOSTO GARIBALDINO BLUE", location: "Piazza Mazzaresi 11/12" }
-    ]
-  },
-  {
-    id: 2,
-    title: '"A Scuola dai Campioni" - Corso di Scacchi Avanzato',
-    date: "Sabato 24.1.2026",
-    time: "15:20",
-    location: "Mentana, Via Giovanni Giolitti 21/23",
-    description: "Parte il corso 'a scuola dai campioni' con il CM Emanuele Stella e il 1N Riccardo Grammatico! Vi aspettiamo!!!",
-    category: "NUOVO CORSO",
-    categoryColor: "bg-yellow-500 text-black",
-    image: "/images/corso-scacchi.jpg",
-    instructors: [
-      { name: "CM Emanuele Stella", color: "bg-green-100 text-green-800" },
-      { name: "1N Riccardo Grammatico", color: "bg-blue-100 text-blue-800" }
-    ]
-  },
+      id: 1,
+      title: "1° Turno Campionato a Squadre FSI - Serie Promozione",
+      date: "Domenica 01.02.2026",
+      time: "15:00",
+      location: "Varie sedi (Monterotondo e Piazza Mazzaresi)",
+      description: "Campionato a squadre della FSI! 3 gironi con le nostre squadre: Avamposto Garibaldino Black, White e Blue. FORZA AVAMPOSTO GARIBALDINO!!!",
+      category: "CAMPIONATO",
+      categoryColor: "bg-red-500 text-white",
+      image: "/turno1/black-0.jpeg", 
+      teams: [
+        { name: "GIRONE 1: Eretum Scacchi Scacchirotondo vs AVAMPOSTO GARIBALDINO BLACK", location: "Via G. Pascoli 14, Monterotondo" },
+        { name: "GIRONE 2: Eretum Scacchi Scacchirotondo vs AVAMPOSTO GARIBALDINO WHITE", location: "Via G. Pascoli 14, Monterotondo" },
+        { name: "GIRONE 3: Circolo Scacchi Quattro Pedoni vs AVAMPOSTO GARIBALDINO BLUE", location: "Piazza Mazzaresi 11/12" }
+      ]
+    },
+    {
+      id: 2,
+      title: '"A Scuola dai Campioni" - Corso di Scacchi Avanzato',
+      date: "Sabato 24.1.2026",
+      time: "15:20",
+      location: "Mentana, Via Giovanni Giolitti 21/23",
+      description: "Parte il corso 'a scuola dai campioni' con il CM Emanuele Stella e il 1N Riccardo Grammatico! Vi aspettiamo!!!",
+      category: "NUOVO CORSO",
+      categoryColor: "bg-yellow-500 text-black",
+      image: "/images/corso-scacchi.jpg",
+      instructors: [
+        { name: "CM Emanuele Stella", color: "bg-green-100 text-green-800" },
+        { name: "1N Riccardo Grammatico", color: "bg-blue-100 text-blue-800" }
+      ]
+    },
   ];
 
   return (
@@ -67,7 +67,7 @@ const News = () => {
             </div>
           </div>
         </div>
-        <h1 className="text-5xl font-bold text-chess-dark mb-4 bg-gradient-to-r from-chess-dark to-chess-gold bg-clip-text text-transparent">
+        <h1 className="text-5xl font-bold bg-gradient-to-r from-chess-dark to-chess-gold bg-clip-text text-transparent leading-[1.3]">
           News & Eventi
         </h1>
         <div className="w-20 h-1 bg-gradient-to-r from-chess-dark to-chess-gold mx-auto mb-4"></div>
@@ -76,7 +76,7 @@ const News = () => {
         </p>
       </div>
 
-      {/* Grid delle card - ora non cliccabili */}
+      {/* Grid delle card */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
         {newsItems.map((news) => (
           <div 
@@ -90,7 +90,6 @@ const News = () => {
                 alt={news.title}
                 className="w-full h-full object-cover"
               />
-              {/* Badge categoria posizionata sopra l'immagine */}
               <div className="absolute top-3 left-3">
                 <span className={`${news.categoryColor} px-3 py-1.5 text-xs font-bold rounded-full shadow-md flex items-center`}>
                   <Tag className="h-3 w-3 mr-1" />
@@ -127,30 +126,58 @@ const News = () => {
                 {news.description}
               </p>
 
-              {/* Istruttori/Tags
-              {news.instructors.length > 0 && (
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {news.instructors.map((instructor, index) => (
-                    <span 
-                      key={index}
-                      className={`${instructor.color} px-2.5 py-1 text-xs rounded-full`}
-                    >
-                      {instructor.name}
-                    </span>
-                  ))}
-                </div> */}
-              {/* )} */}
+              {/* Sezione Squadre */}
+              {news.teams && news.teams.length > 0 && (
+                <div className="mb-4">
+                  <div className="flex items-center mb-2">
+                    <Users className="h-4 w-4 mr-2 text-chess-gold" />
+                    <span className="text-sm font-medium text-chess-dark">Partite in programma:</span>
+                  </div>
+                  <div className="space-y-2">
+                    {news.teams.map((team, index) => (
+                      <div key={index} className="bg-gray-50 p-3 rounded-md border border-gray-200">
+                        <p className="text-sm font-medium text-gray-800 mb-1">{team.name}</p>
+                        <p className="text-xs text-gray-600 flex items-center">
+                          <MapPin className="h-3 w-3 mr-1" />
+                          {team.location}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Sezione Istruttori */}
+              {news.instructors && news.instructors.length > 0 && (
+                <div className="mb-4">
+                  <div className="flex items-center mb-2">
+                    <User className="h-4 w-4 mr-2 text-chess-gold" />
+                    <span className="text-sm font-medium text-chess-dark">Istruttori:</span>
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {news.instructors.map((instructor, index) => (
+                      <span 
+                        key={index}
+                        className={`${instructor.color} px-3 py-1.5 text-xs font-medium rounded-full flex items-center`}
+                      >
+                        <User className="h-3 w-3 mr-1" />
+                        {instructor.name}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
 
-            {/* Footer card - rimossa l'interazione */}
+            {/* Footer card */}
             <div className="px-5 py-4 bg-gray-50 border-t border-gray-100 mt-auto">
               <div className="flex justify-between items-center">
-                {/* <span className="text-xs text-gray-500 font-medium">
-                  Evento #{news.id.toString().padStart(2, '0')}
-                </span> */}
                 <div className="flex items-center text-gray-400">
-                  {/* <span className="text-sm font-medium mr-1">Informazioni</span> */}
-                  {/* <ChevronRight className="h-4 w-4" /> */}
+                  {/* <span className="text-xs font-medium text-gray-500">
+                    {news.teams ? `${news.teams.length} partite` : 
+                     news.instructors ? `${news.instructors.length} istruttori` : 
+                     'Dettagli evento'}
+                  </span> */}
                 </div>
               </div>
             </div>
@@ -158,7 +185,7 @@ const News = () => {
         ))}
       </div>
 
-      {/* Sezione Newsletter */}
+      
       {/* <div className="max-w-4xl mx-auto mt-16 mb-12">
         <div className="bg-gradient-to-r from-chess-dark/10 to-chess-gold/10 rounded-xl p-8 border border-gray-200">
           <div className="text-center">
@@ -182,7 +209,6 @@ const News = () => {
         </div>
       </div> */}
 
-      {/* Informazioni aggiuntive */}
       <div className="max-w-4xl mx-auto mt-12 pt-8 border-t border-gray-200">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
           <div>
@@ -217,7 +243,6 @@ const News = () => {
         </div>
       </div>
 
-      {/* Footer */}
       <div className="mt-16 text-center">
         <p className="text-gray-500 text-sm">
           Per informazioni: avamposto.garibaldino@gmail.com • Tel: +39 338 244 9032

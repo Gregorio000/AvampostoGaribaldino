@@ -213,7 +213,7 @@ const ScacchiMentana = () => {
 
         {/* Titolo principale */}
         <div className="text-center mb-12">
-          <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-gray-800 to-blue-800 bg-clip-text text-transparent mb-4">
+          <h1 className="text-5xl font-bold text-chess-dark mb-4 bg-gradient-to-r from-chess-dark to-chess-gold bg-clip-text text-transparent leading-[1.3]">
             Scacchi a Mentana
           </h1>
         </div>

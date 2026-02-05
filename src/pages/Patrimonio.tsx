@@ -133,11 +133,13 @@ function Patrimonio() {
             Il Patrimonio del Circolo 
           </h1>
           
+          <div className="w-32 h-1 bg-gradient-to-r from-amber-400 to-amber-600 mx-auto mt-6 rounded-full"></div>
+
           <p className="text-xl text-gray-600 mt-4 max-w-3xl mx-auto">
             Scopri le risorse, i materiali e le collezioni che rendono speciale il nostro circolo scacchistico
           </p>
           
-           <div className="w-32 h-1 bg-gradient-to-r from-amber-400 to-amber-600 mx-auto mt-6 rounded-full"></div> 
+            
         </div>
 
         {/* Statistiche */}

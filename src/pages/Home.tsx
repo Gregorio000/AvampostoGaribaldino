@@ -453,6 +453,84 @@ const Home: React.FC = () => {
           
           {/* Galleria Ricordi */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+
+        <Link 
+          to="/ricordi/turno1" 
+          className="group bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 flex flex-col h-full relative transform hover:-translate-y-2"
+        >
+          <div className="relative overflow-hidden">
+            <div className="h-80 overflow-hidden">
+              <img
+                src="/turno1/black-0.jpeg"
+                alt="Venafro"
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              />
+            </div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6">
+              <h3 className="text-2xl font-bold text-white">1° Turno Campionato a Squadre FSI</h3>
+            </div>
+            <div className="absolute top-4 right-4 bg-red-500 text-white text-xs font-semibold px-3 py-1 rounded-full">
+              Evento
+            </div>
+          </div>
+          
+          <div className="p-6 flex-grow">
+            <p className="text-gray-600 mb-4 leading-relaxed">
+              1° Turno Campionato a Squadre FSI - Serie Promozione
+            </p>
+          </div>
+          
+          <div className="p-6 pt-0 border-t border-gray-100 mt-auto">
+            <div className="flex justify-between items-center">
+              <span className="text-sm text-chess-gold font-medium">02 Febbraio 2026</span>
+              <span className="text-sm text-chess-dark font-medium group-hover:translate-x-1 transition-transform duration-300">
+                Scopri di più →
+              </span>
+            </div>
+          </div>
+        </Link>
+
+
+            <Link 
+          to="/ricordi/venafro" 
+          className="group bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 flex flex-col h-full relative transform hover:-translate-y-2"
+        >
+          <div className="relative overflow-hidden">
+            <div className="h-80 overflow-hidden">
+              <img
+                src="/venafro/venafro-0.jpeg"
+                alt="Venafro"
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              />
+            </div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6">
+              <h3 className="text-2xl font-bold text-white">Sfida a Venafro</h3>
+            </div>
+            <div className="absolute top-4 right-4 bg-red-500 text-white text-xs font-semibold px-3 py-1 rounded-full">
+              Evento
+            </div>
+          </div>
+          
+          <div className="p-6 flex-grow">
+            <p className="text-gray-600 mb-4 leading-relaxed">
+              Sfida amichevole contro il circolo Leopoldo Pilla - Venafro 1870.
+            </p>
+          </div>
+          
+          <div className="p-6 pt-0 border-t border-gray-100 mt-auto">
+            <div className="flex justify-between items-center">
+              <span className="text-sm text-chess-gold font-medium">16 Novembre 2025</span>
+              <span className="text-sm text-chess-dark font-medium group-hover:translate-x-1 transition-transform duration-300">
+                Scopri di più →
+              </span>
+            </div>
+          </div>
+        </Link>
+
+
+
+
             {/* Scacchi a Mentana */}
             <Link 
               to="/ricordi/scacchi-mentana" 
@@ -486,7 +564,7 @@ const Home: React.FC = () => {
             </Link>
 
             {/* Centro Estivo */}
-            <Link 
+            {/* <Link 
               to="/ricordi/centro-estivo" 
               className="group bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col h-full hover:-translate-y-2"
             >
@@ -513,10 +591,10 @@ const Home: React.FC = () => {
                   </span>
                 </div>
               </div>
-            </Link>
+            </Link> */}
 
             {/* Gli Inizi */}
-            <Link 
+            {/* <Link 
               to="/ricordi/gli-inizi" 
               className="group bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col h-full hover:-translate-y-2"
             >
@@ -543,7 +621,7 @@ const Home: React.FC = () => {
                   </span>
                 </div>
               </div>
-            </Link>
+            </Link> */}
           </div>
         </div>
       </div>

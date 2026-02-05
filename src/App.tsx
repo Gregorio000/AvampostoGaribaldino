@@ -20,6 +20,16 @@ import ScacchiAlCamybar from './pages/ricordi/scacchi-al-camybar';
 import AllenamentoQuotidiano from './pages/ricordi/allenamento-quotidiano';
 import Loghi from './pages/ricordi/loghi';
 import Venafro from './pages/ricordi/venafro';
+import Starshop from './pages/ricordi/starshop';
+import Turno1 from './pages/ricordi/turno1';
+import Quartotorneo from './pages/ricordi/quarto-torneo';
+import Decimo from './pages/ricordi/decimo-anniversario';
+import Torneoragazzi from './pages/ricordi/torneo-ragazzi';
+import FantasyPub from './pages/ricordi/fantasy-pub';
+
+
+
+
 
 import Soci from './pages/soci';
 import ScacchieraGigante from './pages/scacchiera-gigante';
@@ -104,6 +114,12 @@ function App() {
             <Route path="ricordi/allenamento-quotidiano" element={<AllenamentoQuotidiano />} />
             <Route path="ricordi/loghi" element={<Loghi />} />
             <Route path="ricordi/venafro" element={<Venafro />} />
+            <Route path="ricordi/starshop" element={<Starshop />} />
+            <Route path="ricordi/turno1" element={<Turno1 />} />
+            <Route path="ricordi/quarto-torneo" element={<Quartotorneo />} />
+            <Route path="ricordi/decimo-anniversario" element={<Decimo />} />
+            <Route path="ricordi/torneo-ragazzi" element={<Torneoragazzi />} />
+            <Route path="ricordi/fantasy-pub" element={<FantasyPub />} />
 
             <Route path="soci" element={<Soci />} />
             <Route path="scacchiera-gigante" element={<ScacchieraGigante />} />

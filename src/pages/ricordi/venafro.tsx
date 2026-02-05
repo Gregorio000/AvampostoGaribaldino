@@ -6,7 +6,46 @@ const Venafro = () => {
   const navigate = useNavigate();
 
   const photos = [
-    "/images/LogoAvampGarib.png",
+    "/venafro/venafro-0.jpeg",
+    "/venafro/venafro-1.jpeg",
+    "/venafro/venafro-2.jpeg",
+    "/venafro/venafro-3.jpeg",
+    "/venafro/venafro-4.jpeg",
+    "/venafro/venafro-5.jpeg",
+    "/venafro/venafro-6.jpeg",
+    "/venafro/venafro-7.jpeg",
+    "/venafro/venafro-8.jpeg",
+    "/venafro/venafro-9.jpeg",
+    "/venafro/venafro-10.jpeg",
+    "/venafro/venafro-11.jpeg",
+    "/venafro/venafro-12.jpeg",
+    "/venafro/venafro-13.jpeg",
+    "/venafro/venafro-14.jpeg",
+    "/venafro/venafro-15.jpeg",
+    "/venafro/venafro-16.jpeg",
+    "/venafro/venafro-17.jpeg",
+    "/venafro/venafro-18.jpeg",
+    "/venafro/venafro-19.jpeg",
+    "/venafro/venafro-20.jpeg",
+    "/venafro/venafro-21.jpeg",
+    "/venafro/venafro-22.jpeg",
+    "/venafro/venafro-23.jpeg",
+    "/venafro/venafro-24.jpeg",
+    "/venafro/venafro-25.jpeg",
+    "/venafro/venafro-26.jpeg",
+    "/venafro/venafro-27.jpeg",
+    "/venafro/venafro-28.jpeg",
+    "/venafro/venafro-29.jpeg",
+    "/venafro/venafro-30.jpeg",
+    "/venafro/venafro-31.jpeg",
+    "/venafro/venafro-32.jpeg",
+    "/venafro/venafro-33.jpeg",
+    "/venafro/venafro-34.jpeg",
+    "/venafro/venafro-35.jpeg",
+    "/venafro/venafro-36.jpeg",
+    "/venafro/venafro-37.jpeg",
+    "/venafro/venafro-38.jpeg",
+    "/venafro/venafro-39.jpeg",
   ];
 
   const openModal = useCallback((index: number) => {
@@ -72,7 +111,7 @@ const Venafro = () => {
 
         {/* Titolo principale */}
         <div className="text-center mb-12">
-          <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-yellow-600 to-amber-600 bg-clip-text text-transparent mb-4">
+          <h1 className="text-5xl font-bold text-chess-dark mb-4 bg-gradient-to-r from-chess-dark to-chess-gold bg-clip-text text-transparent leading-[1.3]">
             Sfida amichevole contro il circolo Leopoldo Pilla - Venafro 1870.
           </h1>
         </div>
@@ -87,7 +126,7 @@ const Venafro = () => {
         {/* Galleria Fotografica */}
         <section className="mb-16">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Galleria Storica</h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Galleria Fotografica</h2>
             <div className="w-24 h-1 bg-yellow-500 mx-auto"></div>
           </div>
 
