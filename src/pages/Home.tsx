@@ -448,7 +448,7 @@ const Home: React.FC = () => {
           </div>
 
           <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-chess-dark mb-4">I nostri Ricordi più emozionanti</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-chess-dark mb-4">I momenti più emozionanti dell'Avamposto Garibaldino</h2>
           </div>
           
           {/* Galleria Ricordi */}

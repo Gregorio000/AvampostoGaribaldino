@@ -175,7 +175,7 @@ const Ricordi = () => {
         </h1>
         <div className="w-24 h-1 bg-gradient-to-r from-chess-dark to-chess-gold mx-auto mb-4"></div>
         <p className="text-xl text-gray-600 mt-4 max-w-3xl mx-auto">
-          I momenti più belli dell'Avamposto Garibaldino
+          I momenti più emozionanti dell'Avamposto Garibaldino
         </p>
       </div>
 

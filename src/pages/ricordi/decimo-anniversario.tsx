@@ -34,7 +34,7 @@ const Decimo = () => {
     "/decimo-anniversario/decimo-anniversario-24.jpeg",
     "/decimo-anniversario/decimo-anniversario-25.jpeg",
     "/decimo-anniversario/decimo-anniversario-26.jpeg",
-    "/decimo-anniversario/decimo-anniversario-27jpeg",
+    "/decimo-anniversario/decimo-anniversario-27.jpeg",
     "/decimo-anniversario/decimo-anniversario-28.jpeg",
     "/decimo-anniversario/decimo-anniversario-29.jpeg",
     "/decimo-anniversario/decimo-anniversario-30.jpeg",
