@@ -244,8 +244,8 @@ const News = () => {
       </div>
 
       <div className="mt-16 text-center">
-        <p className="text-gray-500 text-sm">
-          Per informazioni: avamposto.garibaldino@gmail.com • Tel: +39 338 244 9032
+        <p className="text-black-500 text-sm">
+          Per ulteriori informazioni seguici sui social: Instagram e Facebook
         </p>
       </div>
     </div>

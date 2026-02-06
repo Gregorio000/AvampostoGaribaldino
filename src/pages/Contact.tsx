@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { MapPin, Phone, Mail, Clock, ExternalLink, ArrowLeft } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, ExternalLink, ArrowLeft, Download, ArrowRight } from 'lucide-react';
 
 const Contact: React.FC = () => {
   return (
@@ -163,11 +163,44 @@ const Contact: React.FC = () => {
           </div>
         </div>
 
-        {/* Messaggio finale */}
-        <div className="text-center mt-12 bg-chess-gold/10 p-6 rounded-2xl border border-chess-gold/20">
-          <p className="text-chess-dark text-lg font-medium">
-            L'iscrizione ufficiale avviene direttamente in sede. Ti aspettiamo!
-          </p>
+       
+        <div className="mt-16 pt-12 border-t border-gray-200">
+          <section className="py-8 bg-gradient-to-r from-chess-dark/5 to-chess-gold/5 rounded-2xl shadow-lg">
+            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-chess-dark">Vuoi Iscriverti Subito?</h2>
+              <div className="w-32 h-1 bg-chess-gold mx-auto mb-6 rounded-full"></div>
+              <p className="text-xl text-chess-black mb-8 max-w-2xl mx-auto">
+                Scarica il modulo di iscrizione, compilalo e portalo in sede per iniziare la tua avventura scacchistica!
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <a
+                  href="/modulo_di_tesseramento_avamposto_garibaldino_2026.pdf"
+                  download="Iscrizione_Avamposto_Garibaldino.pdf"
+                  className="bg-chess-gold text-chess-dark px-8 py-3 rounded-lg font-semibold hover:bg-chess-gold/90 transition-all duration-300 inline-flex items-center justify-center text-base shadow-lg hover:shadow-xl hover:-translate-y-1"
+                >
+                  <Download className="mr-2 h-5 w-5" />
+                  Scarica Modulo di Iscrizione
+                </a>
+              </div>
+
+              <div className="mt-8 bg-white/50 p-6 rounded-xl max-w-2xl mx-auto">
+                <h3 className="text-lg font-semibold text-chess-dark mb-3">Come Iscriversi:</h3>
+                <ol className="text-left text-chess-black space-y-2 list-decimal pl-5 max-w-md mx-auto">
+                  <li>Scarica il modulo di iscrizione</li>
+                  <li>Compila tutti i campi richiesti</li>
+                  <li>Porta il modulo compilato in sede durante gli orari di apertura</li>
+                  <li>Effettua il pagamento della quota associativa</li>
+                  <li>Diventa un socio ufficiale!</li>
+                </ol>
+              </div>
+              
+              <div className="mt-6 text-chess-gray">
+                <p className="text-sm">
+                  Hai bisogno di aiuto? Contattaci!
+                </p>
+              </div>
+            </div>
+          </section>
         </div>
       </div>
     </div>

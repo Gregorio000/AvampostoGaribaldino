@@ -167,8 +167,8 @@ const Squadre = () => {
           </div>
           <div className="bg-white rounded-xl shadow-md p-6 text-center border border-gray-200">
             <Users className="h-8 w-8 text-chess-gold mx-auto mb-3" />
-            <div className="text-2xl font-bold text-chess-dark">{totaleGiocatori}</div>
-            <div className="text-gray-600">Totale Giocatori</div>
+            <div className="text-2xl font-bold text-chess-dark">15</div>
+            <div className="text-gray-600">Giocatori per ogni Squadra</div>
           </div>
         </div>
       </div>

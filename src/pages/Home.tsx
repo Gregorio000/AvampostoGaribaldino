@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Trophy, Users, Calendar, Star, ArrowRight, ChevronRight, Heart, Award, Shield, BookOpen, Bell, CalendarDays, MapPin } from 'lucide-react';
+import { Trophy, Users, Calendar, Star, ArrowRight, ChevronRight, Heart, Award, Shield, BookOpen, Bell, CalendarDays, MapPin, Download } from 'lucide-react';
 import { FaFacebookF, FaInstagram, FaChessRook } from 'react-icons/fa';
 
 const ImageCarousel: React.FC = () => {
@@ -13,6 +13,8 @@ const ImageCarousel: React.FC = () => {
     "/ricordi-vecchi/ricordo-vecchio1.jpg",
     "/foto-scacchiera-gigante/realizzata1.jpg",
     "/scacchi-mentana/domenica 15 nov 2020.jpg",
+    "/decimo-anniversario/decimo-anniversario-00.jpeg",
+    "/images/Prova1.jpg"
   ];
 
   useEffect(() => {
@@ -78,7 +80,7 @@ const Home: React.FC = () => {
               to="/contact"
               className="border-2 border-chess-gold text-white px-8 py-3 rounded-lg font-semibold hover:bg-chess-gold hover:text-chess-dark transition-all duration-300 text-base hover:-translate-y-1"
             >
-              Dove trovarci
+              Contattaci ed Iscriviti
             </Link>
           </div>
         </div>
@@ -166,7 +168,7 @@ const Home: React.FC = () => {
           <div className="lg:w-1/3">
             <div className="relative rounded-xl overflow-hidden shadow-lg h-full min-h-[250px]">
               <img
-                src="/images/torneo-scacchi.jpg"
+                src="/turno1/black-0.jpeg"
                 alt="Campionato a Squadre FSI"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
@@ -178,6 +180,9 @@ const Home: React.FC = () => {
     </Link>
   </div>
 </div>
+  
+<div className="w-full max-w-xl h-1.5 bg-chess-gold mx-auto mt-6 rounded-full"></div>
+
   
       {/* Sezione Storia migliorata */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
@@ -216,63 +221,143 @@ const Home: React.FC = () => {
   </div>
 </div>
 
-        {/* Sezione Gruppi Online migliorata */}
-        <div className="mb-20">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-chess-dark mb-4">Gioca con Noi Online</h2>
-            <p className="text-xl text-chess-gray max-w-2xl mx-auto">
-              Unisciti alla nostra community digitale e continua a giocare anche da casa
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {/* Card Chess.com */}
-            <div className="bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-xl p-8 text-center hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:-translate-y-2">
-              <div className="bg-blue-50 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <img 
-                  src="/images/chesscom.png" 
-                  alt="Chess.com logo" 
-                  className="h-12 w-12"
-                />
-              </div>
-              <h3 className="text-2xl font-semibold text-chess-dark mb-4">ASD Mentana Scacchi - Avamposto Garibaldino</h3>
-              <p className="text-chess-gray mb-6">
-                Unisciti al nostro club su Chess.com per giocare online, partecipare a tornei e migliorare il tuo gioco con analisi dettagliate.
-              </p>
-              <a
-                href="https://www.chess.com/club/asd-mentana-scacchi-avamposto-garibaldino"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors inline-flex items-center justify-center mx-auto"
-              >
-                Unisciti su Chess.com
-              </a>
-            </div>
+<div className="w-full max-w-xl h-1.5 bg-chess-gold mx-auto mt-6 rounded-full mb-4"></div>
 
-            {/* Card Lichess */}
-            <div className="bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-xl p-8 text-center hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:-translate-y-2">
-              <div className="bg-gray-100 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <img 
-                  src="/images/lichess.png" 
-                  alt="Lichess logo" 
-                  className="h-12 w-12"
-                />
-              </div>
-              <h3 className="text-2xl font-semibold text-chess-dark mb-4">Avamposto Junior Online</h3>
-              <p className="text-chess-gray mb-6">
-                Il nostro team su Lichess dedicato ai giovani giocatori. Partecipa ai tornei e impara con i nostri istruttori esperti.
-              </p>
-              <a
-                href="https://lichess.org/team/avamposto-junior-online"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-green-800 text-white px-6 py-3 rounded-lg font-medium hover:bg-green-900 transition-colors inline-flex items-center justify-center mx-auto"
-              >
-                Unisciti su Lichess
-              </a>
-            </div>
-          </div>
+
+{/* <section className="py-16 bg-white-800 text-black">
+  <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 className="text-3xl md:text-5xl font-bold mb-6">Vuoi Unirti a Noi?</h2>
+    <p className="text-xl text-black-200 mb-8 max-w-2xl mx-auto">
+      Diventa Socio Ordinario dell'Avamposto Garibaldino e inizia il tuo viaggio nell'affascinante mondo degli scacchi.
+    </p>
+    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+      <a
+        href="/esercizi.pdf" // Sostituisci con il percorso effettivo del tuo file PDF
+        download="Iscrizione_Avamposto_Garibaldino.pdf"
+        className="bg-chess-gold text-chess-dark px-8 py-3 rounded-lg font-semibold hover:bg-chess-gold/90 transition-all duration-300 inline-flex items-center justify-center text-base shadow-lg"
+      >
+        Scarica Modulo di Iscrizione
+        <Download className="ml-2 h-5 w-5" />
+      </a>
+      
+      <Link
+        to="/contact"
+        className="bg-transparent border-2 border-chess-gold text-chess-gold px-8 py-3 rounded-lg font-semibold hover:bg-chess-gold hover:text-chess-dark transition-all duration-300 inline-flex items-center justify-center text-base"
+      >
+        Contattaci
+        <ArrowRight className="ml-2 h-5 w-5" />
+      </Link>
+    </div>
+    
+    <p className="mt-6 text-black-300 text-md">
+      Compila il modulo e invialo via email: <span className="text-chess-gold">avamposto.garibaldino@gmail.com</span>
+    </p>
+  </div>
+</section> */}
+
+
+<section className="py-8 text-center">
+  <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 className="text-3xl md:text-4xl font-bold mb-6 text-chess-dark">Vuoi Iscriverti Subito?</h2>
+    {/* <div className="w-32 h-1 bg-chess-gold mx-auto mb-6 rounded-full"></div> */}
+    <p className="text-xl text-chess-black mb-8 max-w-2xl mx-auto">
+      Scarica il modulo di iscrizione, compilalo e portalo in sede per iniziare la tua avventura scacchistica!
+    </p>
+    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+      <a
+        href="/modulo_di_tesseramento_avamposto_garibaldino_2026.pdf"
+        download="Iscrizione_Avamposto_Garibaldino.pdf"
+        className="bg-chess-gold text-chess-dark px-8 py-3 rounded-lg font-semibold hover:bg-chess-gold/90 transition-all duration-300 inline-flex items-center justify-center text-base shadow-lg hover:shadow-xl hover:-translate-y-1"
+      >
+        <Download className="mr-2 h-5 w-5" />
+        Scarica Modulo di Iscrizione
+      </a>
+    </div>
+
+    <div className="mt-8 p-6 max-w-2xl mx-auto">
+      <h3 className="text-lg font-semibold text-chess-dark mb-3">Come Iscriversi:</h3>
+      <ol className="text-left text-chess-black space-y-2 list-decimal pl-5 max-w-md mx-auto">
+        <li>Scarica il modulo di iscrizione</li>
+        <li>Compila tutti i campi richiesti</li>
+        <li>Porta il modulo compilato in sede durante gli orari di apertura</li>
+        <li>Effettua il pagamento della quota associativa</li>
+        <li>Diventa un socio ufficiale!</li>
+      </ol>
+    </div>
+    
+    <div className="mt-6 text-chess-gray">
+      <p className="text-sm">
+        Hai bisogno di aiuto? Contattaci!
+      </p>
+    </div>
+  </div>
+</section>
+
+{/* Riga di separazione centrale */}
+<div className="w-full max-w-xl h-1.5 bg-chess-gold mx-auto mt-6 rounded-full mb-4"></div>
+
+
+{/* Sezione Gruppi Online migliorata */}
+<section className="py-16">
+  <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="text-center mb-12">
+      <h2 className="text-4xl md:text-5xl font-bold text-chess-dark mb-4">Gioca con Noi Online</h2>
+      <p className="text-xl text-chess-gray max-w-2xl mx-auto">
+        Unisciti alla nostra community digitale e continua a giocare anche da casa
+      </p>
+    </div>
+    
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      {/* Card Chess.com */}
+      <div className="bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-xl p-8 text-center hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:-translate-y-2">
+        <div className="bg-blue-50 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+          <img 
+            src="/images/chesscom.png" 
+            alt="Chess.com logo" 
+            className="h-12 w-12"
+          />
         </div>
+        <h3 className="text-2xl font-semibold text-chess-dark mb-4">ASD Mentana Scacchi - Avamposto Garibaldino</h3>
+        <p className="text-chess-gray mb-6">
+          Unisciti al nostro club su Chess.com per giocare online, partecipare a tornei e migliorare il tuo gioco con analisi dettagliate.
+        </p>
+        <a
+          href="https://www.chess.com/club/asd-mentana-scacchi-avamposto-garibaldino"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors inline-flex items-center justify-center mx-auto"
+        >
+          Unisciti su Chess.com
+        </a>
+      </div>
+
+      {/* Card Lichess */}
+      <div className="bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-xl p-8 text-center hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:-translate-y-2">
+        <div className="bg-gray-100 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+          <img 
+            src="/images/lichess.png" 
+            alt="Lichess logo" 
+            className="h-12 w-12"
+          />
+        </div>
+        <h3 className="text-2xl font-semibold text-chess-dark mb-4">Avamposto Junior Online</h3>
+        <p className="text-chess-gray mb-6">
+          Il nostro team su Lichess dedicato ai giovani giocatori. Partecipa ai tornei e impara con i nostri istruttori esperti.
+        </p>
+        <a
+          href="https://lichess.org/team/avamposto-junior-online"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-green-800 text-white px-6 py-3 rounded-lg font-medium hover:bg-green-900 transition-colors inline-flex items-center justify-center mx-auto"
+        >
+          Unisciti su Lichess
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div className="w-full max-w-xl h-1.5 bg-chess-gold mx-auto mt-6 rounded-full mb-10"></div>
 
         {/* Nuova Sezione Seguici sui Social */}
         <div className="mb-20">
@@ -324,6 +409,9 @@ const Home: React.FC = () => {
           </div>
         </div>
 
+<div className="w-full max-w-xl h-1.5 bg-chess-gold mx-auto mt-6 rounded-full mb-10"></div>
+
+
         {/* Sezione Il Nostro Circolo migliorata */}
         <div className="mb-20">
           <div className="text-center mb-12">
@@ -363,6 +451,10 @@ const Home: React.FC = () => {
                 </div>
               </Link>
           </div>
+
+
+<div className="w-full max-w-xl h-1.5 bg-chess-gold mx-auto mt-6 rounded-full mb-10"></div>
+
 
           {/* Sezione Scacchiera Gigante */}
           <div className="mb-20">
@@ -406,6 +498,10 @@ const Home: React.FC = () => {
             </div>
           </div>
 
+
+          <div className="w-full max-w-xl h-1.5 bg-chess-gold mx-auto mt-6 rounded-full mb-10"></div>
+
+
           {/* Nuova Sezione Patrimonio */}
           <div className="mb-20">
             <div className="text-center mb-12">
@@ -447,9 +543,23 @@ const Home: React.FC = () => {
             </div>
           </div>
 
+          <div className="w-full max-w-xl h-1.5 bg-chess-gold mx-auto mt-6 rounded-full mb-10"></div>
+
+
           <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-chess-dark mb-4">I momenti più emozionanti dell'Avamposto Garibaldino</h2>
-          </div>
+  <div className="flex items-center justify-between mb-4">
+    <h3 className="text-4xl md:text-5xl font-bold text-chess-dark">
+      I momenti dell'Avamposto Garibaldino
+    </h3>
+    <Link 
+  to="/ricordi" 
+  className="text-chess-gold hover:text-chess-dark font-medium transition-colors flex items-center text-sm md:text-base whitespace-nowrap"
+>
+  Vedi le foto
+  <ArrowRight className="h-4 w-4 ml-1" />
+</Link>
+  </div>
+</div>
           
           {/* Galleria Ricordi */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -484,8 +594,8 @@ const Home: React.FC = () => {
           <div className="p-6 pt-0 border-t border-gray-100 mt-auto">
             <div className="flex justify-between items-center">
               <span className="text-sm text-chess-gold font-medium">02 Febbraio 2026</span>
-              <span className="text-sm text-chess-dark font-medium group-hover:translate-x-1 transition-transform duration-300">
-                Scopri di più →
+              <span className="text-sm text-chess-dark font-medium flex items-center">
+                Scopri di più <ArrowRight className="h-4 w-4 ml-1" />
               </span>
             </div>
           </div>
@@ -521,12 +631,13 @@ const Home: React.FC = () => {
           <div className="p-6 pt-0 border-t border-gray-100 mt-auto">
             <div className="flex justify-between items-center">
               <span className="text-sm text-chess-gold font-medium">16 Novembre 2025</span>
-              <span className="text-sm text-chess-dark font-medium group-hover:translate-x-1 transition-transform duration-300">
-                Scopri di più →
+              <span className="text-sm text-chess-dark font-medium flex items-center">
+                Scopri di più <ArrowRight className="h-4 w-4 ml-1" />
               </span>
             </div>
           </div>
         </Link>
+
 
 
 
@@ -547,7 +658,11 @@ const Home: React.FC = () => {
                     La Nostra Storia Scacchistica
                   </h3>
                 </div>
+                <div className="absolute top-4 right-4 bg-chess-gold text-white text-xs font-semibold px-3 py-1 rounded-full">
+              Storico
               </div>
+              </div>
+              
               <div className="p-6 flex-grow">
                 <p className="text-chess-gray mb-4">
                   Scopri l'evoluzione del nostro circolo attraverso gli anni
@@ -563,87 +678,42 @@ const Home: React.FC = () => {
               </div>
             </Link>
 
-            {/* Centro Estivo */}
-            {/* <Link 
-              to="/ricordi/centro-estivo" 
-              className="group bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col h-full hover:-translate-y-2"
-            >
-              <div className="relative overflow-hidden">
-                <img
-                  src="/centro-estivo/cavallo1.jpg"
-                  alt="Centro Estivo"
-                  className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-chess-dark/70 to-transparent flex items-end p-6">
-                  <h3 className="text-xl font-semibold text-white">Centro Estivo</h3>
-                </div>
-              </div>
-              <div className="p-6 flex-grow">
-                <p className="text-chess-gray mb-4">
-                  Esperienze estive dedicate ai giovani appassionati di scacchi
-                </p>
-              </div>
-              <div className="p-4 border-t border-gray-100 bg-gray-50">
-                <div className="flex justify-between items-center">
-                  <span className="text-sm text-chess-gold"></span>
-                  <span className="text-sm text-chess-dark font-medium flex items-center">
-                    Scopri di più <ArrowRight className="h-4 w-4 ml-1" />
-                  </span>
-                </div>
-              </div>
-            </Link> */}
-
-            {/* Gli Inizi */}
-            {/* <Link 
-              to="/ricordi/gli-inizi" 
-              className="group bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col h-full hover:-translate-y-2"
-            >
-              <div className="relative overflow-hidden">
-                <img
-                  src="/ricordi-vecchi/ricordo-vecchio1.jpg"
-                  alt="Gli Inizi"
-                  className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-chess-dark/70 to-transparent flex items-end p-6">
-                  <h3 className="text-xl font-semibold text-white">Gli Inizi</h3>
-                </div>
-              </div>
-              <div className="p-6 flex-grow">
-                <p className="text-chess-gray mb-4">
-                  I primi tornei e le fondazione dell'Avamposto Garibaldino
-                </p>
-              </div>
-              <div className="p-4 border-t border-gray-100 bg-gray-50">
-                <div className="flex justify-between items-center">
-                  <span className="text-sm text-chess-gold"></span>
-                  <span className="text-sm text-chess-dark font-medium flex items-center">
-                    Scopri di più <ArrowRight className="h-4 w-4 ml-1" />
-                  </span>
-                </div>
-              </div>
-            </Link> */}
+           
           </div>
         </div>
       </div>
 
       {/* CTA Section finale */}
-      <section className="py-16 bg-chess-black text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Pronto a Unirti a Noi?</h2>
-          <p className="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
-            Diventa parte della nostra community scacchistica e inizia il tuo viaggio nell'affascinante mondo degli scacchi
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              to="/contact"
-              className="bg-chess-gold text-chess-dark px-8 py-3 rounded-lg font-semibold hover:bg-chess-gold/90 transition-all duration-300 inline-flex items-center justify-center text-base shadow-lg"
-            >
-              Contattaci
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* <section className="py-16 bg-red-800 text-white">
+  <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 className="text-3xl md:text-4xl font-bold mb-6">Sei Pronto ad Unirti a Noi?</h2>
+    <p className="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
+      Diventa socio ordinario dell'Avamposto Garibaldino e inizia il tuo viaggio nell'affascinante mondo degli scacchi.
+    </p>
+    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+      <a
+        href="/esercizi.pdf" // Sostituisci con il percorso effettivo del tuo file PDF
+        download="Iscrizione_Avamposto_Garibaldino.pdf"
+        className="bg-chess-gold text-chess-dark px-8 py-3 rounded-lg font-semibold hover:bg-chess-gold/90 transition-all duration-300 inline-flex items-center justify-center text-base shadow-lg"
+      >
+        Scarica Modulo di Iscrizione
+        <Download className="ml-2 h-5 w-5" />
+      </a>
+      
+      <Link
+        to="/contact"
+        className="bg-transparent border-2 border-chess-gold text-chess-gold px-8 py-3 rounded-lg font-semibold hover:bg-chess-gold hover:text-chess-dark transition-all duration-300 inline-flex items-center justify-center text-base"
+      >
+        Contattaci
+        <ArrowRight className="ml-2 h-5 w-5" />
+      </Link>
+    </div>
+    
+    <p className="mt-6 text-gray-300 text-sm">
+      Compila il modulo e invialo via email: <span className="text-chess-gold">avamposto.garibaldino@gmail.com</span>
+    </p>
+  </div>
+</section> */}
     </div>
   );
 };

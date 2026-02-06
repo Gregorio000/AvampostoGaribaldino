@@ -83,7 +83,7 @@ const Soci: React.FC = () => {
     id: 11,
     nome: "Campanile Angelo",
     ruolo: "Socio Onorario",
-    immagine: "/images/LogoNuovo2.png",
+    immagine: "/soci/campanile-angelo.jpeg",
     descrizione: "",
   },
   {
@@ -109,6 +109,13 @@ const Soci: React.FC = () => {
   },
   {
     id: 15,
+    nome: "Piergotti Goffredo",
+    ruolo: "Socio Onorario",
+    immagine: "/soci/piergotti-goffredo.jpeg",
+    descrizione: "",
+  },
+  {
+    id: 15,
     nome: "Poiani Fernando Celso",
     ruolo: "Socio Onorario",
     immagine: "/soci/fernando-celso-poiani.jpeg",
@@ -120,6 +127,20 @@ const Soci: React.FC = () => {
     ruolo: "Socio Onorario",
     immagine: "/soci/rocchetti-sergio.jpeg",
     descrizione: "",
+  },
+  {
+    id: 17,
+    nome: "Rosselli Massimo del Turco",
+    ruolo: "Socio Onorario",
+    immagine: "/images/LogoNuovo2.png",
+    descrizione: "",
+  },
+  {
+    id: 17,
+    nome: "Scorca Eugenio",
+    ruolo: "Socio Onorario",
+    immagine: "/soci/scorca-eugenio.jpeg",
+    descrizione: "Artigiano delle scacchiere in legno",
   },
   {
     id: 17,
@@ -197,14 +218,14 @@ const Soci: React.FC = () => {
     id: 27,
     nome: "Nuzzo Daniele",
     ruolo: "Socio Ordinario",
-    immagine: "/soci/nuzzo-daniele.jpeg",
+    immagine: "/images/LogoNuovo2.png",
     descrizione: "",
   },
   {
     id: 28,
     nome: "Paoloni Roberto",
     ruolo: "Socio Ordinario",
-    immagine: "/soci/paoloni-roberto.jpg",
+    immagine: "/soci/paoloni-roberto2.jpeg",
     descrizione: "",
   },
   {
@@ -227,7 +248,7 @@ const Soci: React.FC = () => {
     id: 31,
     nome: "Campanile Giuseppe",
     ruolo: "Socio Junior",
-    immagine: "/images/LogoNuovo2.png",
+    immagine: "/soci/campanile-giuseppe.jpeg",
     descrizione: "",
   },
   {

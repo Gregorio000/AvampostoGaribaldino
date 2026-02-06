@@ -111,15 +111,15 @@ const Scacchiere = () => {
           </div>
           <div className="bg-white rounded-lg p-4 text-center shadow border border-emerald-200">
             <div className="text-xl font-bold text-emerald-700">{scacchiereCount}</div>
-            <div className="text-sm text-emerald-600">Scacchiere</div>
+            <div className="text-sm text-emerald-600">Tipi di Scacchiere</div>
           </div>
           <div className="bg-white rounded-lg p-4 text-center shadow border border-emerald-200">
             <div className="text-xl font-bold text-emerald-700">{scacchiCount}</div>
-            <div className="text-sm text-emerald-600">Set Scacchi</div>
+            <div className="text-sm text-emerald-600">Tipi di Set di Scacchi</div>
           </div>
           <div className="bg-white rounded-lg p-4 text-center shadow border border-emerald-200">
             <div className="text-xl font-bold text-emerald-700">{orologiCount}</div>
-            <div className="text-sm text-emerald-600">Orologi</div>
+            <div className="text-sm text-emerald-600">Tipi di Orologi</div>
           </div>
         </div>
 
