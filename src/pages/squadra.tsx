@@ -15,19 +15,19 @@ const Squadre = () => {
       giocatori: [
         { nome: "STELLA EMANUELE" },
         { nome: "GRAMMATICO RICCARDO" },
+        { nome: "CIUFOLINI SIRIO" },
         { nome: "MILITERNI PIERLUIGI" },
         { nome: "CAPARROTTA FEDERICO" },
-        { nome: "MASTRODDI FABIO" },
         { nome: "ANGELI FRANCESCO" },
         { nome: "NUZZO DANIELE" },
         { nome: "FUMAGALLI MAURO" },
         { nome: "POIANI FERNANDO CELSO" },
-        { nome: "BHATTI MOHAMMAD ADIL" },
         { nome: "GISMONDI GHERARDO MARIA" },
         { nome: "DI MARCO SIMONE" },
         { nome: "DE SIMONE ANDREA" },
         { nome: "IACOVELLI ENRICO" },
-        { nome: "VENTURI RICCARDO" }
+        { nome: "VENTURI RICCARDO" },
+        { nome: "CARUSO GREGORIO" },
       ]
     },
     {

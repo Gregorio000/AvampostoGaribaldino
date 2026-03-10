@@ -2,24 +2,18 @@ import { useState, useEffect, useCallback } from "react";
 import { MapPin, Calendar, Clock, Users, Trophy, ArrowLeft } from 'lucide-react';
 import { useNavigate } from "react-router-dom";
 
-const Turno1 = () => {
+const Turno3 = () => {
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
   const navigate = useNavigate();
 
   const photos = [
-    "/turno1/black-0.jpeg",
-    "/turno1/black-1.jpeg",
-    "/turno1/black-2.jpeg",
-    "/turno1/black-3.jpeg",
-    "/turno1/black-4.jpeg",
-    "/turno1/black-5.jpeg",
-    "/turno1/black-6.jpeg",
-    "/turno1/black-7.jpeg",
-    "/turno1/blue-1.jpeg",
-    "/turno1/blue-2.jpeg",
-    "/turno1/classifica1.jpg",
-    "/turno1/classifica2.jpg",
-    "/turno1/classifica3.jpg",
+    "/turno3/turno3 (1).jpeg",
+    "/turno3/turno3 (2).jpeg",
+    "/turno3/turno3 (3).jpeg",
+    "/turno3/turno3 (4).jpeg",
+    "/turno3/classifica1.jpg",
+    "/turno3/classifica2.jpg",
+    "/turno3/classifica3.jpg",
   ];
 
   const openModal = useCallback((index: number) => {
@@ -86,14 +80,14 @@ const Turno1 = () => {
         {/* Titolo principale */}
         <div className="text-center mb-8">
           <h1 className="text-5xl font-bold text-chess-dark mb-4 bg-gradient-to-r from-chess-dark to-chess-gold bg-clip-text text-transparent leading-[1.3]">
-            1° Turno Campionato a Squadre FSI.
+            3° Turno Campionato a Squadre FSI.
           </h1>
         
         <p className="text-2xl text-chess-dark font-semibold">Serie Promozione Lazio</p>
           <div className="flex items-center justify-center mt-4 space-x-4">
             <span className="bg-chess-dark text-white px-4 py-2 rounded-full text-sm font-medium flex items-center">
               <Calendar className="w-4 h-4 mr-2" />
-              Domenica 1 Febbraio 2026
+              Domenica 22 Febbraio 2026
             </span>
           </div>
           </div>
@@ -101,11 +95,13 @@ const Turno1 = () => {
         {/* Sezione descrittiva breve */}
         <div className="bg-white rounded-2xl shadow-xl p-8 mb-12 border border-amber-100  max-w-4xl mx-auto">
           <p className="text-xl text-gray-700 leading-relaxed">
-            1° Turno Campionato a Squadre FSI. Un vero sogno hanno ieri pomeriggio vissuto i tifosi e i giocatori della squadra di scacchi di Mentana Avamposto Garibaldino. 
+            3° Turno Campionato a Squadre FSI. 
             <br />
-            Nel primo turno del campionato Serie Promozione registriamo la vittoria per 2,5 a 1,5 delle due squadre esordienti Black e White che hanno sconfitto nel derby delle ore 15 le squadre di Monterotondo, l'Eretum Scacchi e l'Eretum Juniores. 
+            Nel Girone 1 l'Avamposto Garibaldino Black si impone a Manziana per 2,5 a 1,5 contro Pianeta Scacchi: Gismondi strappa la patta al CM e Arbitro Internazionale Sergio Pagano, mentre Ventilii conquista la vittoria decisiva. 
             <br />
-            Mentre la più rodata Blue ha imposto il pareggio in trasferta alla solida formazione del Club 4 Pedoni della Balduina di Roma.
+            Nel Girone 2 i giovani del White strappano un prezioso pareggio in trasferta a Civitavecchia contro la capolista imbattuta Bivacco dello Scacco Young. 
+            <br />
+            Brutta sconfitta invece per il Blue nel Girone 3, che cade 3-1 a Farfa e dovrà vincere con ampio margine le ultime due partite per sperare nella qualificazione.
             <br />
             SCORRI IN BASSO PER SCOPRIRE TUTTI I RISULTATI DELLA GIORNATA E LE CLASSIFICHE COMPLETE!
           </p>
@@ -197,4 +193,4 @@ const Turno1 = () => {
   );
 };
 
-export default Turno1;
+export default Turno3;

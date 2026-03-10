@@ -92,98 +92,91 @@ const Home: React.FC = () => {
       </section>
 
       {/* Sezione Ultima Notizia */}
-<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-12">
-  <div className="">
-    <div className="flex items-center justify-between mb-6">
-      <div className="flex items-center">
-        <Bell className="h-8 w-8 text-chess-gold mr-3" />
-        <h2 className="text-3xl md:text-4xl font-bold text-chess-dark">Ultima Notizia</h2>
-      </div>
-      <Link 
-        to="/news" 
-        className="text-chess-gold hover:text-chess-dark font-medium transition-colors flex items-center"
-      >
-        Vedi tutte le notizie
-        <ArrowRight className="h-4 w-4 ml-1" />
-      </Link>
-    </div>
-    
-    <Link 
-      to="/news" 
-      className="group bg-gradient-to-r from-chess-dark/5 via-chess-dark/10 to-chess-dark/5 rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-chess-dark/20 hover:-translate-y-1 block"
-    >
-      <div className="p-8">
-        <div className="flex flex-col lg:flex-row gap-8">
-          {/* Colonna sinistra: Contenuto */}
-          <div className="flex-grow lg:w-2/3">
-            <div className="flex items-center mb-3">
-              <div className="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold mr-3">
-                CAMPIONATO
-              </div>
-              <span className="text-chess-gray text-sm">
-                <CalendarDays className="h-4 w-4 inline mr-1" />
-                Domenica 01.02.2026 • ore 15:00
-              </span>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-12">
+        <div className="">
+          <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center">
+              <Bell className="h-8 w-8 text-chess-gold mr-3" />
+              <h2 className="text-3xl md:text-4xl font-bold text-chess-dark">Ultima Notizia</h2>
             </div>
-            <h3 className="text-2xl md:text-3xl font-bold text-chess-dark mb-4 group-hover:text-chess-gold transition-colors">
-              1° Turno Campionato a Squadre FSI - Serie Promozione
-            </h3>
-            <p className="text-chess-gray text-lg mb-6">
-              Parte il campionato a squadre della Federazione Scacchistica Italiana! Tre gironi con le nostre squadre: 
-              Avamposto Garibaldino Black, White e Blue. FORZA RAGAZZI!!!! FORZA AVAMPOSTO GARIBALDINO!!! 
-            </p>
-            <div className="space-y-2 mb-6">
-              <div className="bg-chess-dark/10 rounded-lg p-3">
-                <div className="font-medium text-chess-dark">GIRONE 1</div>
-                <div className="text-chess-gray text-sm">Eretum Scacchi Scacchirotondo vs AVAMPOSTO GARIBALDINO BLACK</div>
-                <div className="text-chess-gray text-sm flex items-center">
-                  <MapPin className="h-3 w-3 mr-1" />
-                  Via G. Pascoli 14, Monterotondo
-                </div>
-              </div>
-              <div className="bg-chess-dark/10 rounded-lg p-3">
-                <div className="font-medium text-chess-dark">GIRONE 2</div>
-                <div className="text-chess-gray text-sm">Eretum Scacchi Scacchirotondo vs AVAMPOSTO GARIBALDINO WHITE</div>
-                <div className="text-chess-gray text-sm flex items-center">
-                  <MapPin className="h-3 w-3 mr-1" />
-                  Via G. Pascoli 14, Monterotondo
-                </div>
-              </div>
-              <div className="bg-chess-dark/10 rounded-lg p-3">
-                <div className="font-medium text-chess-dark">GIRONE 3</div>
-                <div className="text-chess-gray text-sm">Circolo Scacchi Quattro Pedoni vs AVAMPOSTO GARIBALDINO BLUE</div>
-                <div className="text-chess-gray text-sm flex items-center">
-                  <MapPin className="h-3 w-3 mr-1" />
-                  Piazza Mazzaresi 11/12
-                </div>
-              </div>
-            </div>
-            <div className="flex items-center text-chess-gold font-medium">
-              Scopri tutti i dettagli 
-              <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-2 transition-transform" />
-            </div>
+            <Link 
+              to="/news" 
+              className="text-chess-gold hover:text-chess-dark font-medium transition-colors flex items-center"
+            >
+              Vedi tutte le notizie
+              <ArrowRight className="h-4 w-4 ml-1" />
+            </Link>
           </div>
           
-          {/* Colonna destra: Foto */}
-          <div className="lg:w-1/3">
-            <div className="relative rounded-xl overflow-hidden shadow-lg h-full min-h-[250px]">
-              <img
-                src="/turno1/black-0.jpeg"
-                alt="Campionato a Squadre FSI"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-chess-dark/30 to-transparent"></div>
-            </div>
+          {/* ULTIMA NOTIZIA - ESORDIO IN SERIE B */}
+<Link 
+  to="/news" 
+  className="group bg-gradient-to-r from-chess-dark/5 via-chess-dark/10 to-chess-dark/5 rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-chess-dark/20 hover:-translate-y-1 block"
+>
+  <div className="p-8">
+    <div className="flex flex-col lg:flex-row gap-8">
+      {/* Colonna sinistra: Contenuto */}
+      <div className="flex-grow lg:w-2/3">
+        <div className="flex items-center mb-3">
+          <div className="bg-purple-600 text-white px-3 py-1 rounded-full text-sm font-bold mr-3">
+            SERIE B - EVENTO STORICO
           </div>
+          <span className="text-chess-gray text-sm">
+            <CalendarDays className="h-4 w-4 inline mr-1" />
+            Venerdi 13.03.2026 
+          </span>
+        </div>
+        <h3 className="text-2xl md:text-3xl font-bold text-chess-dark mb-4 group-hover:text-chess-gold transition-colors">
+          AVAMPOSTO GARIBALDINO RED IN SERIE B!
+        </h3>
+        <p className="text-chess-gray text-lg mb-6">
+          Un traguardo storico per la nostra associazione! La formazione 
+          Avamposto Garibaldino RED, esordisce nel Campionato Italiano di Serie B. 
+          Un sogno che diventa realtà per tutto il movimento scacchistico mentanese.
+        </p>
+        <div className="space-y-2 mb-6">
+          <div className="bg-purple-600/10 rounded-lg p-3 border-l-4 border-purple-600">
+            <div className="font-medium text-chess-dark flex items-center justify-between">
+              <span>SERIE B - GIRONE 18</span>
+              {/* <span className="bg-purple-200 text-purple-800 px-2 py-0.5 rounded-full text-xs font-bold">DEBUTTO</span> */}
+            </div>
+            <div className="text-chess-gray text-sm font-medium">Avamposto Garibaldino RED vs Circolo Mario Albano A</div>
+            <div className="text-chess-gray text-xs italic mt-1">Venerdi 13 marzo</div>
+          </div>
+          <div className="bg-chess-dark/10 rounded-lg p-3 border-l-4 border-amber-500">
+            <div className="font-medium text-chess-dark flex items-center justify-between">
+              <span>RESPONSABILE DELLA SQUADRA</span>
+            </div>
+            <div className="text-chess-gray text-sm">Federico Caparrotta</div>
+            <div className="text-chess-gray text-xs italic mt-1">Tutti uniti per questo straordinario traguardo!</div>
+          </div>
+        </div>        
+      </div>
+      
+      {/* Colonna destra: Foto */}
+      <div className="lg:w-1/3">
+        <div className="relative rounded-xl overflow-hidden shadow-lg h-full min-h-[250px]">
+          <img
+            src="/turno5/inizio.jpg"
+            alt="Avamposto Garibaldino RED - Esordio in Serie B"
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-purple-900/40 to-transparent"></div>
+          
         </div>
       </div>
-    </Link>
+    </div>
   </div>
-</div>
-  
-<div className="w-full max-w-xl h-1.5 bg-chess-gold mx-auto mt-6 rounded-full"></div>
+</Link>
+        </div>
+      </div>
+      
+      <div className="w-full max-w-xl h-1.5 bg-chess-gold mx-auto mt-6 rounded-full"></div>
 
-  
+
+
+
+
       {/* Sezione Storia migliorata */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mb-16"> {/* cambiato da items-center a items-start */}

@@ -79,11 +79,51 @@ const Ricordi = () => {
       image: "/turno1/black-0.jpeg",
       title: "1° Turno Campionato a Squadre FSI",
       description: "1° Turno Campionato a Squadre FSI - Serie Promozione",
-      date: "02 Febbraio 2026",
-      dateValue: "2026-02-02",
+      date: "01 Febbraio 2026",
+      dateValue: "2026-02-01",
       tag: "Evento",
       tagColor: "bg-red-500"
-    }
+    },
+    {
+      to: "/ricordi/turno2",
+      image: "/turno2/turno2.jpg",
+      title: "2° Turno Campionato a Squadre FSI",
+      description: "2° Turno Campionato a Squadre FSI - Serie Promozione",
+      date: "08 Febbraio 2026",
+      dateValue: "2026-02-08",
+      tag: "Evento",
+      tagColor: "bg-red-500"
+    },
+    {
+      to: "/ricordi/turno3",
+      image: "/turno3/turno3 (3).jpeg",
+      title: "3° Turno Campionato a Squadre FSI",
+      description: "3° Turno Campionato a Squadre FSI - Serie Promozione",
+      date: "22 Febbraio 2026",
+      dateValue: "2026-02-22",
+      tag: "Evento",
+      tagColor: "bg-red-500"
+    },
+    {
+      to: "/ricordi/turno4",
+      image: "/turno4/turno4 (4).jpeg",
+      title: "4° Turno Campionato a Squadre FSI",
+      description: "4° Turno Campionato a Squadre FSI - Serie Promozione",
+      date: "01 Marzo 2026",
+      dateValue: "2026-03-01",
+      tag: "Evento",
+      tagColor: "bg-red-500"
+    },
+    // {
+    //   to: "/ricordi/turno5",
+    //   image: "/turno5/turno5.jpg",
+    //   title: "5° Turno Campionato a Squadre FSI",
+    //   description: "5° Turno Campionato a Squadre FSI - Serie Promozione",
+    //   date: "22 Marzo 2026",
+    //   dateValue: "2026-03-22",
+    //   tag: "Evento",
+    //   tagColor: "bg-red-500"
+    // }
   ];
 
   // Array delle card senza data (mantenendo l'ordine originale)

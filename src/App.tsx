@@ -21,13 +21,15 @@ import AllenamentoQuotidiano from './pages/ricordi/allenamento-quotidiano';
 import Loghi from './pages/ricordi/loghi';
 import Venafro from './pages/ricordi/venafro';
 import Starshop from './pages/ricordi/starshop';
-import Turno1 from './pages/ricordi/turno1';
 import Quartotorneo from './pages/ricordi/quarto-torneo';
 import Decimo from './pages/ricordi/decimo-anniversario';
 import Torneoragazzi from './pages/ricordi/torneo-ragazzi';
 import FantasyPub from './pages/ricordi/fantasy-pub';
-
-
+import Turno1 from './pages/ricordi/turno1';
+import Turno2 from './pages/ricordi/turno2';
+import Turno3 from './pages/ricordi/turno3';
+import Turno4 from './pages/ricordi/turno4';
+import Turno5 from './pages/ricordi/turno5';
 
 
 
@@ -116,6 +118,12 @@ function App() {
             <Route path="ricordi/venafro" element={<Venafro />} />
             <Route path="ricordi/starshop" element={<Starshop />} />
             <Route path="ricordi/turno1" element={<Turno1 />} />
+            <Route path="ricordi/turno2" element={<Turno2 />} />
+            <Route path="ricordi/turno3" element={<Turno3 />} />
+            <Route path="ricordi/turno4" element={<Turno4 />} />
+            <Route path="ricordi/turno5" element={<Turno5 />} />
+
+
             <Route path="ricordi/quarto-torneo" element={<Quartotorneo />} />
             <Route path="ricordi/decimo-anniversario" element={<Decimo />} />
             <Route path="ricordi/torneo-ragazzi" element={<Torneoragazzi />} />
