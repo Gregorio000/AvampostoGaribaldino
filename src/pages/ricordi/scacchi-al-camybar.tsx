@@ -1,294 +1,294 @@
 import { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
+import { ArrowLeft, Camera, ChevronLeft, ChevronRight, X, ZoomIn } from "lucide-react";
 
+const photos = [
+  "/scacchi-al-camybar/IMG-20201108-WA0004.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0005.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0006.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0007.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0009.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0010.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0011.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0012.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0013.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0014.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0015.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0016.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0017.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0018.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0019.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0020.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0021.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0022.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0023.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0024.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0025.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0026.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0027.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0028.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0029.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0030.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0031.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0032.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0033.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0034.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0035.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0042.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0043.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0044.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0045.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0046.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0047.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0048.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0049.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0050.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0051.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0052.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0053.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0054.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0055.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0056.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0058.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0059.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0061.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0062.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0063.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0064.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0065.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0066.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0067.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0068.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0069.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0070.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0071.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0072.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0073.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0074.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0075.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0076.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0077.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0078.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0079.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0080.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0081.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0082.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0083.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0084.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0086.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0087.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0088.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0089.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0090.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0091.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0092.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0093.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0094.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0095.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0096.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0097.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0098.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0099.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0100.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0101.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0102.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0103.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0104.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0105.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0106.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0107.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0108.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0109.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0110.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0111.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0112.jpg",
+  "/scacchi-al-camybar/IMG-20201108-WA0113.jpg",
+  "/scacchi-al-camybar/IMG-20201109-WA0001.jpg",
+  "/scacchi-al-camybar/IMG-20201109-WA0002.jpg",
+  "/scacchi-al-camybar/IMG-20201109-WA0003.jpg",
+  "/scacchi-al-camybar/IMG-20201109-WA0004.jpg",
+  "/scacchi-al-camybar/IMG-20201109-WA0005.jpg",
+  "/scacchi-al-camybar/IMG-20201109-WA0006.jpg",
+  "/scacchi-al-camybar/IMG-20201109-WA0007.jpg",
+  "/scacchi-al-camybar/IMG-20201109-WA0008.jpg",
+  "/scacchi-al-camybar/IMG-20201109-WA0009.jpg",
+  "/scacchi-al-camybar/IMG-20201109-WA0010.jpg",
+  "/scacchi-al-camybar/IMG-20201109-WA0011.jpg",
+  "/scacchi-al-camybar/IMG-20201109-WA0012.jpg",
+  "/scacchi-al-camybar/IMG-20201109-WA0013.jpg",
+  "/scacchi-al-camybar/IMG-20201109-WA0014.jpg",
+  "/scacchi-al-camybar/IMG-20201109-WA0015.jpg",
+  "/scacchi-al-camybar/IMG-20201109-WA0016.jpg",
+  "/scacchi-al-camybar/IMG-20201109-WA0017.jpg",
+  "/scacchi-al-camybar/IMG-20201109-WA0018.jpg",
+  "/scacchi-al-camybar/IMG-20201109-WA0019.jpg",
+  "/scacchi-al-camybar/IMG-20201109-WA0020.jpg",
+  "/scacchi-al-camybar/IMG-20201109-WA0021.jpg",
+  "/scacchi-al-camybar/IMG-20201109-WA0023.jpg",
+  "/scacchi-al-camybar/IMG-20201109-WA0024.jpg",
+  "/scacchi-al-camybar/IMG-20201109-WA0025.jpg",
+];
+
+/* ══════════════════════════════════════════════
+   LIGHTBOX
+══════════════════════════════════════════════ */
+const Lightbox = ({
+  index, total, src, onClose, onPrev, onNext,
+}: {
+  index: number; total: number; src: string;
+  onClose: () => void; onPrev: () => void; onNext: () => void;
+}) => {
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === "Escape")     onClose();
+      if (e.key === "ArrowLeft")  onPrev();
+      if (e.key === "ArrowRight") onNext();
+    };
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, [onClose, onPrev, onNext]);
+
+  return (
+    <div className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4" onClick={onClose}>
+      <button className="absolute top-4 right-4 text-white/70 hover:text-white bg-black/30 rounded-full p-2 z-10" onClick={onClose}>
+        <X className="h-6 w-6" />
+      </button>
+      <button
+        className="absolute left-3 sm:left-5 text-white/70 hover:text-white bg-black/30 rounded-full p-2.5 z-10"
+        onClick={e => { e.stopPropagation(); onPrev(); }}
+      >
+        <ChevronLeft className="h-6 w-6" />
+      </button>
+      <img
+        src={src}
+        alt={`Foto ${index + 1}`}
+        className="max-w-full max-h-[88vh] object-contain rounded-xl shadow-2xl"
+        onClick={e => e.stopPropagation()}
+      />
+      <button
+        className="absolute right-3 sm:right-5 text-white/70 hover:text-white bg-black/30 rounded-full p-2.5 z-10"
+        onClick={e => { e.stopPropagation(); onNext(); }}
+      >
+        <ChevronRight className="h-6 w-6" />
+      </button>
+      <div className="absolute bottom-4 left-0 right-0 flex justify-center text-white/50 text-sm">
+        {index + 1} / {total}
+      </div>
+    </div>
+  );
+};
+
+/* ══════════════════════════════════════════════
+   PAGE
+══════════════════════════════════════════════ */
 const ScacchiAlCamybar = () => {
-  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
   const navigate = useNavigate();
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
-  const photos = [
-    "/scacchi-al-camybar/IMG-20201108-WA0004.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0005.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0006.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0007.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0009.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0010.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0011.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0012.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0013.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0014.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0015.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0016.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0017.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0018.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0019.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0020.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0021.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0022.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0023.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0024.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0025.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0026.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0027.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0028.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0029.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0030.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0031.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0032.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0033.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0034.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0035.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0042.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0043.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0044.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0045.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0046.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0047.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0048.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0049.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0050.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0051.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0052.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0053.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0054.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0055.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0056.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0058.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0059.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0061.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0062.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0063.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0064.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0065.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0066.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0067.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0068.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0069.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0070.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0071.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0072.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0073.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0074.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0075.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0076.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0077.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0078.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0079.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0080.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0081.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0082.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0083.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0084.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0086.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0087.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0088.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0089.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0090.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0091.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0092.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0093.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0094.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0095.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0096.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0097.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0098.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0099.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0100.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0101.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0102.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0103.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0104.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0105.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0106.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0107.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0108.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0109.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0110.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0111.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0112.jpg",
-    "/scacchi-al-camybar/IMG-20201108-WA0113.jpg",
-    "/scacchi-al-camybar/IMG-20201109-WA0001.jpg",
-    "/scacchi-al-camybar/IMG-20201109-WA0002.jpg",
-    "/scacchi-al-camybar/IMG-20201109-WA0003.jpg",
-    "/scacchi-al-camybar/IMG-20201109-WA0004.jpg",
-    "/scacchi-al-camybar/IMG-20201109-WA0005.jpg",
-    "/scacchi-al-camybar/IMG-20201109-WA0006.jpg",
-    "/scacchi-al-camybar/IMG-20201109-WA0007.jpg",
-    "/scacchi-al-camybar/IMG-20201109-WA0008.jpg",
-    "/scacchi-al-camybar/IMG-20201109-WA0009.jpg",
-    "/scacchi-al-camybar/IMG-20201109-WA0010.jpg",
-    "/scacchi-al-camybar/IMG-20201109-WA0011.jpg",
-    "/scacchi-al-camybar/IMG-20201109-WA0012.jpg",
-    "/scacchi-al-camybar/IMG-20201109-WA0013.jpg",
-    "/scacchi-al-camybar/IMG-20201109-WA0014.jpg",
-    "/scacchi-al-camybar/IMG-20201109-WA0015.jpg",
-    "/scacchi-al-camybar/IMG-20201109-WA0016.jpg",
-    "/scacchi-al-camybar/IMG-20201109-WA0017.jpg",
-    "/scacchi-al-camybar/IMG-20201109-WA0018.jpg",
-    "/scacchi-al-camybar/IMG-20201109-WA0019.jpg",
-    "/scacchi-al-camybar/IMG-20201109-WA0020.jpg",
-    "/scacchi-al-camybar/IMG-20201109-WA0021.jpg",
-    "/scacchi-al-camybar/IMG-20201109-WA0023.jpg",
-    "/scacchi-al-camybar/IMG-20201109-WA0024.jpg",
-    "/scacchi-al-camybar/IMG-20201109-WA0025.jpg"
-  ];
-
-  const openModal = useCallback((index: number) => {
-    setSelectedImageIndex(index);
-    document.body.style.overflow = 'hidden';
+  const openModal = useCallback((i: number) => {
+    setSelectedIndex(i);
+    document.body.style.overflow = "hidden";
   }, []);
 
   const closeModal = useCallback(() => {
-    setSelectedImageIndex(null);
-    document.body.style.overflow = 'auto';
+    setSelectedIndex(null);
+    document.body.style.overflow = "auto";
   }, []);
 
-  const navigateImage = useCallback((direction: 'prev' | 'next') => {
-    if (selectedImageIndex === null) return;
-    
-    if (direction === 'prev') {
-      const newIndex = selectedImageIndex === 0 ? photos.length - 1 : selectedImageIndex - 1;
-      setSelectedImageIndex(newIndex);
-    } else {
-      const newIndex = selectedImageIndex === photos.length - 1 ? 0 : selectedImageIndex + 1;
-      setSelectedImageIndex(newIndex);
-    }
-  }, [selectedImageIndex, photos.length]);
+  const prev = useCallback(() =>
+    setSelectedIndex(i => (i === null ? 0 : i === 0 ? photos.length - 1 : i - 1)), []);
 
-  // Gestione della navigazione da tastiera
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (selectedImageIndex === null) return;
-      
-      switch(e.key) {
-        case 'Escape':
-          closeModal();
-          break;
-        case 'ArrowLeft':
-          navigateImage('prev');
-          break;
-        case 'ArrowRight':
-          navigateImage('next');
-          break;
-        default:
-          break;
-      }
-    };
-
-    document.addEventListener('keydown', handleKeyDown);
-    return () => document.removeEventListener('keydown', handleKeyDown);
-  }, [selectedImageIndex, closeModal, navigateImage]);
+  const next = useCallback(() =>
+    setSelectedIndex(i => (i === null ? 0 : i === photos.length - 1 ? 0 : i + 1)), []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-amber-50">
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+      {selectedIndex !== null && (
+        <Lightbox
+          index={selectedIndex}
+          total={photos.length}
+          src={photos[selectedIndex]}
+          onClose={closeModal}
+          onPrev={prev}
+          onNext={next}
+        />
+      )}
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
 
-        {/* Header con navigazione */}
-        <button
-          onClick={() => navigate(-1)}
-          className="inline-flex items-center text-yellow-600 hover:text-yellow-700 font-semibold transition-colors duration-200 mb-8 group"
-        >
-          <svg className="w-5 h-5 mr-2 transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-          </svg>
-          Torna indietro
-        </button>
+        {/* ── Top bar ── */}
+        <div className="flex items-center justify-between mb-10">
+          <button
+            onClick={() => navigate(-1)}
+            className="inline-flex items-center gap-2 text-chess-gold hover:text-chess-dark font-semibold transition-colors text-sm"
+          >
+            <ArrowLeft className="h-4 w-4" />
+            Torna indietro
+          </button>
+          <div className="hidden sm:flex items-center gap-2 text-xs text-gray-500 bg-white border border-gray-200 px-3 py-2 rounded-full shadow-sm">
+            <Camera className="h-3.5 w-3.5 text-chess-gold" />
+            {photos.length} foto
+          </div>
+        </div>
 
-        {/* Titolo principale */}
-        <div className="text-center mb-12">
-          <h1 className="text-5xl font-bold text-chess-dark mb-4 bg-gradient-to-r from-chess-dark to-chess-gold bg-clip-text text-transparent leading-[1.3]">
-            Scacchi al Camybar
+        {/* ── Header ── */}
+        <div className="text-center mb-10">
+          <div className="inline-flex items-center gap-3 text-chess-gold font-semibold text-sm uppercase tracking-widest mb-4">
+            <span className="w-8 h-px bg-chess-gold" />
+            Novembre 2020
+            <span className="w-8 h-px bg-chess-gold" />
+          </div>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-chess-dark leading-tight mb-4">
+            Scacchi al <span className="text-chess-gold">Camybar</span>
           </h1>
+          <p className="text-lg text-gray-500 max-w-xl mx-auto">
+            Partite, tornei e momenti di vita del circolo raccolti in un archivio fotografico
+          </p>
         </div>
 
-        {/* Sezione descrittiva breve */}
-        <div className="bg-white rounded-2xl shadow-xl p-8 mb-12 border border-amber-100 text-center max-w-4xl mx-auto">
-          <p className="text-xl text-gray-700 leading-relaxed">
-            La vita del circolo prende forma tra le partite quotidiane e l'emozione dei tornei. In questa pagina raccogliamo i momenti più salienti della nostra storia scacchistica
-         </p>
+        {/* ── Descrizione ── */}
+        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 sm:p-8 mb-12 max-w-3xl mx-auto text-center">
+          <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
+            La vita del circolo prende forma tra le partite quotidiane e l'emozione dei tornei.
+            In questa pagina raccogliamo i momenti più salienti della nostra storia scacchistica.
+          </p>
         </div>
 
-        {/* Galleria Fotografica */}
-        <section className="mb-16">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Galleria Fotografica</h2>
-            <div className="w-24 h-1 bg-yellow-500 mx-auto"></div>
+        {/* ── Gallery ── */}
+        <div className="mb-10">
+          <div className="flex items-center gap-2 mb-6">
+            <span className="w-1 h-5 bg-chess-gold rounded-full" />
+            <span className="text-xs font-bold text-chess-gold uppercase tracking-widest">Galleria fotografica</span>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {photos.map((photo, index) => (
-              <div 
-                key={index} 
-                className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer transform hover:-translate-y-2 bg-white"
-                onClick={() => openModal(index)}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4">
+            {photos.map((photo, i) => (
+              <div
+                key={i}
+                className="group relative aspect-square rounded-xl overflow-hidden shadow-sm cursor-pointer hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
+                onClick={() => openModal(i)}
               >
-                <div className="aspect-square overflow-hidden">
-                  <img 
-                    src={photo} 
-                    alt={`Scacchi al Camybar ${index + 1}`}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                </div>
-                
-                {/* Overlay hover */}
-                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
-                  <div className="opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
-                    <svg className="w-12 h-12 text-white filter drop-shadow-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3-3H7" />
-                    </svg>
-                  </div>
+                <img
+                  src={photo}
+                  alt={`Camybar ${i + 1}`}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+                  <ZoomIn className="h-7 w-7 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 drop-shadow-lg" />
                 </div>
               </div>
             ))}
           </div>
-        </section>
+        </div>
+
+        {/* ── Footer ── */}
+        <div className="pt-8 border-t border-gray-200 text-center">
+          <p className="text-gray-400 text-sm">
+            Scacchi al Camybar · Novembre 2020 · Avamposto Garibaldino
+          </p>
+        </div>
 
       </div>
-
-      {/* Modal per l'immagine ingrandita */}
-      {selectedImageIndex !== null && (
-        <div className="fixed inset-0 bg-black bg-opacity-95 z-50 flex items-center justify-center p-4">
-          <button 
-            onClick={closeModal}
-            className="absolute top-6 right-6 text-white hover:text-gray-300 transition-colors duration-200 z-10 bg-black bg-opacity-50 rounded-full p-2"
-          >
-            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-          
-          <button 
-            onClick={() => navigateImage('prev')}
-            className="absolute left-6 text-white hover:text-gray-300 transition-colors duration-200 z-10 bg-black bg-opacity-50 rounded-full p-3"
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-          </button>
-          
-          <div className="relative max-w-6xl w-full max-h-screen flex flex-col items-center">
-            <img 
-              src={photos[selectedImageIndex]} 
-              alt={`Scacchi al Camybar ${selectedImageIndex + 1}`}
-              className="max-w-full max-h-[80vh] object-contain rounded-lg"
-            />
-            
-            <div className="mt-4 text-white text-center">
-              <p className="text-gray-400">
-                {selectedImageIndex + 1} / {photos.length}
-              </p>
-            </div>
-          </div>
-          
-          <button 
-            onClick={() => navigateImage('next')}
-            className="absolute right-6 text-white hover:text-gray-300 transition-colors duration-200 z-10 bg-black bg-opacity-50 rounded-full p-3"
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
-        </div>
-      )}
     </div>
   );
 };

@@ -30,6 +30,7 @@ import Turno2 from './pages/ricordi/turno2';
 import Turno3 from './pages/ricordi/turno3';
 import Turno4 from './pages/ricordi/turno4';
 import Turno5 from './pages/ricordi/turno5';
+import Serieb from './pages/ricordi/serieb';
 
 
 
@@ -122,6 +123,7 @@ function App() {
             <Route path="ricordi/turno3" element={<Turno3 />} />
             <Route path="ricordi/turno4" element={<Turno4 />} />
             <Route path="ricordi/turno5" element={<Turno5 />} />
+            <Route path="ricordi/serieb" element={<Serieb />} />
 
 
             <Route path="ricordi/quarto-torneo" element={<Quartotorneo />} />

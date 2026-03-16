@@ -1,191 +1,186 @@
 import { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
+import { ArrowLeft, Camera, ChevronLeft, ChevronRight, X, ZoomIn } from "lucide-react";
 
+const photos = [
+  "/centro-estivo/cavallo1.jpg",
+  "/centro-estivo/cavallo2.jpg",
+  ...Array.from({ length: 18 }, (_, i) => `/centro-estivo/centro-estivo${i + 1}.jpg`),
+];
+
+/* ══════════════════════════════════════════════
+   LIGHTBOX
+══════════════════════════════════════════════ */
+const Lightbox = ({
+  index, total, src, onClose, onPrev, onNext,
+}: {
+  index: number; total: number; src: string;
+  onClose: () => void; onPrev: () => void; onNext: () => void;
+}) => {
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === "Escape")     onClose();
+      if (e.key === "ArrowLeft")  onPrev();
+      if (e.key === "ArrowRight") onNext();
+    };
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, [onClose, onPrev, onNext]);
+
+  return (
+    <div className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4" onClick={onClose}>
+      <button className="absolute top-4 right-4 text-white/70 hover:text-white bg-black/30 rounded-full p-2 z-10" onClick={onClose}>
+        <X className="h-6 w-6" />
+      </button>
+      <button
+        className="absolute left-3 sm:left-5 text-white/70 hover:text-white bg-black/30 rounded-full p-2.5 z-10"
+        onClick={e => { e.stopPropagation(); onPrev(); }}
+      >
+        <ChevronLeft className="h-6 w-6" />
+      </button>
+      <img
+        src={src}
+        alt={`Foto ${index + 1}`}
+        className="max-w-full max-h-[88vh] object-contain rounded-xl shadow-2xl"
+        onClick={e => e.stopPropagation()}
+      />
+      <button
+        className="absolute right-3 sm:right-5 text-white/70 hover:text-white bg-black/30 rounded-full p-2.5 z-10"
+        onClick={e => { e.stopPropagation(); onNext(); }}
+      >
+        <ChevronRight className="h-6 w-6" />
+      </button>
+      <div className="absolute bottom-4 left-0 right-0 flex justify-center text-white/50 text-sm">
+        {index + 1} / {total}
+      </div>
+    </div>
+  );
+};
+
+/* ══════════════════════════════════════════════
+   PAGE
+══════════════════════════════════════════════ */
 const CentroEstivo = () => {
-  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
   const navigate = useNavigate();
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
-  const photos = [
-    "/centro-estivo/cavallo1.jpg",
-    "/centro-estivo/cavallo2.jpg",
-    "/centro-estivo/centro-estivo1.jpg",
-    "/centro-estivo/centro-estivo2.jpg",
-    "/centro-estivo/centro-estivo3.jpg",
-    "/centro-estivo/centro-estivo4.jpg",
-    "/centro-estivo/centro-estivo5.jpg",
-    "/centro-estivo/centro-estivo6.jpg",
-    "/centro-estivo/centro-estivo7.jpg",
-    "/centro-estivo/centro-estivo8.jpg",
-    "/centro-estivo/centro-estivo9.jpg",
-    "/centro-estivo/centro-estivo10.jpg",
-    "/centro-estivo/centro-estivo11.jpg",
-    "/centro-estivo/centro-estivo12.jpg",
-    "/centro-estivo/centro-estivo13.jpg",
-    "/centro-estivo/centro-estivo14.jpg",
-    "/centro-estivo/centro-estivo15.jpg",
-    "/centro-estivo/centro-estivo16.jpg",
-    "/centro-estivo/centro-estivo17.jpg",
-    "/centro-estivo/centro-estivo18.jpg"
-  ];
-
-  const openModal = useCallback((index: number) => {
-    setSelectedImageIndex(index);
-    document.body.style.overflow = 'hidden';
+  const openModal = useCallback((i: number) => {
+    setSelectedIndex(i);
+    document.body.style.overflow = "hidden";
   }, []);
 
   const closeModal = useCallback(() => {
-    setSelectedImageIndex(null);
-    document.body.style.overflow = 'auto';
+    setSelectedIndex(null);
+    document.body.style.overflow = "auto";
   }, []);
 
-  const navigateImage = useCallback((direction: 'prev' | 'next') => {
-    if (selectedImageIndex === null) return;
-    
-    if (direction === 'prev') {
-      const newIndex = selectedImageIndex === 0 ? photos.length - 1 : selectedImageIndex - 1;
-      setSelectedImageIndex(newIndex);
-    } else {
-      const newIndex = selectedImageIndex === photos.length - 1 ? 0 : selectedImageIndex + 1;
-      setSelectedImageIndex(newIndex);
-    }
-  }, [selectedImageIndex, photos.length]);
+  const prev = useCallback(() =>
+    setSelectedIndex(i => (i === null ? 0 : i === 0 ? photos.length - 1 : i - 1)), []);
 
-  // Gestione della navigazione da tastiera
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (selectedImageIndex === null) return;
-      
-      switch(e.key) {
-        case 'Escape':
-          closeModal();
-          break;
-        case 'ArrowLeft':
-          navigateImage('prev');
-          break;
-        case 'ArrowRight':
-          navigateImage('next');
-          break;
-        default:
-          break;
-      }
-    };
-
-    document.addEventListener('keydown', handleKeyDown);
-    return () => document.removeEventListener('keydown', handleKeyDown);
-  }, [selectedImageIndex, closeModal, navigateImage]);
+  const next = useCallback(() =>
+    setSelectedIndex(i => (i === null ? 0 : i === photos.length - 1 ? 0 : i + 1)), []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-amber-50">
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+      {selectedIndex !== null && (
+        <Lightbox
+          index={selectedIndex}
+          total={photos.length}
+          src={photos[selectedIndex]}
+          onClose={closeModal}
+          onPrev={prev}
+          onNext={next}
+        />
+      )}
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
 
-        {/* Header con navigazione */}
-        <button
-          onClick={() => navigate(-1)}
-          className="inline-flex items-center text-yellow-600 hover:text-yellow-700 font-semibold transition-colors duration-200 mb-8 group"
-        >
-          <svg className="w-5 h-5 mr-2 transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-          </svg>
-          Torna indietro
-        </button>
-
-        {/* Titolo principale */}
-        <div className="text-center mb-12">
-          <h1 className="text-5xl font-bold text-chess-dark mb-4 bg-gradient-to-r from-chess-dark to-chess-gold bg-clip-text text-transparent leading-[1.3]">
-            Centro Estivo
-          </h1>
+        {/* ── Top bar ── */}
+        <div className="flex items-center justify-between mb-10">
+          <button
+            onClick={() => navigate(-1)}
+            className="inline-flex items-center gap-2 text-chess-gold hover:text-chess-dark font-semibold transition-colors text-sm"
+          >
+            <ArrowLeft className="h-4 w-4" />
+            Torna indietro
+          </button>
+          <div className="hidden sm:flex items-center gap-2 text-xs text-gray-500 bg-white border border-gray-200 px-3 py-2 rounded-full shadow-sm">
+            <Camera className="h-3.5 w-3.5 text-chess-gold" />
+            {photos.length} foto
+          </div>
         </div>
 
-        {/* Sezione descrittiva breve */}
-        <div className="bg-white rounded-2xl shadow-xl p-8 mb-12 border border-amber-100 text-center max-w-4xl mx-auto">
-          <p className="text-xl text-gray-700 leading-relaxed">
-            Un centro estivo speciale, organizzato nel 2020, per bambini dai 3 ai 14 anni a Monterotondo Scalo, 
-            dove abbiamo unito scacchi, sport e creatività in un'esperienza indimenticabile.
+        {/* ── Header ── */}
+        <div className="text-center mb-10">
+          <div className="inline-flex items-center gap-3 text-chess-gold font-semibold text-sm uppercase tracking-widest mb-4">
+            <span className="w-8 h-px bg-chess-gold" />
+            Estate 2020
+            <span className="w-8 h-px bg-chess-gold" />
+          </div>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-chess-dark leading-tight mb-4">
+            Centro <span className="text-chess-gold">Estivo</span>
+          </h1>
+          <p className="text-lg text-gray-500 max-w-xl mx-auto">
+            Scacchi, sport e creatività per bambini dai 3 ai 14 anni · Monterotondo Scalo
           </p>
         </div>
 
-        {/* Galleria Fotografica */}
-        <section className="mb-16">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Galleria Fotografica</h2>
-            <div className="w-24 h-1 bg-yellow-500 mx-auto"></div>
+        {/* ── Descrizione ── */}
+        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 sm:p-8 mb-12 max-w-3xl mx-auto text-center">
+          <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
+            Un centro estivo speciale organizzato nel <span className="font-semibold text-chess-dark">2020</span>,
+            dove abbiamo unito la passione degli scacchi con sport e attività creative in un'esperienza
+            indimenticabile per i più giovani.
+          </p>
+        </div>
+
+        {/* ── Hero ── */}
+        <div
+          className="rounded-2xl overflow-hidden shadow-xl mb-12 cursor-pointer max-w-3xl mx-auto"
+          onClick={() => openModal(0)}
+        >
+          <img
+            src={photos[0]}
+            alt="Centro Estivo"
+            className="w-full h-64 sm:h-80 object-cover hover:scale-105 transition-transform duration-700"
+          />
+        </div>
+
+        {/* ── Gallery ── */}
+        <div className="mb-10">
+          <div className="flex items-center gap-2 mb-6">
+            <span className="w-1 h-5 bg-chess-gold rounded-full" />
+            <span className="text-xs font-bold text-chess-gold uppercase tracking-widest">Galleria fotografica</span>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {photos.map((photo, index) => (
-              <div 
-                key={index} 
-                className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer transform hover:-translate-y-2 bg-white"
-                onClick={() => openModal(index)}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4">
+            {photos.map((photo, i) => (
+              <div
+                key={i}
+                className="group relative aspect-square rounded-xl overflow-hidden shadow-sm cursor-pointer hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
+                onClick={() => openModal(i)}
               >
-                <div className="aspect-square overflow-hidden">
-                  <img 
-                    src={photo} 
-                    alt={`Foto centro estivo ${index + 1}`}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                </div>
-                
-                {/* Overlay hover */}
-                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
-                  <div className="opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
-                    <svg className="w-12 h-12 text-white filter drop-shadow-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3-3H7" />
-                    </svg>
-                  </div>
+                <img
+                  src={photo}
+                  alt={`Centro estivo ${i + 1}`}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+                  <ZoomIn className="h-7 w-7 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 drop-shadow-lg" />
                 </div>
               </div>
             ))}
           </div>
-        </section>
+        </div>
+
+        {/* ── Footer ── */}
+        <div className="pt-8 border-t border-gray-200 text-center">
+          <p className="text-gray-400 text-sm">
+            Centro Estivo · Estate 2020 · Avamposto Garibaldino
+          </p>
+        </div>
 
       </div>
-
-      {/* Modal per l'immagine ingrandita */}
-      {selectedImageIndex !== null && (
-        <div className="fixed inset-0 bg-black bg-opacity-95 z-50 flex items-center justify-center p-4">
-          <button 
-            onClick={closeModal}
-            className="absolute top-6 right-6 text-white hover:text-gray-300 transition-colors duration-200 z-10 bg-black bg-opacity-50 rounded-full p-2"
-          >
-            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-          
-          <button 
-            onClick={() => navigateImage('prev')}
-            className="absolute left-6 text-white hover:text-gray-300 transition-colors duration-200 z-10 bg-black bg-opacity-50 rounded-full p-3"
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-          </button>
-          
-          <div className="relative max-w-6xl w-full max-h-screen flex flex-col items-center">
-            <img 
-              src={photos[selectedImageIndex]} 
-              alt={`Foto centro estivo ${selectedImageIndex + 1}`}
-              className="max-w-full max-h-[80vh] object-contain rounded-lg"
-            />
-            
-            <div className="mt-4 text-white text-center">
-              <p className="text-gray-400">
-                {selectedImageIndex + 1} / {photos.length}
-              </p>
-            </div>
-          </div>
-          
-          <button 
-            onClick={() => navigateImage('next')}
-            className="absolute right-6 text-white hover:text-gray-300 transition-colors duration-200 z-10 bg-black bg-opacity-50 rounded-full p-3"
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
-        </div>
-      )}
     </div>
   );
 };

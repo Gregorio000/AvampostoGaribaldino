@@ -1,18 +1,7 @@
 import React from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { 
-  BookOpen, 
-  Grid, 
-  FileText, 
-  Award, 
-  ClipboardList, 
-  DollarSign,
-  ArrowRight,
-  ChevronRight,
-  Library,
-  Shield,
-  Users,
-  ArrowLeft
+import {
+  BookOpen, Grid, Shield, ArrowLeft, ArrowRight, ChevronRight
 } from "lucide-react";
 
 type Categoria = {
@@ -20,208 +9,138 @@ type Categoria = {
   descrizione: string;
   icona: JSX.Element;
   pathSezione: string;
-  elementi: { nome: string; descrizione?: string }[];
   colore: string;
   coloreIcona: string;
   coloreTesto: string;
+  image: string;
 };
 
 const patrimonio: Categoria[] = [
   {
     titolo: "Biblioteca Scacchistica",
-    descrizione: "Libri e pubblicazioni specializzate per i soci.",
-    icona: <BookOpen className="w-8 h-8" />,
+    descrizione: "Libri e pubblicazioni specializzate disponibili per tutti i soci del circolo.",
+    icona: <BookOpen className="w-7 h-7" />,
     pathSezione: "/patrimonio/libri",
-    elementi: [
-      //  { nome: "Manuali di apertura", descrizione: "Oltre 50 volumi" },
-      //  { nome: "Biografie di grandi maestri", descrizione: "Storie appassionanti" },
-      //  { nome: "Riviste specializzate", descrizione: "Collezione completa" }
-    ],
-    colore: "from-yellow-500 to-yellow-700",
+    colore: "from-yellow-600 to-yellow-900",
     coloreIcona: "text-yellow-100",
-    coloreTesto: "text-yellow-800"
+    coloreTesto: "text-yellow-700",
+    image: "/libri/libris.jpg",
   },
-   {
+  {
     titolo: "Scacchiere e Materiali",
-    descrizione: "Set professionali e attrezzature per tornei.",
-    icona: <Grid className="w-8 h-8" />,
+    descrizione: "Set professionali e attrezzature per tornei ufficiali e partite amichevoli.",
+    icona: <Grid className="w-7 h-7" />,
     pathSezione: "/patrimonio/scacchiere",
-    elementi: [
-        //  { nome: "Scacchiere torneo", descrizione: "10 set professionali" },
-        //  { nome: "Orologi digitali", descrizione: "Tecnologia avanzata" },
-        //  { nome: "Set viaggio", descrizione: "Per partite in movimento" }
-    ],
-    colore: "from-green-500 to-green-700",
+    colore: "from-green-600 to-green-900",
     coloreIcona: "text-green-100",
-    coloreTesto: "text-green-800"
+    coloreTesto: "text-green-700",
+    image: "/images/scacchiera-grossa.jpg",
   },
-  // {
-  //   titolo: "Archivio Storico",
-  //   descrizione: "Documenti e fotografie della nostra storia.",
-  //   icona: <Library className="w-8 h-8" />,
-  //   pathSezione: "/patrimonio/archivio",
-  //   elementi: [
-      
-  //   ],
-  //   colore: "from-amber-500 to-amber-700",
-  //   coloreIcona: "text-amber-100",
-  //   coloreTesto: "text-amber-800"
-  // },
-  // {
-  //   titolo: "Trofee e Premi",
-  //   descrizione: "Coppe e riconoscimenti dei nostri soci.",
-  //   icona: <Award className="w-8 h-8" />,
-  //   pathSezione: "/patrimonio/trofei",
-  //   elementi: [
-     
-  //   ],
-  //   colore: "from-purple-500 to-purple-700",
-  //   coloreIcona: "text-purple-100",
-  //   coloreTesto: "text-purple-800"
-  // },
-  // {
-  //   titolo: "Materiale Didattico",
-  //   descrizione: "Risorse per insegnamento e apprendimento.",
-  //   icona: <ClipboardList className="w-8 h-8" />,
-  //   pathSezione: "/patrimonio/didattica",
-  //   elementi: [
-      
-  //   ],
-  //   colore: "from-rose-500 to-rose-700",
-  //   coloreIcona: "text-rose-100",
-  //   coloreTesto: "text-rose-800"
-  // },
-  // {
-  //   titolo: "Risorse Digitali",
-  //   descrizione: "Accesso a piattaforme online e database.",
-  //   icona: <Shield className="w-8 h-8" />,
-  //   pathSezione: "/patrimonio/digitale",
-  //   elementi: [
-      
-  //   ],
-  //   colore: "from-indigo-500 to-indigo-700",
-  //   coloreIcona: "text-indigo-100",
-  //   coloreTesto: "text-indigo-800"
-  // }
+];
+
+const stats = [
+  { value: "30+",  label: "Libri" },
+  { value: "30+",  label: "Scacchiere" },
+  { value: "10",   label: "Anni di Storia" },
+  { value: "Soci", label: "Accesso esclusivo" },
 ];
 
 function Patrimonio() {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 px-4 sm:px-6 lg:px-8 py-12">
-      {/* Torna alla Home */}
-      <div className="max-w-7xl mx-auto">
-        <Link
-          to="/"
-          className="inline-flex items-center text-chess-gold hover:text-chess-dark transition-colors"
-        >
-          <ArrowLeft className="h-5 w-5 mr-2" />
-          Torna alla Home
-        </Link>
-      </div>
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
 
-      <div className="max-w-7xl mx-auto">
-        {/* Header migliorato */}
-        <div className="text-center mb-12 pt-8">
-          <div className="inline-flex items-center justify-center mb-4 bg-amber-100 px-4 py-2 rounded-full">
-            <Shield className="h-5 w-5 text-amber-700 mr-2" />
-            <span className="text-amber-700 font-medium">Patrimonio Condiviso</span>
+        {/* ── Top bar ── */}
+        <div className="flex items-center justify-between mb-10">
+          <Link
+            to="/"
+            className="inline-flex items-center gap-2 text-chess-gold hover:text-chess-dark font-semibold transition-colors text-sm"
+          >
+            <ArrowLeft className="h-4 w-4" />
+            Torna alla Home
+          </Link>
+          <div className="hidden sm:flex items-center gap-2 text-xs text-gray-500 bg-white border border-gray-200 px-3 py-2 rounded-full shadow-sm">
+            <Shield className="h-3.5 w-3.5 text-chess-gold" />
+            Patrimonio Condiviso
           </div>
-          
-          <h1 className="text-5xl font-bold text-chess-dark mb-4 bg-gradient-to-r from-chess-dark to-chess-gold bg-clip-text text-transparent">
-            Il Patrimonio del Circolo 
-          </h1>
-          
-          <div className="w-32 h-1 bg-gradient-to-r from-amber-400 to-amber-600 mx-auto mt-6 rounded-full"></div>
+        </div>
 
-          <p className="text-xl text-gray-600 mt-4 max-w-3xl mx-auto">
+        {/* ── Header ── */}
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center gap-3 text-chess-gold font-semibold text-sm uppercase tracking-widest mb-4">
+            <span className="w-8 h-px bg-chess-gold" />
+            Avamposto Garibaldino
+            <span className="w-8 h-px bg-chess-gold" />
+          </div>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-chess-dark leading-tight mb-4">
+            Il Nostro <span className="text-chess-gold">Patrimonio</span>
+          </h1>
+          <p className="text-lg text-gray-500 max-w-xl mx-auto">
             Scopri le risorse, i materiali e le collezioni che rendono speciale il nostro circolo scacchistico
           </p>
-          
-            
         </div>
 
-        {/* Statistiche */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12 max-w-4xl mx-auto">
-          <div className="bg-white rounded-xl p-4 text-center shadow-sm border border-amber-100">
-            <div className="text-2xl font-bold text-amber-700">30+</div>
-            <div className="text-sm text-amber-600">Libri</div>
-          </div>
-          <div className="bg-white rounded-xl p-4 text-center shadow-sm border border-amber-100">
-            <div className="text-2xl font-bold text-amber-700">30+</div>
-            <div className="text-sm text-amber-600">Scacchiere</div>
-          </div>
-          <div className="bg-white rounded-xl p-4 text-center shadow-sm border border-amber-100">
-            <div className="text-2xl font-bold text-amber-700">10</div>
-            <div className="text-sm text-amber-600">Anni di Storia</div>
-          </div>
-          <div className="bg-white rounded-xl p-4 text-center shadow-sm border border-amber-100">
-            <div className="text-2xl font-bold text-amber-700">SOLO</div>
-            <div className="text-sm text-amber-600">Accessibile ai Soci</div>
-          </div>
+        {/* ── Stats ── */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto mb-14">
+          {stats.map(({ value, label }) => (
+            <div key={label} className="bg-white rounded-2xl border border-amber-100 shadow-sm p-4 sm:p-5 text-center hover:shadow-md transition-shadow">
+              <div className="text-2xl font-bold text-amber-600 mb-0.5">{value}</div>
+              <div className="text-sm text-gray-500">{label}</div>
+            </div>
+          ))}
         </div>
 
-        {/* Grid delle categorie migliorata */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        {/* ── Category cards ── */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto mb-16">
           {patrimonio.map((cat) => (
             <div
               key={cat.titolo}
-              className="group bg-white rounded-2xl shadow-lg overflow-hidden border border-amber-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer"
+              className="group bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer flex flex-col"
               onClick={() => navigate(cat.pathSezione)}
             >
-              {/* Header con gradiente */}
-              <div className={`p-6 bg-gradient-to-r ${cat.colore} text-white relative overflow-hidden`}>
-                <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-16 translate-x-16"></div>
-                <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full translate-y-12 -translate-x-12"></div>
-                
-                <div className="relative z-10">
-                  <div className="flex items-center justify-between mb-4">
-                    <div className={`p-3 rounded-xl bg-white/20 ${cat.coloreIcona}`}>
-                      {cat.icona}
-                    </div>
-                    <ChevronRight className="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  </div>
-                  
-                  <h2 className="text-xl font-bold mb-2">{cat.titolo}</h2>
-                  <p className="text-sm opacity-90">{cat.descrizione}</p>
+              {/* Image with gradient overlay */}
+              <div className="relative h-44 sm:h-52 overflow-hidden flex-shrink-0">
+                <img
+                  src={cat.image}
+                  alt={cat.titolo}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className={`absolute inset-0 bg-gradient-to-t ${cat.colore} opacity-60`} />
+
+                {/* Icon badge */}
+                <div className="absolute top-4 left-4 bg-white/20 backdrop-blur-sm p-2.5 rounded-xl">
+                  <span className={cat.coloreIcona}>{cat.icona}</span>
+                </div>
+
+                {/* Animated chevron */}
+                <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <ChevronRight className="w-5 h-5 text-white" />
+                </div>
+
+                {/* Title over image */}
+                <div className="absolute bottom-4 left-4 right-4">
+                  <h2 className="text-xl font-bold text-white leading-tight">{cat.titolo}</h2>
                 </div>
               </div>
-              
-              {/* Contenuto */}
-              <div className="p-6">
-                {cat.elementi.length > 0 && (
-                  <>
-                    <h3 className={`text-sm font-semibold uppercase tracking-wide ${cat.coloreTesto} mb-4`}>
-                      Contenuti Principali
-                    </h3>
-                    <ul className="space-y-3 mb-6">
-                      {cat.elementi.map((el, index) => (
-                        <li key={index} className="flex items-start">
-                          <div className={`w-2 h-2 rounded-full ${cat.coloreTesto} mt-2 mr-3 flex-shrink-0`}></div>
-                          <div>
-                            <span className="font-medium text-gray-800">{el.nome}</span>
-                            {el.descrizione && (
-                              <p className="text-sm text-gray-500 mt-1">{el.descrizione}</p>
-                            )}
-                          </div>
-                        </li>
-                      ))}
-                    </ul>
-                  </>
-                )}
-                
+
+              {/* Body */}
+              <div className="p-5 flex flex-col flex-1">
+                <p className="text-chess-gray leading-relaxed text-sm flex-1 mb-5">
+                  {cat.descrizione}
+                </p>
+
                 <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-                  <span className={`text-sm font-medium ${cat.coloreTesto}`}>Disponibile per i soci</span>
+                  <span className={`text-xs font-semibold ${cat.coloreTesto}`}>
+                    Solo per i soci
+                  </span>
                   <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      navigate(cat.pathSezione);
-                    }}
-                    className={`flex items-center gap-2 py-2 px-4 rounded-lg font-medium transition-all group-hover:${cat.coloreTesto} group-hover:bg-opacity-10 ${cat.coloreTesto} bg-opacity-5`}
+                    onClick={(e) => { e.stopPropagation(); navigate(cat.pathSezione); }}
+                    className={`flex items-center gap-1.5 text-sm font-semibold ${cat.coloreTesto}`}
                   >
                     Esplora
-                    <ArrowRight className="w-4 h-4" />
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </button>
                 </div>
               </div>
@@ -229,24 +148,13 @@ function Patrimonio() {
           ))}
         </div>
 
-        {/* Call to Action finale */}
-        {/* <div className="bg-gradient-to-r from-amber-500 to-amber-700 rounded-2xl p-8 text-center mt-16 shadow-lg">
-          <div className="max-w-2xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
-              Diventa parte della nostra comunità
-            </h2>
-            <p className="text-amber-100 mb-6">
-              Unisciti a noi per accedere a tutto il patrimonio del circolo e partecipare alla vita scacchistica mentanese
-            </p>
-            <button
-              onClick={() => navigate("/contact")}
-              className="bg-white text-amber-700 px-6 py-3 rounded-lg font-semibold hover:bg-amber-50 transition-colors inline-flex items-center"
-            >
-              Diventa Socio
-              <Users className="ml-2 h-5 w-5" />
-            </button>
-          </div>
-        </div> */}
+        {/* ── Footer ── */}
+        <div className="pt-8 border-t border-gray-200 text-center">
+          <p className="text-gray-400 text-sm">
+            Patrimonio del Circolo · Accessibile ai Soci · Avamposto Garibaldino
+          </p>
+        </div>
+
       </div>
     </div>
   );
