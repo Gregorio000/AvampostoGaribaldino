@@ -197,7 +197,7 @@ const Home: React.FC = () => {
           </div>
 
           <Link
-            to="/news"
+            to="/ricordi/serieb"
             className="group block bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-200 hover:-translate-y-1"
           >
             <div className="flex flex-col lg:flex-row">
@@ -205,33 +205,31 @@ const Home: React.FC = () => {
               <div className="flex-1 p-6 sm:p-8">
                 <div className="flex flex-wrap items-center gap-3 mb-4">
                   <span className="bg-purple-600 text-white px-3 py-1 rounded-full text-xs font-bold">
-                    SERIE B – EVENTO STORICO
+                    SERIE B
                   </span>
                   <span className="text-chess-gray text-sm flex items-center gap-1">
                     <CalendarDays className="h-4 w-4" />
-                    Venerdì 13.03.2026
+                    13–15 Marzo 2026
                   </span>
                 </div>
 
                 <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-chess-dark mb-3 group-hover:text-chess-gold transition-colors leading-tight">
-                  AVAMPOSTO GARIBALDINO RED IN SERIE B!
+                  Serie B: ricorso in corso
                 </h3>
 
                 <p className="text-chess-gray mb-6 leading-relaxed">
-                  Un traguardo storico per la nostra associazione! La formazione Avamposto Garibaldino RED esordisce nel
-                  Campionato Italiano di Serie B — un sogno che diventa realtà per tutto il movimento scacchistico mentanese.
+                  L'Avamposto Garibaldino RED ha disputato tutti e 5 i turni del girone di Serie B a Villanova di Guidonia: 2 vittorie, 2 sconfitte, 1 pareggio. La classifica finale ci vede retrocessi, ma presenteremo ricorso per i 2 punti contestati. Nulla è perduto.
                 </p>
 
                 <div className="space-y-2">
                   <div className="bg-purple-600/10 rounded-xl p-3 border-l-4 border-purple-600">
-                    <p className="font-semibold text-chess-dark text-sm">SERIE B – GIRONE 18</p>
-                    <p className="text-chess-gray text-sm">Avamposto Garibaldino RED vs Circolo Mario Albano A</p>
-                    <p className="text-chess-gray text-xs italic mt-0.5">Venerdì 13 marzo</p>
+                    <p className="font-semibold text-chess-dark text-sm">CLASSIFICA FINALE (CONTESTATA)</p>
+                    <p className="text-chess-gray text-sm">Avamposto Garibaldino RED — 5° posto · 3 punti</p>
+                    <p className="text-chess-gray text-xs italic mt-0.5">Ricorso presentato per 2 punti non assegnati</p>
                   </div>
                   <div className="bg-amber-50 rounded-xl p-3 border-l-4 border-amber-500">
-                    <p className="font-semibold text-chess-dark text-sm">RESPONSABILE DELLA SQUADRA</p>
-                    <p className="text-chess-gray text-sm">Federico Caparrotta</p>
-                    <p className="text-chess-gray text-xs italic mt-0.5">Tutti uniti per questo straordinario traguardo!</p>
+                    <p className="font-semibold text-chess-dark text-sm">IL MESSAGGIO DELLA DIRIGENZA</p>
+                    <p className="text-chess-gray text-sm italic">"Faremo tutto il possibile per ottenere giustizia. I garibaldini non si arrenderanno MAI."</p>
                   </div>
                 </div>
               </div>
@@ -239,8 +237,8 @@ const Home: React.FC = () => {
               {/* Image */}
               <div className="lg:w-2/5 h-56 sm:h-64 lg:h-auto relative flex-shrink-0">
                 <img
-                  src="/turno5/inizio.jpg"
-                  alt="Avamposto Garibaldino RED – Esordio in Serie B"
+                  src="/serieb/serieb (7).jpeg"
+                  alt="Avamposto Garibaldino RED – Serie B"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-purple-900/40 to-transparent" />
