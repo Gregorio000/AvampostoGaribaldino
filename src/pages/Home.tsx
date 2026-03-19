@@ -197,39 +197,40 @@ const Home: React.FC = () => {
           </div>
 
           <Link
-            to="/ricordi/serieb"
-            className="group block bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-200 hover:-translate-y-1"
+            to="/news"
+            className="group block bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-md overflow-hidden border border-gray-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
           >
             <div className="flex flex-col lg:flex-row">
               {/* Text */}
               <div className="flex-1 p-6 sm:p-8">
                 <div className="flex flex-wrap items-center gap-3 mb-4">
-                  <span className="bg-purple-600 text-white px-3 py-1 rounded-full text-xs font-bold">
-                    SERIE B
+                  <span className="bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                    PROMOZIONE
                   </span>
                   <span className="text-chess-gray text-sm flex items-center gap-1">
                     <CalendarDays className="h-4 w-4" />
-                    13–15 Marzo 2026
+                    Domenica 22.03.2026
                   </span>
                 </div>
 
-                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-chess-dark mb-3 group-hover:text-chess-gold transition-colors leading-tight">
-                  Serie B: ricorso in corso
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-chess-dark mb-3 leading-tight group-hover:text-chess-gold transition-colors">
+                  5° Turno — Venite a supportarci!
                 </h3>
 
                 <p className="text-chess-gray mb-6 leading-relaxed">
-                  L'Avamposto Garibaldino RED ha disputato tutti e 5 i turni del girone di Serie B a Villanova di Guidonia: 2 vittorie, 2 sconfitte, 1 pareggio. La classifica finale ci vede retrocessi, ma presenteremo ricorso per i 2 punti contestati. Nulla è perduto.
+                  Domenica 22 marzo ore 10:30 si gioca il turno finale del Campionato Italiano di Scacchi a Squadre 2026 — Serie Promozione. Tutte le partite in casa al Fantasy Pub di Fonte Nuova. Venite a supportare i nostri campioni locali!
                 </p>
 
                 <div className="space-y-2">
-                  <div className="bg-purple-600/10 rounded-xl p-3 border-l-4 border-purple-600">
-                    <p className="font-semibold text-chess-dark text-sm">CLASSIFICA FINALE (CONTESTATA)</p>
-                    <p className="text-chess-gray text-sm">Avamposto Garibaldino RED — 5° posto · 3 punti</p>
-                    <p className="text-chess-gray text-xs italic mt-0.5">Ricorso presentato per 2 punti non assegnati</p>
+                  <div className="bg-red-500/10 rounded-xl p-3 border-l-4 border-red-500">
+                    <p className="font-semibold text-chess-dark text-sm">AVAMPOSTO GARIBALDINO BLACK</p>
+                    <p className="text-chess-gray text-sm">vs Frascati 4 (Circolo "La Tela del Ragno" di Colleverde)</p>
+                    <p className="text-chess-gray text-xs italic mt-0.5">Ore 10:30 · Fantasy Pub, Via Nomentana 502, Fonte Nuova</p>
                   </div>
-                  <div className="bg-amber-50 rounded-xl p-3 border-l-4 border-amber-500">
-                    <p className="font-semibold text-chess-dark text-sm">IL MESSAGGIO DELLA DIRIGENZA</p>
-                    <p className="text-chess-gray text-sm italic">"Faremo tutto il possibile per ottenere giustizia. I garibaldini non si arrenderanno MAI."</p>
+                  <div className="bg-gray-100 rounded-xl p-3 border-l-4 border-gray-400">
+                    <p className="font-semibold text-chess-dark text-sm">AVAMPOSTO GARIBALDINO WHITE</p>
+                    <p className="text-chess-gray text-sm">vs Alvise Zichichi B</p>
+                    <p className="text-chess-gray text-xs italic mt-0.5">Ore 10:30 · Fantasy Pub, Via Nomentana 502, Fonte Nuova</p>
                   </div>
                 </div>
               </div>
@@ -237,11 +238,10 @@ const Home: React.FC = () => {
               {/* Image */}
               <div className="lg:w-2/5 h-56 sm:h-64 lg:h-auto relative flex-shrink-0">
                 <img
-                  src="/serieb/serieb (7).jpeg"
-                  alt="Avamposto Garibaldino RED – Serie B"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  src="/turno5/turno5.jpeg"
+                  alt="5° Turno Serie Promozione"
+                  className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-purple-900/40 to-transparent" />
               </div>
             </div>
           </Link>

@@ -23,11 +23,23 @@ interface NewsItem {
 
 const newsItems: NewsItem[] = [
   {
+    id: 8,
+    title: "5° Turno Serie Promozione — Ultimo turno, venite a supportarci!",
+    date: "Domenica 22.03.2026",
+    location: "Fantasy Pub, Via Nomentana 502, Fonte Nuova",
+    description: "Domenica 22 marzo ore 10:30 si gioca il turno finale del Campionato Italiano di Scacchi a Squadre 2026 — Serie Promozione. Black vs Frascati 4 e White vs Alvise Zichichi B. Tutte le partite in casa al Fantasy Pub! Venite a supportare i nostri campioni locali!",
+    category: "PROMOZIONE",
+    categoryColor: "bg-red-500 text-white",
+    image: "/turno4/turno4 (1).jpeg",
+    link: "/ricordi/turno5",
+    clickable: false,
+  },
+  {
     id: 7,
     title: "Serie B — Avamposto Garibaldino RED: tutti e 5 i turni",
     date: "Venerdì 13.03.2026",
     location: "Villanova di Guidonia",
-    description: "5 turni in 3 giorni per il debutto storico in Serie B. 2 vittorie, 2 sconfitte, 1 pareggio. La classifica finale ci vede retrocessi ma presenteremo ricorso per i 2 punti contestati. Nulla è perduto — i garibaldini non si arrendono MAI.",
+    description: "2 vittorie, 2 sconfitte, 1 pareggio. La classifica finale ci vede retrocessi ma presenteremo ricorso per i 2 punti contestati.",
     category: "SERIE B",
     categoryColor: "bg-purple-600 text-white",
     image: "/serieb/serieb (2).jpeg",
@@ -259,7 +271,7 @@ const News: React.FC = () => {
           </Link>
           <div className="flex items-center gap-2 text-xs text-gray-500 bg-white border border-gray-200 px-3 py-2 rounded-full shadow-sm">
             <Bell className="h-3.5 w-3.5 text-chess-gold" />
-            Aggiornato il 16-03-2026
+            Aggiornato il 20-03-2026
           </div>
         </div>
 

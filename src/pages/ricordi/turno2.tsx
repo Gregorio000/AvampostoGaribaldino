@@ -20,9 +20,6 @@ const photos = [
   "/turno2/classifica3.jpg",
 ];
 
-/* ══════════════════════════════════════════════
-   LIGHTBOX
-══════════════════════════════════════════════ */
 const Lightbox = ({
   index, total, src, onClose, onPrev, onNext,
 }: {
@@ -44,22 +41,15 @@ const Lightbox = ({
       <button className="absolute top-4 right-4 text-white/70 hover:text-white bg-black/30 rounded-full p-2 z-10" onClick={onClose}>
         <X className="h-6 w-6" />
       </button>
-      <button
-        className="absolute left-3 sm:left-5 text-white/70 hover:text-white bg-black/30 rounded-full p-2.5 z-10"
-        onClick={e => { e.stopPropagation(); onPrev(); }}
-      >
+      <button className="absolute left-3 sm:left-5 text-white/70 hover:text-white bg-black/30 rounded-full p-2.5 z-10"
+        onClick={e => { e.stopPropagation(); onPrev(); }}>
         <ChevronLeft className="h-6 w-6" />
       </button>
-      <img
-        src={src}
-        alt={`Foto ${index + 1}`}
+      <img src={src} alt={`Foto ${index + 1}`}
         className="max-w-full max-h-[88vh] object-contain rounded-xl shadow-2xl"
-        onClick={e => e.stopPropagation()}
-      />
-      <button
-        className="absolute right-3 sm:right-5 text-white/70 hover:text-white bg-black/30 rounded-full p-2.5 z-10"
-        onClick={e => { e.stopPropagation(); onNext(); }}
-      >
+        onClick={e => e.stopPropagation()} />
+      <button className="absolute right-3 sm:right-5 text-white/70 hover:text-white bg-black/30 rounded-full p-2.5 z-10"
+        onClick={e => { e.stopPropagation(); onNext(); }}>
         <ChevronRight className="h-6 w-6" />
       </button>
       <div className="absolute bottom-4 left-0 right-0 flex justify-center text-white/50 text-sm">
@@ -69,9 +59,6 @@ const Lightbox = ({
   );
 };
 
-/* ══════════════════════════════════════════════
-   RISULTATI
-══════════════════════════════════════════════ */
 const risultati = [
   {
     colore: "BLACK",
@@ -83,7 +70,7 @@ const risultati = [
     sede: "Fantasy Pub, Fonte Nuova",
     punteggio: "0,5 – 3,5",
     girone: "Girone 1",
-    highlight: "Pesante sconfitta contro la capolista.",
+    highlight: "Pesante sconfitta contro la capolista del girone.",
   },
   {
     colore: "BLUE",
@@ -95,7 +82,7 @@ const risultati = [
     sede: "Fantasy Pub, Fonte Nuova",
     punteggio: "3 – 1",
     girone: "Girone 2",
-    highlight: "Splendida vittoria che rilancia le ambizioni del Blue.",
+    highlight: "Splendida vittoria del Blue che supera nettamente gli avversari.",
   },
   {
     colore: "WHITE",
@@ -104,57 +91,46 @@ const risultati = [
     esito: "VITTORIA",
     esitoStyle: "bg-green-100 text-green-700",
     avversario: "Scacchi Valle Aniene 4",
-    sede: "Fumetteria Starshop, Santa Lucia",
+    sede: "Fumetteria Starshop, S. Lucia",
     punteggio: "3,5 – 0,5",
     girone: "Girone 3",
-    highlight: "Travolgente successo che tiene vive le speranze di qualificazione.",
+    highlight: "Travolgente successo! Speranze di qualificazione vive.",
   },
 ];
 
-/* ══════════════════════════════════════════════
-   PAGE
-══════════════════════════════════════════════ */
 const Turno2 = () => {
   const navigate = useNavigate();
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
-  const openModal = useCallback((i: number) => {
-    setSelectedIndex(i);
-    document.body.style.overflow = "hidden";
-  }, []);
+  const openModal  = useCallback((i: number) => { setSelectedIndex(i); document.body.style.overflow = "hidden"; window.history.pushState({ lightbox: true }, ""); }, []);
+  const closeModal = useCallback(() => { setSelectedIndex(null); document.body.style.overflow = ""; }, []);
 
-  const closeModal = useCallback(() => {
-    setSelectedIndex(null);
-    document.body.style.overflow = "auto";
-  }, []);
-
-  const prev = useCallback(() =>
-    setSelectedIndex(i => (i === null ? 0 : i === 0 ? photos.length - 1 : i - 1)), []);
-
-  const next = useCallback(() =>
-    setSelectedIndex(i => (i === null ? 0 : i === photos.length - 1 ? 0 : i + 1)), []);
+  // Intercetta il tasto indietro fisico di Android/browser
+  useEffect(() => {
+    const handlePopState = () => {
+      if (selectedIndex !== null) {
+        closeModal();
+      }
+    };
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
+  }, [selectedIndex, closeModal]);
+  const prev = useCallback(() => setSelectedIndex(i => (i === null ? 0 : i === 0 ? photos.length - 1 : i - 1)), []);
+  const next = useCallback(() => setSelectedIndex(i => (i === null ? 0 : i === photos.length - 1 ? 0 : i + 1)), []);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       {selectedIndex !== null && (
-        <Lightbox
-          index={selectedIndex}
-          total={photos.length}
-          src={photos[selectedIndex]}
-          onClose={closeModal}
-          onPrev={prev}
-          onNext={next}
-        />
+        <Lightbox index={selectedIndex} total={photos.length} src={photos[selectedIndex]}
+          onClose={closeModal} onPrev={prev} onNext={next} />
       )}
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
 
-        {/* ── Top bar ── */}
+        {/* Top bar */}
         <div className="flex items-center justify-between mb-10">
-          <button
-            onClick={() => navigate(-1)}
-            className="inline-flex items-center gap-2 text-chess-gold hover:text-chess-dark font-semibold transition-colors text-sm"
-          >
+          <button onClick={() => navigate(-1)}
+            className="inline-flex items-center gap-2 text-chess-gold hover:text-chess-dark font-semibold transition-colors text-sm">
             <ArrowLeft className="h-4 w-4" />
             Torna indietro
           </button>
@@ -164,7 +140,7 @@ const Turno2 = () => {
           </div>
         </div>
 
-        {/* ── Header ── */}
+        {/* Header */}
         <div className="text-center mb-10">
           <div className="inline-flex items-center gap-3 text-chess-gold font-semibold text-sm uppercase tracking-widest mb-4">
             <span className="w-8 h-px bg-chess-gold" />
@@ -180,50 +156,38 @@ const Turno2 = () => {
           </div>
         </div>
 
-        {/* ── Risultati cards ── */}
+        {/* Risultati */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12 max-w-4xl mx-auto">
           {risultati.map(r => (
             <div key={r.colore} className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
               <div className={`h-1.5 w-full ${r.barStyle}`} />
               <div className="p-5">
                 <div className="flex items-center justify-between mb-3">
-                  <span className={`${r.badgeStyle} text-xs font-bold px-3 py-1 rounded-full`}>
-                    {r.colore}
-                  </span>
-                  <span className={`${r.esitoStyle} text-xs font-bold px-2.5 py-1 rounded-full`}>
-                    {r.esito}
-                  </span>
+                  <span className={`${r.badgeStyle} text-xs font-bold px-3 py-1 rounded-full`}>{r.colore}</span>
+                  <span className={`${r.esitoStyle} text-xs font-bold px-2.5 py-1 rounded-full`}>{r.esito}</span>
                 </div>
                 <p className="text-lg font-bold text-chess-dark mb-1">{r.punteggio}</p>
                 <p className="text-sm font-medium text-gray-600 mb-1">vs {r.avversario}</p>
                 <p className="text-xs text-gray-400 mb-3">📍 {r.sede} · {r.girone}</p>
-                <p className="text-xs text-gray-500 leading-relaxed border-t border-gray-100 pt-3">
-                  {r.highlight}
-                </p>
+                <p className="text-xs text-gray-500 leading-relaxed border-t border-gray-100 pt-3">{r.highlight}</p>
               </div>
             </div>
           ))}
         </div>
 
-        {/* ── Gallery ── */}
+        {/* Gallery */}
         <div className="mb-10">
           <div className="flex items-center gap-2 mb-6">
             <span className="w-1 h-5 bg-chess-gold rounded-full" />
             <span className="text-xs font-bold text-chess-gold uppercase tracking-widest">Galleria fotografica</span>
           </div>
-
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
             {photos.map((photo, i) => (
-              <div
-                key={i}
+              <div key={i}
                 className="group relative aspect-square rounded-xl overflow-hidden shadow-sm cursor-pointer hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
-                onClick={() => openModal(i)}
-              >
-                <img
-                  src={photo}
-                  alt={`Turno 2 foto ${i + 1}`}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
+                onClick={() => openModal(i)}>
+                <img src={photo} alt={`Turno 2 foto ${i + 1}`}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
                   <ZoomIn className="h-7 w-7 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 drop-shadow-lg" />
                 </div>
@@ -232,11 +196,9 @@ const Turno2 = () => {
           </div>
         </div>
 
-        {/* ── Footer ── */}
+        {/* Footer */}
         <div className="pt-8 border-t border-gray-200 text-center">
-          <p className="text-gray-400 text-sm">
-            2° Turno Serie Promozione · 8 Febbraio 2026 · Avamposto Garibaldino
-          </p>
+          <p className="text-gray-400 text-sm">2° Turno Serie Promozione · 8 Febbraio 2026 · Avamposto Garibaldino</p>
         </div>
 
       </div>

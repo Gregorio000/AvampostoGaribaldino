@@ -86,7 +86,7 @@ const risultati = [
     esitoStyle: "bg-red-100 text-red-700",
     avversario: "Flaminia Black",
     sede: "Sacrofano",
-    punteggio: "3,5 – 0,5",
+    punteggio: "? – ?",
     girone: "Girone 2",
     highlight: "Defezione del prima scacchiera Militerni per impegno personale. Squadra sottotono, speranze di promozione svanite.",
   },
@@ -114,12 +114,25 @@ const Turno4 = () => {
   const openModal = useCallback((i: number) => {
     setSelectedIndex(i);
     document.body.style.overflow = "hidden";
+    // Aggiunge uno stato fittizio alla cronologia per intercettare il tasto indietro Android
+    window.history.pushState({ lightbox: true }, "");
   }, []);
 
   const closeModal = useCallback(() => {
     setSelectedIndex(null);
-    document.body.style.overflow = "auto";
+    document.body.style.overflow = "";
   }, []);
+
+  // Intercetta il tasto indietro fisico di Android/browser
+  useEffect(() => {
+    const handlePopState = () => {
+      if (selectedIndex !== null) {
+        closeModal();
+      }
+    };
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
+  }, [selectedIndex, closeModal]);
 
   const prev = useCallback(() =>
     setSelectedIndex(i => (i === null ? 0 : i === 0 ? photos.length - 1 : i - 1)), []);
@@ -174,14 +187,14 @@ const Turno4 = () => {
         </div>
 
         {/* ── Descrizione ── */}
-        {/* <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 sm:p-8 mb-10 max-w-4xl mx-auto">
+        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 sm:p-8 mb-10 max-w-4xl mx-auto">
           <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
             Tutte e tre le squadre erano in trasferta. Tutte e tre chiudono il turno con <span className="font-semibold text-chess-dark">5 punti</span> in classifica — nessuna promozione diretta possibile, ma ancora aperta la corsa per un <span className="font-semibold text-chess-gold">prestigioso secondo posto</span>.
           </p>
           <p className="mt-3 text-sm text-gray-500">
             Il 5° e ultimo turno si giocherà il <span className="font-semibold">22 Marzo</span>, con tutte e tre le squadre tra le mura amiche.
           </p>
-        </div> */}
+        </div>
 
         {/* ── Risultati cards ── */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12 max-w-4xl mx-auto">

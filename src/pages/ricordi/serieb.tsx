@@ -144,12 +144,24 @@ const Serieb1 = () => {
   const openModal = useCallback((i: number) => {
     setSelectedIndex(i);
     document.body.style.overflow = "hidden";
+    window.history.pushState({ lightbox: true }, "");
   }, []);
 
   const closeModal = useCallback(() => {
     setSelectedIndex(null);
-    document.body.style.overflow = "auto";
+    document.body.style.overflow = "";
   }, []);
+
+  // Intercetta il tasto indietro fisico di Android/browser
+  useEffect(() => {
+    const handlePopState = () => {
+      if (selectedIndex !== null) {
+        closeModal();
+      }
+    };
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
+  }, [selectedIndex, closeModal]);
 
   const prev = useCallback(() =>
     setSelectedIndex(i => (i === null ? 0 : i === 0 ? photos.length - 1 : i - 1)), []);
@@ -191,11 +203,11 @@ const Serieb1 = () => {
         <div className="text-center mb-10">
           <div className="inline-flex items-center gap-3 text-chess-gold font-semibold text-sm uppercase tracking-widest mb-4">
             <span className="w-8 h-px bg-chess-gold" />
-            Avamposto Garibaldino RED
+            Campionato a Squadre FSI · Serie B Lazio
             <span className="w-8 h-px bg-chess-gold" />
           </div>
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-chess-dark leading-tight mb-5">
-            Campionato a Squadre FSI   <span className="text-chess-gold">· SERIE B LAZIO</span>
+            Avamposto Garibaldino <span className="text-chess-gold">RED</span>
           </h1>
           <div className="inline-flex items-center gap-2 bg-chess-dark text-white px-5 py-2.5 rounded-full text-sm font-semibold shadow">
             <Calendar className="h-4 w-4" />
@@ -275,9 +287,9 @@ const Serieb1 = () => {
                     <div>
                       <div className="flex items-center gap-2 flex-wrap">
                         <span className="text-sm font-bold text-chess-dark">vs {t.avversario}</span>
-                        {/* <span className={`text-xs px-2 py-0.5 rounded-full font-semibold ${t.casa ? "bg-blue-50 text-blue-600" : "bg-gray-100 text-gray-500"}`}>
+                        <span className={`text-xs px-2 py-0.5 rounded-full font-semibold ${t.casa ? "bg-blue-50 text-blue-600" : "bg-gray-100 text-gray-500"}`}>
                           {t.casa ? "Casa" : "Trasferta"}
-                        </span> */}
+                        </span>
                       </div>
                       <p className="text-xs text-gray-400 mt-0.5">{t.data} · Villanova di Guidonia</p>
                     </div>
@@ -312,23 +324,23 @@ const Serieb1 = () => {
           </div> */}
         </div>
 
-        {/* ── Cronaca  ── */}
+        {/* ── Cronaca turno 1 ── */}
         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 sm:p-8 max-w-4xl mx-auto mb-12">
           <div className="flex items-center gap-2 mb-4">
             <span className="w-1 h-5 bg-chess-gold rounded-full" />
             <span className="text-xs font-bold text-chess-gold uppercase tracking-widest">Cronaca</span>
           </div>
           <p className="text-base text-gray-700 leading-relaxed">
-            Tre giorni intensi, cinque turni, un debutto storico. L'<span className="font-semibold text-chess-dark">Avamposto Garibaldino RED</span> ha disputato il suo primo campionato di Serie B a Villanova di Guidonia con carattere e determinazione, raccogliendo <span className="font-semibold">2 vittorie, 2 sconfitte e 1 pareggio</span>.
+            Dopo il buon esordio con il pareggio contro il <span className="font-semibold text-chess-dark">Mario Albano</span>, il secondo turno è stato segnato da un episodio sfortunato: la vibrazione di un cellulare — pur fuori dall'area di gioco — ha causato l'interruzione e la perdita della partita della prima scacchiera, destabilizzando l'intera squadra (0,5–3,5).
           </p>
           <p className="text-base text-gray-700 leading-relaxed mt-3">
-            Il debutto nel 1° turno contro il <span className="font-semibold">Circolo Mario Albano</span> ha subito mostrato la fibra garibaldina: Caparrotta porta in vantaggio con uno splendido scacco matto, De Blasio ristabilisce l'equilibrio, e le patte di Grammatico e Ciufolini — quest'ultimo capace di recuperare uno svantaggio e giocare per la vittoria — fissano il 2-2. Un pareggio combattuto che ha aperto il torneo nel migliore dei modi.
+            Nel terzo turno, con <span className="font-semibold">Di Marco</span> in sostituzione, la squadra ha vinto 3-1 sul campo ma l'arbitro ha applicato una <span className="font-semibold text-chess-dark">penalizzazione in classifica</span>, ritenendo Di Marco non abilitato a giocare, retrocedendo il RED all'ultimo posto del girone.
           </p>
           <p className="text-base text-gray-700 leading-relaxed mt-3">
-            Il cammino ha poi conosciuto alti e bassi: la sconfitta contro il <span className="font-semibold">Valleaniene Tivoli P</span>, le vittorie nette contro <span className="font-semibold">Alfieri della Tuscia 2</span> e <span className="font-semibold">Circolo Scacchi Vitinia</span>, e la sconfitta contro la capolista <span className="font-semibold">Scacchianiene Tivoli 1.</span> Pende il ricorso per i 2 punti contestati contro ASD Alfieri Della Tuscia 2.
+            La domenica, senza <span className="font-semibold">Caparrotta</span>, ha esordito <span className="font-semibold">Militerni</span> con una bella vittoria, ma la squadra è stata sconfitta 3-1 dalla capolista Tivoli. All'ultimo turno vittoria meritata contro Vitinia (2,5–1,5): <span className="font-semibold">Stella</span> batte in venti mosse il 2150 Magini, vincono <span className="font-semibold">Ciufolini</span> e patta <span className="font-semibold">Militerni</span>.
           </p>
           <p className="text-sm text-chess-gold font-semibold mt-5 italic border-t border-gray-100 pt-4">
-            "Nulla è perduto. Faremo tutto il possibile per ottenere giustizia. I garibaldini non si arrenderanno MAI."
+            "5 punti sul campo, solo 3 in classifica per la penalizzazione. Qualora vi fossero nuovi sviluppi, vi terremo aggiornati."
           </p>
         </div>
 

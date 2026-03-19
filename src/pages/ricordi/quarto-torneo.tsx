@@ -63,12 +63,24 @@ const Quartotorneo = () => {
   const openModal = useCallback((i: number) => {
     setSelectedIndex(i);
     document.body.style.overflow = "hidden";
+    window.history.pushState({ lightbox: true }, "");
   }, []);
 
   const closeModal = useCallback(() => {
     setSelectedIndex(null);
-    document.body.style.overflow = "auto";
+    document.body.style.overflow = "";
   }, []);
+
+  // Intercetta il tasto indietro fisico di Android/browser
+  useEffect(() => {
+    const handlePopState = () => {
+      if (selectedIndex !== null) {
+        closeModal();
+      }
+    };
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
+  }, [selectedIndex, closeModal]);
 
   const prev = useCallback(() =>
     setSelectedIndex(i => (i === null ? 0 : i === 0 ? photos.length - 1 : i - 1)), []);
@@ -127,7 +139,7 @@ const Quartotorneo = () => {
           onClick={() => openModal(0)}
         >
           <img
-            src={photos[10]}
+            src={photos[0]}
             alt="4° Torneo di Allenamento"
             className="w-full h-64 sm:h-80 object-cover hover:scale-105 transition-transform duration-700"
           />

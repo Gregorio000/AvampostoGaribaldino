@@ -186,7 +186,7 @@ const Squadre: React.FC = () => {
         <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto mb-14">
           {[
             { icon: Shield, value: squadre.length, label: "Squadre" },
-            { icon: Trophy, value: "SERIE B", label: "Campionato" },
+            { icon: Trophy, value: "SERIE B", label: "Campionato maggiore" },
             { icon: Users, value: 15, label: "Giocatori/squadra" },
           ].map(({ icon: Icon, value, label }) => (
             <div key={label} className="bg-white rounded-2xl shadow-sm border border-gray-100 p-4 sm:p-5 text-center">
