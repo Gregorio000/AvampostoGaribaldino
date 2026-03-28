@@ -23,6 +23,18 @@ interface NewsItem {
 
 const newsItems: NewsItem[] = [
   {
+    id: 9,
+    title: "5° Turno Serie Promozione — Black e Blue vincono, White cede",
+    date: "Domenica 22.03.2026",
+    location: "Fonte Nuova & Santa Lucia",
+    description: "Sipario sul campionato di Serie Promozione Lazio: Black batte Frascati 4 con le prodezze di Ventilii e Gismondi, Blue si impone 3–1 su Ladispoli. Cede il White contro Alvise Zichichi B per 1–3. Grande terzo tempo finale tra le squadre!",
+    category: "PROMOZIONE",
+    categoryColor: "bg-red-500 text-white",
+    image: "/turno5/turno5 (6).jpg",
+    link: "/ricordi/turno5",
+    clickable: true,
+  },
+  {
     id: 8,
     title: "5° Turno Serie Promozione — Ultimo turno, venite a supportarci!",
     date: "Domenica 22.03.2026",

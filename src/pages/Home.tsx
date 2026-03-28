@@ -17,7 +17,8 @@ const ImageCarousel: React.FC = () => {
     "/images/Prova1.jpg",
     "/turno3/turno3 (3).jpeg",
     "/turno4/turno4 (1).jpeg",
-    "/turno4/turno4 (4).jpeg"
+    "/turno4/turno4 (4).jpeg",
+    "/turno5/turno5 (6).jpg"
   ];
 
   useEffect(() => {
@@ -40,7 +41,6 @@ const ImageCarousel: React.FC = () => {
           style={{ filter: 'brightness(1.1) contrast(1.2)' }}
         />
       ))}
-      {/* Dot indicators */}
       <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
         {images.map((_, i) => (
           <button
@@ -56,7 +56,6 @@ const ImageCarousel: React.FC = () => {
   );
 };
 
-/* ── Divider ── */
 const Divider: React.FC = () => (
   <div className="flex items-center gap-4 my-12 max-w-xl mx-auto px-4">
     <div className="flex-1 h-px bg-chess-gold/30" />
@@ -65,11 +64,8 @@ const Divider: React.FC = () => (
   </div>
 );
 
-/* ── Section Header ── */
 const SectionHeader: React.FC<{ label?: string; title: string; subtitle?: string }> = ({
-  label,
-  title,
-  subtitle,
+  label, title, subtitle,
 }) => (
   <div className="text-center mb-10 md:mb-14 px-4">
     {label && (
@@ -86,26 +82,16 @@ const SectionHeader: React.FC<{ label?: string; title: string; subtitle?: string
   </div>
 );
 
-/* ── Card Link ── */
 const CardLink: React.FC<{
-  to: string;
-  image: string;
-  alt: string;
-  badge?: string;
-  title: string;
-  description: string;
-  cta: string;
+  to: string; image: string; alt: string; badge?: string;
+  title: string; description: string; cta: string;
 }> = ({ to, image, alt, badge, title, description, cta }) => (
   <Link
     to={to}
     className="group bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-500 flex flex-col hover:-translate-y-2 border border-gray-100"
   >
     <div className="relative h-56 sm:h-64 overflow-hidden">
-      <img
-        src={image}
-        alt={alt}
-        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-      />
+      <img src={image} alt={alt} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
       {badge && (
         <div className="absolute top-3 right-3 bg-chess-gold text-chess-dark px-3 py-1 rounded-full text-xs font-bold shadow">
@@ -133,25 +119,25 @@ const Home: React.FC = () => {
   return (
     <div className="overflow-hidden">
 
-      {/* ── HERO ── */}
-      <section className="relative text-white min-h-[85vh] flex items-center">
+      {/* ── HERO — leggermente più compatto ── */}
+      <section className="relative text-white min-h-[70vh] flex items-center">
         <div className="absolute inset-0 overflow-hidden">
           <ImageCarousel />
           <div className="absolute inset-0 bg-gradient-to-r from-chess-dark/85 via-chess-dark/55 to-chess-dark/70" />
         </div>
 
-        <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 text-center">
-          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-chess-gold border border-chess-gold/30 px-4 py-1.5 rounded-full text-sm font-semibold mb-6">
+        <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 text-center">
+          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-chess-gold border border-chess-gold/30 px-4 py-1.5 rounded-full text-sm font-semibold mb-5">
             <span className="w-2 h-2 rounded-full bg-chess-gold animate-pulse" />
             Mentana, dal 2015
           </div>
 
-          <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 leading-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-5 leading-tight">
             Benvenuti all'<br className="hidden sm:block" />
             <span className="text-chess-gold">Avamposto Garibaldino</span>
           </h1>
 
-          <p className="text-lg sm:text-xl md:text-2xl mb-10 text-gray-200 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl mb-8 text-gray-200 max-w-2xl mx-auto leading-relaxed">
             Tradizione, eccellenza e passione per gli scacchi nel cuore di Mentana
           </p>
 
@@ -177,71 +163,77 @@ const Home: React.FC = () => {
         </div>
       </section>
 
+      {/* ── SPONSOR ── */}
+      <section className="bg-white border-b border-gray-100 shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          {/* <p className="text-xs font-bold text-gray-400 uppercase tracking-widest text-center mb-6">
+            In Collaborazione Con
+          </p> */}
+          <div className="flex flex-row items-center justify-center gap-10 sm:gap-16">
+            <a href="https://www.amatriciamo.it" target="_blank" rel="noopener noreferrer" className="group opacity-1000 hover:opacity-100 transition-opacity duration-300">
+              <img src="/sponsor/amatriciamo.jpg" alt="Amatriciamo" className="h-12 w-auto object-contain" />
+            </a>
+            <div className="h-8 w-px bg-gray-200" />
+            <a href="https://faraglia.net" target="_blank" rel="noopener noreferrer" className="group opacity-1000 hover:opacity-100 transition-opacity duration-300">
+              <img src="/sponsor/faraglia.jpg" alt="Partner 2" className="h-12 w-auto object-contain" />
+            </a>
+            <div className="h-8 w-px bg-gray-200" />
+            {/* <a href="https://.net" target="_blank" rel="noopener noreferrer" className="group opacity-1000 hover:opacity-100 transition-opacity duration-300"> */}
+              <img src="/sponsor/hotel-serena.jpg" alt="Partner 2" className="h-12 w-auto object-contain" />
+            {/* </a> */}
+          </div>
+        </div>
+      </section>
+
       {/* ── MAIN CONTENT ── */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* ── ULTIMA NOTIZIA ── */}
-        <section className="pt-14 pb-4">
+        <section className="pt-8 pb-4">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
             <div className="flex items-center gap-3">
               <Bell className="h-7 w-7 text-chess-gold flex-shrink-0" />
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-chess-dark">Ultima Notizia</h2>
             </div>
-            <Link
-              to="/news"
-              className="text-chess-gold hover:text-chess-dark font-semibold transition-colors flex items-center gap-1 text-sm sm:text-base whitespace-nowrap"
-            >
+            <Link to="/news" className="text-chess-gold hover:text-chess-dark font-semibold transition-colors flex items-center gap-1 text-sm sm:text-base whitespace-nowrap">
               Vedi tutte le notizie
               <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
 
-          <Link
-            to="/news"
-            className="group block bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-md overflow-hidden border border-gray-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
-          >
+          <Link to="/ricordi/turno5" className="group block bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-md overflow-hidden border border-gray-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
             <div className="flex flex-col lg:flex-row">
-              {/* Text */}
               <div className="flex-1 p-6 sm:p-8">
                 <div className="flex flex-wrap items-center gap-3 mb-4">
-                  <span className="bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold">
-                    PROMOZIONE
-                  </span>
+                  <span className="bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold">PROMOZIONE</span>
                   <span className="text-chess-gray text-sm flex items-center gap-1">
                     <CalendarDays className="h-4 w-4" />
                     Domenica 22.03.2026
                   </span>
                 </div>
-
                 <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-chess-dark mb-3 leading-tight group-hover:text-chess-gold transition-colors">
-                  5° Turno — Venite a supportarci!
+                  5° Turno — Black e Blue vincono, White cede
                 </h3>
-
                 <p className="text-chess-gray mb-6 leading-relaxed">
-                  Domenica 22 marzo ore 10:30 si gioca il turno finale del Campionato Italiano di Scacchi a Squadre 2026 — Serie Promozione. Tutte le partite in casa al Fantasy Pub di Fonte Nuova. Venite a supportare i nostri campioni locali!
+                  Sipario sul campionato di Serie Promozione Lazio: Black batte Frascati 4 con Ventilii e Gismondi, Blue supera Ladispoli 3–1. Cede invece il White contro Alvise Zichichi B per 1–3.
                 </p>
-
                 <div className="space-y-2">
-                  <div className="bg-red-500/10 rounded-xl p-3 border-l-4 border-red-500">
+                  <div className="bg-green-500/10 rounded-xl p-3 border-l-4 border-green-500">
                     <p className="font-semibold text-chess-dark text-sm">AVAMPOSTO GARIBALDINO BLACK</p>
-                    <p className="text-chess-gray text-sm">vs Frascati 4 (Circolo "La Tela del Ragno" di Colleverde)</p>
-                    <p className="text-chess-gray text-xs italic mt-0.5">Ore 10:30 · Fantasy Pub, Via Nomentana 502, Fonte Nuova</p>
+                    <p className="text-chess-gray text-sm">2,5 – 1,5 vs Frascati 4 · Fumetteria Star Shop, Fonte Nuova</p>
                   </div>
-                  <div className="bg-gray-100 rounded-xl p-3 border-l-4 border-gray-400">
+                  <div className="bg-red-500/10 rounded-xl p-3 border-l-4 border-red-400">
                     <p className="font-semibold text-chess-dark text-sm">AVAMPOSTO GARIBALDINO WHITE</p>
-                    <p className="text-chess-gray text-sm">vs Alvise Zichichi B</p>
-                    <p className="text-chess-gray text-xs italic mt-0.5">Ore 10:30 · Fantasy Pub, Via Nomentana 502, Fonte Nuova</p>
+                    <p className="text-chess-gray text-sm">1 – 3 vs Alvise Zichichi B · Fantasy Pub, Fonte Nuova</p>
+                  </div>
+                  <div className="bg-green-500/10 rounded-xl p-3 border-l-4 border-green-600">
+                    <p className="font-semibold text-chess-dark text-sm">AVAMPOSTO GARIBALDINO BLUE</p>
+                    <p className="text-chess-gray text-sm">3 – 1 vs Alvise Zichichi C · Fantasy Pub, Fonte Nuova</p>
                   </div>
                 </div>
               </div>
-
-              {/* Image */}
               <div className="lg:w-2/5 h-56 sm:h-64 lg:h-auto relative flex-shrink-0">
-                <img
-                  src="/turno5/turno5.jpeg"
-                  alt="5° Turno Serie Promozione"
-                  className="w-full h-full object-cover"
-                />
+                <img src="/turno5/turno5 (6).jpg" alt="5° Turno Serie Promozione" className="w-full h-full object-cover" />
               </div>
             </div>
           </Link>
@@ -261,18 +253,11 @@ const Home: React.FC = () => {
                 La nostra Storia
               </h2>
               <div className="space-y-4 text-chess-gray text-lg leading-relaxed">
-                <p>
-                  L'Avamposto Garibaldino rappresenta anni di tradizione scacchistica a Mentana, ispirandosi
-                  all'eroica storia locale mentre guarda con innovazione al futuro.
-                </p>
+                <p>L'Avamposto Garibaldino rappresenta anni di tradizione scacchistica a Mentana, ispirandosi all'eroica storia locale mentre guarda con innovazione al futuro.</p>
                 <p>L'Associazione ha lo scopo di divulgare il gioco degli scacchi.</p>
-                <p>
-                  Oggi, con sede moderna e attrezzature all'avanguardia, offriamo tornei, corsi e eventi per
-                  appassionati di ogni livello ed età.
-                </p>
+                <p>Oggi, con sede moderna e attrezzature all'avanguardia, offriamo tornei, corsi e eventi per appassionati di ogni livello ed età.</p>
               </div>
             </div>
-
             <div className="relative">
               <div className="rounded-2xl overflow-hidden shadow-2xl">
                 <img
@@ -299,7 +284,6 @@ const Home: React.FC = () => {
             title="Vuoi Iscriverti Subito?"
             subtitle="Scarica il modulo di iscrizione, compilalo e portalo in sede per iniziare la tua avventura scacchistica!"
           />
-
           <a
             href="/modulo_di_tesseramento_avamposto_garibaldino_2026.pdf"
             download="Iscrizione_Avamposto_Garibaldino.pdf"
@@ -308,7 +292,6 @@ const Home: React.FC = () => {
             <Download className="h-5 w-5" />
             Scarica Modulo di Iscrizione
           </a>
-
           <div className="mt-10 max-w-sm mx-auto bg-gray-50 rounded-2xl p-6 border border-gray-200 text-left">
             <h3 className="text-base font-bold text-chess-dark mb-3 text-center">Come Iscriversi</h3>
             <ol className="space-y-2 text-chess-gray text-sm list-none">
@@ -330,9 +313,7 @@ const Home: React.FC = () => {
           </div>
           <p className="mt-6 text-chess-gray text-sm">
             Hai bisogno di aiuto?{' '}
-            <Link to="/contact" className="text-chess-gold hover:underline font-medium">
-              Contattaci
-            </Link>
+            <Link to="/contact" className="text-chess-gold hover:underline font-medium">Contattaci</Link>
           </p>
         </section>
 
@@ -340,47 +321,25 @@ const Home: React.FC = () => {
 
         {/* ── GIOCA ONLINE ── */}
         <section className="pb-4">
-          <SectionHeader
-            label="Community digitale"
-            title="Gioca con Noi Online"
-            subtitle="Unisciti alla nostra community digitale e continua a giocare anche da casa"
-          />
-
+          <SectionHeader label="Community digitale" title="Gioca con Noi Online" subtitle="Unisciti alla nostra community digitale e continua a giocare anche da casa" />
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
-            {/* Chess.com */}
             <div className="bg-white rounded-2xl shadow-md p-7 text-center hover:shadow-xl transition-all duration-300 border border-gray-100 hover:-translate-y-2 flex flex-col">
               <div className="bg-blue-50 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-5">
                 <img src="/images/chesscom.png" alt="Chess.com" className="h-10 w-10" />
               </div>
               <h3 className="text-lg font-bold text-chess-dark mb-3">ASD Mentana Scacchi</h3>
-              <p className="text-chess-gray text-sm leading-relaxed flex-1 mb-5">
-                Unisciti al nostro club su Chess.com per giocare online, partecipare a tornei e migliorare il tuo gioco.
-              </p>
-              <a
-                href="https://www.chess.com/club/asd-mentana-scacchi-avamposto-garibaldino"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-blue-600 text-white px-5 py-2.5 rounded-lg font-semibold hover:bg-blue-700 transition-colors text-sm"
-              >
+              <p className="text-chess-gray text-sm leading-relaxed flex-1 mb-5">Unisciti al nostro club su Chess.com per giocare online, partecipare a tornei e migliorare il tuo gioco.</p>
+              <a href="https://www.chess.com/club/asd-mentana-scacchi-avamposto-garibaldino" target="_blank" rel="noopener noreferrer" className="bg-blue-600 text-white px-5 py-2.5 rounded-lg font-semibold hover:bg-blue-700 transition-colors text-sm">
                 Unisciti su Chess.com
               </a>
             </div>
-
-            {/* Lichess */}
             <div className="bg-white rounded-2xl shadow-md p-7 text-center hover:shadow-xl transition-all duration-300 border border-gray-100 hover:-translate-y-2 flex flex-col">
               <div className="bg-gray-100 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-5">
                 <img src="/images/lichess.png" alt="Lichess" className="h-10 w-10" />
               </div>
               <h3 className="text-lg font-bold text-chess-dark mb-3">Avamposto Junior Online</h3>
-              <p className="text-chess-gray text-sm leading-relaxed flex-1 mb-5">
-                Il team Lichess dedicato ai giovani giocatori. Impara con i nostri istruttori esperti.
-              </p>
-              <a
-                href="https://lichess.org/team/avamposto-junior-online"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-green-800 text-white px-5 py-2.5 rounded-lg font-semibold hover:bg-green-900 transition-colors text-sm"
-              >
+              <p className="text-chess-gray text-sm leading-relaxed flex-1 mb-5">Il team Lichess dedicato ai giovani giocatori. Impara con i nostri istruttori esperti.</p>
+              <a href="https://lichess.org/team/avamposto-junior-online" target="_blank" rel="noopener noreferrer" className="bg-green-800 text-white px-5 py-2.5 rounded-lg font-semibold hover:bg-green-900 transition-colors text-sm">
                 Unisciti su Lichess
               </a>
             </div>
@@ -391,45 +350,25 @@ const Home: React.FC = () => {
 
         {/* ── SOCIAL ── */}
         <section className="pb-4">
-          <SectionHeader
-            label="Resta connesso"
-            title="Seguici sui Social"
-            subtitle="Resta aggiornato su tutti gli eventi, tornei e novità del nostro circolo"
-          />
-
+          <SectionHeader label="Resta connesso" title="Seguici sui Social" subtitle="Resta aggiornato su tutti gli eventi, tornei e novità del nostro circolo" />
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
             <div className="bg-white rounded-2xl shadow-md p-7 text-center hover:shadow-xl transition-all duration-300 border border-gray-100 hover:-translate-y-2 flex flex-col">
               <div className="bg-gradient-to-br from-blue-600 to-blue-700 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-5">
                 <FaFacebookF className="h-8 w-8 text-white" />
               </div>
               <h3 className="text-lg font-bold text-chess-dark mb-3">Facebook</h3>
-              <p className="text-chess-gray text-sm leading-relaxed flex-1 mb-5">
-                Segui la nostra pagina per news, eventi e foto dei tornei in tempo reale.
-              </p>
-              <a
-                href="https://www.facebook.com/mentanascacchi?locale=it_IT"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-5 py-2.5 rounded-lg font-semibold hover:from-blue-700 hover:to-blue-800 transition-colors text-sm"
-              >
+              <p className="text-chess-gray text-sm leading-relaxed flex-1 mb-5">Segui la nostra pagina per news, eventi e foto dei tornei in tempo reale.</p>
+              <a href="https://www.facebook.com/mentanascacchi?locale=it_IT" target="_blank" rel="noopener noreferrer" className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-5 py-2.5 rounded-lg font-semibold hover:from-blue-700 hover:to-blue-800 transition-colors text-sm">
                 Seguici su Facebook
               </a>
             </div>
-
             <div className="bg-white rounded-2xl shadow-md p-7 text-center hover:shadow-xl transition-all duration-300 border border-gray-100 hover:-translate-y-2 flex flex-col">
               <div className="bg-gradient-to-br from-purple-500 to-pink-500 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-5">
                 <FaInstagram className="h-8 w-8 text-white" />
               </div>
               <h3 className="text-lg font-bold text-chess-dark mb-3">Instagram</h3>
-              <p className="text-chess-gray text-sm leading-relaxed flex-1 mb-5">
-                Guarda le stories dei tornei e le foto più belle della community.
-              </p>
-              <a
-                href="https://instagram.com/avamposto.garibaldino"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-5 py-2.5 rounded-lg font-semibold hover:from-purple-700 hover:to-pink-700 transition-colors text-sm"
-              >
+              <p className="text-chess-gray text-sm leading-relaxed flex-1 mb-5">Guarda le stories dei tornei e le foto più belle della community.</p>
+              <a href="https://instagram.com/avamposto.garibaldino" target="_blank" rel="noopener noreferrer" className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-5 py-2.5 rounded-lg font-semibold hover:from-purple-700 hover:to-pink-700 transition-colors text-sm">
                 Seguici su Instagram
               </a>
             </div>
@@ -440,63 +379,27 @@ const Home: React.FC = () => {
 
         {/* ── SEZIONI CARD ── */}
         <section className="pb-4">
-          <SectionHeader
-            label="Il nostro circolo"
-            title="I Nostri Soci"
-            subtitle="Conosci le persone che rendono speciale la nostra community scacchistica"
-          />
+          <SectionHeader label="Il nostro circolo" title="I Nostri Soci" subtitle="Conosci le persone che rendono speciale la nostra community scacchistica" />
           <div className="max-w-3xl mx-auto">
-            <CardLink
-              to="/soci"
-              image="/foto-scacchiera-gigante/realizzata2.jpg"
-              alt="La Nostra Community"
-              badge="Community"
-              title="La Nostra Community"
-              description="Scopri tutti i membri dell'Avamposto Garibaldino e le loro storie."
-              cta="Conosci i nostri soci"
-            />
+            <CardLink to="/soci" image="/foto-scacchiera-gigante/realizzata2.jpg" alt="La Nostra Community" badge="Community" title="La Nostra Community" description="Scopri tutti i membri dell'Avamposto Garibaldino e le loro storie." cta="Conosci i nostri soci" />
           </div>
         </section>
 
         <Divider />
 
         <section className="pb-4">
-          <SectionHeader
-            label="Esperienza unica"
-            title="La Nostra Scacchiera Gigante"
-            subtitle="Vivi l'emozione di giocare sulla nostra spettacolare scacchiera gigante"
-          />
+          <SectionHeader label="Esperienza unica" title="La Nostra Scacchiera Gigante" subtitle="Vivi l'emozione di giocare sulla nostra spettacolare scacchiera gigante" />
           <div className="max-w-3xl mx-auto">
-            <CardLink
-              to="/scacchiera-gigante"
-              image="/images/scacchiera-grossa.jpg"
-              alt="Scacchiera Gigante"
-              badge="Iconica"
-              title="Scacchiera Gigante"
-              description="Dalla costruzione all'aspetto odierno — un'esperienza immersiva che ti farà sentire parte del gioco."
-              cta="Scopri la Scacchiera Gigante"
-            />
+            <CardLink to="/scacchiera-gigante" image="/images/scacchiera-grossa.jpg" alt="Scacchiera Gigante" badge="Iconica" title="Scacchiera Gigante" description="Dalla costruzione all'aspetto odierno — un'esperienza immersiva che ti farà sentire parte del gioco." cta="Scopri la Scacchiera Gigante" />
           </div>
         </section>
 
         <Divider />
 
         <section className="pb-4">
-          <SectionHeader
-            label="Cultura scacchistica"
-            title="Il Nostro Patrimonio"
-            subtitle="Scopri il ricco patrimonio culturale e scacchistico dell'Avamposto Garibaldino"
-          />
+          <SectionHeader label="Cultura scacchistica" title="Il Nostro Patrimonio" subtitle="Scopri il ricco patrimonio culturale e scacchistico dell'Avamposto Garibaldino" />
           <div className="max-w-3xl mx-auto">
-            <CardLink
-              to="/patrimonio"
-              image="/libri/libris.jpg"
-              alt="Patrimonio dell'Avamposto"
-              badge="Collezioni"
-              title="Il Nostro Patrimonio"
-              description="Biblioteca scacchistica con libri storici, manuali tecnici, biografie dei campioni e saggi sulla cultura scacchistica."
-              cta="Scopri il Patrimonio"
-            />
+            <CardLink to="/patrimonio" image="/libri/libris.jpg" alt="Patrimonio dell'Avamposto" badge="Collezioni" title="Il Nostro Patrimonio" description="Biblioteca scacchistica con libri storici, manuali tecnici, biografie dei campioni e saggi sulla cultura scacchistica." cta="Scopri il Patrimonio" />
           </div>
         </section>
 
@@ -505,47 +408,16 @@ const Home: React.FC = () => {
         {/* ── GALLERY / RICORDI ── */}
         <section className="pb-20">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
-            <SectionHeader
-              label="Galleria"
-              title="I Momenti dell'Avamposto"
-            />
-            <Link
-              to="/ricordi"
-              className="text-chess-gold hover:text-chess-dark font-semibold transition-colors flex items-center gap-1 text-sm whitespace-nowrap mb-10 sm:mb-0"
-            >
+            <SectionHeader label="Galleria" title="I Momenti dell'Avamposto" />
+            <Link to="/ricordi" className="text-chess-gold hover:text-chess-dark font-semibold transition-colors flex items-center gap-1 text-sm whitespace-nowrap mb-10 sm:mb-0">
               Vedi tutte le foto
               <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
-
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <CardLink
-              to="/ricordi/turno1"
-              image="/turno1/black-0.jpeg"
-              alt="1° Turno"
-              badge="Evento"
-              title="1° Turno Campionato a Squadre FSI"
-              description="1° Turno Campionato a Squadre FSI – Serie Promozione. 02 Febbraio 2026."
-              cta="Scopri di più"
-            />
-            <CardLink
-              to="/ricordi/venafro"
-              image="/venafro/venafro-0.jpeg"
-              alt="Venafro"
-              badge="Evento"
-              title="Sfida a Venafro"
-              description="Sfida amichevole contro il circolo Leopoldo Pilla – Venafro 1870. 16 Novembre 2025."
-              cta="Scopri di più"
-            />
-            <CardLink
-              to="/ricordi/scacchi-mentana"
-              image="/scacchi-mentana/Foto da 2023-11-23T204132.759.jpg"
-              alt="La nostra storia"
-              badge="Storico"
-              title="La Nostra Storia Scacchistica"
-              description="Scopri l'evoluzione del nostro circolo attraverso gli anni."
-              cta="Scopri di più"
-            />
+            <CardLink to="/ricordi/turno1" image="/turno1/black-0.jpeg" alt="1° Turno" badge="Evento" title="1° Turno Campionato a Squadre FSI" description="1° Turno Campionato a Squadre FSI – Serie Promozione. 02 Febbraio 2026." cta="Scopri di più" />
+            <CardLink to="/ricordi/venafro" image="/venafro/venafro-0.jpeg" alt="Venafro" badge="Evento" title="Sfida a Venafro" description="Sfida amichevole contro il circolo Leopoldo Pilla – Venafro 1870. 16 Novembre 2025." cta="Scopri di più" />
+            <CardLink to="/ricordi/scacchi-mentana" image="/scacchi-mentana/Foto da 2023-11-23T204132.759.jpg" alt="La nostra storia" badge="Storico" title="La Nostra Storia Scacchistica" description="Scopri l'evoluzione del nostro circolo attraverso gli anni." cta="Scopri di più" />
           </div>
         </section>
 
