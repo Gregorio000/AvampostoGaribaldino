@@ -23,6 +23,18 @@ interface NewsItem {
 
 const newsItems: NewsItem[] = [
   {
+    id: 10,
+    title: "Nuovo Corso di Scacchi per Neofiti ed Esordienti",
+    date: "Ogni Sabato",
+    location: "Villa Dominedò, Via Nomentana 233",
+    description: "L'ASD Avamposto Garibaldino presenta il corso di scacchi per neofiti ed esordienti. Ogni sabato dalle 15:30 alle 17:30 presso Villa Dominedò, Via Nomentana 233. Solo 7€ a lezione. Per info e iscrizioni: Gherardo 338 244 9032, avamposto.garibaldino@gmail.com. In collaborazione con CEAS e BCC Roma.",
+    category: "CORSO",
+    categoryColor: "bg-chess-gold text-chess-dark",
+    image: "/images/corso-neofiti.jpeg",
+    link: "/news",
+    clickable: false,
+  },
+  {
     id: 9,
     title: "5° Turno Serie Promozione — Black e Blue vincono, White cede",
     date: "Domenica 22.03.2026",
@@ -124,7 +136,7 @@ const newsItems: NewsItem[] = [
     date: "Sabato 24.12.2026",
     location: "Mentana, Via Giovanni Giolitti 21/23",
     description: "Parte il corso 'a scuola dai campioni' con il CM Emanuele Stella e il 1N Riccardo Grammatico! Vi aspettiamo!!!",
-    category: "NUOVO CORSO",
+    category: "CORSO",
     categoryColor: "bg-yellow-500 text-black",
     image: "/images/corso-scacchi.jpg",
     instructors: [

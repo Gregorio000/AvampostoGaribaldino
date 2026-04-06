@@ -169,14 +169,19 @@ const Home: React.FC = () => {
           {/* <p className="text-xs font-bold text-gray-400 uppercase tracking-widest text-center mb-6">
             In Collaborazione Con
           </p> */}
+          
           <div className="flex flex-row items-center justify-center gap-10 sm:gap-16">
-            <a href="https://www.amatriciamo.it" target="_blank" rel="noopener noreferrer" className="group opacity-1000 hover:opacity-100 transition-opacity duration-300">
-              <img src="/sponsor/amatriciamo.jpg" alt="Amatriciamo" className="h-12 w-auto object-contain" />
-            </a>
+            {/* <a href="https://www.amatriciamo.it" target="_blank" rel="noopener noreferrer" className="group opacity-1000 hover:opacity-100 transition-opacity duration-300"> */}
+              <img src="/sponsor/bcc.jpg" alt="Amatriciamo" className="h-12 w-auto object-contain" />
+            {/* </a> */}
             <div className="h-8 w-px bg-gray-200" />
-            <a href="https://faraglia.net" target="_blank" rel="noopener noreferrer" className="group opacity-1000 hover:opacity-100 transition-opacity duration-300">
+            {/* <a href="https://faraglia.net" target="_blank" rel="noopener noreferrer" className="group opacity-1000 hover:opacity-100 transition-opacity duration-300"> */}
+              <img src="/sponsor/amatriciamo.jpg" alt="Partner 2" className="h-12 w-auto object-contain" />
+            {/* </a> */}
+            <div className="h-8 w-px bg-gray-200" />
+            {/* <a href="https://faraglia.net" target="_blank" rel="noopener noreferrer" className="group opacity-1000 hover:opacity-100 transition-opacity duration-300"> */}
               <img src="/sponsor/faraglia.jpg" alt="Partner 2" className="h-12 w-auto object-contain" />
-            </a>
+            {/* </a> */}
             <div className="h-8 w-px bg-gray-200" />
             {/* <a href="https://.net" target="_blank" rel="noopener noreferrer" className="group opacity-1000 hover:opacity-100 transition-opacity duration-300"> */}
               <img src="/sponsor/hotel-serena.jpg" alt="Partner 2" className="h-12 w-auto object-contain" />
@@ -201,39 +206,35 @@ const Home: React.FC = () => {
             </Link>
           </div>
 
-          <Link to="/ricordi/turno5" className="group block bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-md overflow-hidden border border-gray-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+          <Link to="/news" className="group block bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-md overflow-hidden border border-gray-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
             <div className="flex flex-col lg:flex-row">
               <div className="flex-1 p-6 sm:p-8">
                 <div className="flex flex-wrap items-center gap-3 mb-4">
-                  <span className="bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold">PROMOZIONE</span>
+                  <span className="bg-chess-gold text-chess-dark px-3 py-1 rounded-full text-xs font-bold">CORSO</span>
                   <span className="text-chess-gray text-sm flex items-center gap-1">
                     <CalendarDays className="h-4 w-4" />
-                    Domenica 22.03.2026
+                    Ogni Sabato · 15:30–17:30
                   </span>
                 </div>
                 <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-chess-dark mb-3 leading-tight group-hover:text-chess-gold transition-colors">
-                  5° Turno — Black e Blue vincono, White cede
+                  Corso di Scacchi per Neofiti ed Esordienti
                 </h3>
                 <p className="text-chess-gray mb-6 leading-relaxed">
-                  Sipario sul campionato di Serie Promozione Lazio: Black batte Frascati 4 con Ventilii e Gismondi, Blue supera Ladispoli 3–1. Cede invece il White contro Alvise Zichichi B per 1–3.
+                  L'ASD Avamposto Garibaldino presenta il corso di scacchi per neofiti ed esordienti. Ogni sabato dalle 15:30 alle 17:30 presso Villa Dominedò, Via Nomentana 233. Solo 7€ a lezione — in collaborazione con CEAS e BCC Roma.
                 </p>
                 <div className="space-y-2">
-                  <div className="bg-green-500/10 rounded-xl p-3 border-l-4 border-green-500">
-                    <p className="font-semibold text-chess-dark text-sm">AVAMPOSTO GARIBALDINO BLACK</p>
-                    <p className="text-chess-gray text-sm">2,5 – 1,5 vs Frascati 4 · Fumetteria Star Shop, Fonte Nuova</p>
+                  <div className="bg-chess-gold/10 rounded-xl p-3 border-l-4 border-chess-gold">
+                    <p className="font-semibold text-chess-dark text-sm">DOVE E QUANDO</p>
+                    <p className="text-chess-gray text-sm">Villa Dominedò · Via Nomentana 233 · Sabato 15:30–17:30</p>
                   </div>
-                  <div className="bg-red-500/10 rounded-xl p-3 border-l-4 border-red-400">
-                    <p className="font-semibold text-chess-dark text-sm">AVAMPOSTO GARIBALDINO WHITE</p>
-                    <p className="text-chess-gray text-sm">1 – 3 vs Alvise Zichichi B · Fantasy Pub, Fonte Nuova</p>
-                  </div>
-                  <div className="bg-green-500/10 rounded-xl p-3 border-l-4 border-green-600">
-                    <p className="font-semibold text-chess-dark text-sm">AVAMPOSTO GARIBALDINO BLUE</p>
-                    <p className="text-chess-gray text-sm">3 – 1 vs Alvise Zichichi C · Fantasy Pub, Fonte Nuova</p>
+                  <div className="bg-gray-50 rounded-xl p-3 border-l-4 border-gray-400">
+                    <p className="font-semibold text-chess-dark text-sm">INFO E ISCRIZIONI</p>
+                    <p className="text-chess-gray text-sm">Gherardo · 338 244 9032 · avamposto.garibaldino@gmail.com · 7€/lezione</p>
                   </div>
                 </div>
               </div>
               <div className="lg:w-2/5 h-56 sm:h-64 lg:h-auto relative flex-shrink-0">
-                <img src="/turno5/turno5 (6).jpg" alt="5° Turno Serie Promozione" className="w-full h-full object-cover" />
+                <img src="/images/corso-neofiti.jpeg" alt="Corso di Scacchi per Neofiti" className="w-full h-full object-cover" />
               </div>
             </div>
           </Link>
