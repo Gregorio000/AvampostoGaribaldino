@@ -23,6 +23,18 @@ interface NewsItem {
 
 const newsItems: NewsItem[] = [
   {
+    id: 11,
+    title: "Primo Torneo Nazionale \"Città di Rieti\"",
+    date: "8–10 Maggio 2026",
+    location: "Chiesa di San Domenico, Rieti",
+    description: "L'ASD Mentana Scacchi – Avamposto Garibaldino organizza il Primo Torneo Nazionale 'Città di Rieti', valevole quale campionato Interprovinciale Rieti–Viterbo. 5 turni a cadenza 90+30, montepremi 2000€. Sede: Chiesa di San Domenico, storico complesso monumentale del XIII secolo. In collaborazione con BCC Roma e FEC.",
+    category: "TORNEO",
+    categoryColor: "bg-chess-gold text-chess-dark",
+    image: "/images/torneo-rieti.jpeg",
+    link: "/news",
+    clickable: false,
+  },
+  {
     id: 10,
     title: "Nuovo Corso di Scacchi per Neofiti ed Esordienti",
     date: "Ogni Sabato",
@@ -295,7 +307,7 @@ const News: React.FC = () => {
           </Link>
           <div className="flex items-center gap-2 text-xs text-gray-500 bg-white border border-gray-200 px-3 py-2 rounded-full shadow-sm">
             <Bell className="h-3.5 w-3.5 text-chess-gold" />
-            Aggiornato il 20-03-2026
+            Aggiornato il 17-04-2026
           </div>
         </div>
 
